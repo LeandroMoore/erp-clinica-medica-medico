@@ -1,10 +1,10 @@
-﻿namespace ERP.Medico.Web
+﻿namespace Erp.Medico.Web
 {
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.ServiceModel.DomainServices.Client;
     using System.ServiceModel.DomainServices.Client.ApplicationServices;
-    using ERP.Medico.Web.Resources;
+    using Erp.Medico.Web.Resources;
 
     /// <summary>
     /// Extensions to provide client side custom validation and data binding to <see cref="RegistrationData"/>.

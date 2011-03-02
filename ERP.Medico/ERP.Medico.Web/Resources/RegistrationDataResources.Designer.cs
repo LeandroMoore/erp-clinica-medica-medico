@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ERP.Medico.Web.Resources {
+namespace Erp.Medico.Web.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace ERP.Medico.Web.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ERP.Medico.Web.Resources.RegistrationDataResources", typeof(RegistrationDataResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Erp.Medico.Web.Resources.RegistrationDataResources", typeof(RegistrationDataResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

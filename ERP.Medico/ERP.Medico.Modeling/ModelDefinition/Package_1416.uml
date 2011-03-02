@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="f05b04b8-0319-4edd-a809-d372ac234707"
+  name="Acesso a dados" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="5e65c9dc-2d62-4ad5-97b7-efa8756c4a58"
+        LastKnownName="Lógic"
+        LastKnownLocation="Package_1417.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="92bf5e68-b73b-48ce-be6d-4241d3006f66"
+        LastKnownName="Classes de autenticação"
+        LastKnownLocation="Package_1426.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="24f99a98-6ac1-4b1e-ba6c-7efe279e5dfa"
+        LastKnownName="Classes do domínio de negócio"
+        LastKnownLocation="Package_1427.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

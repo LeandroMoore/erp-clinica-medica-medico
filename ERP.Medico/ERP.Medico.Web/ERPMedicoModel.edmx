@@ -1,0 +1,567 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ERPModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ERPModelStoreContainer">
+    <EntitySet Name="Anamneses" EntityType="ERPModel.Store.Anamneses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Atendimentos" EntityType="ERPModel.Store.Atendimentos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Diagnosticos" EntityType="ERPModel.Store.Diagnosticos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Medicos" EntityType="ERPModel.Store.Medicos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Pacientes" EntityType="ERPModel.Store.Pacientes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TiposAtendimentos" EntityType="ERPModel.Store.TiposAtendimentos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TiposSangues" EntityType="ERPModel.Store.TiposSangues" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tratamentos" EntityType="ERPModel.Store.Tratamentos" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_AnamneseTipoSangue" Association="ERPModel.Store.FK_AnamneseTipoSangue">
+      <End Role="TiposSangue" EntitySet="TiposSangues" />
+      <End Role="Anamneses" EntitySet="Anamneses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PacienteAnamnese" Association="ERPModel.Store.FK_PacienteAnamnese">
+      <End Role="Anamneses" EntitySet="Anamneses" />
+      <End Role="Pacientes" EntitySet="Pacientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AtendimentoDiagnostico" Association="ERPModel.Store.FK_AtendimentoDiagnostico">
+      <End Role="Atendimentos" EntitySet="Atendimentos" />
+      <End Role="Diagnosticos" EntitySet="Diagnosticos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AtendimentoMedico" Association="ERPModel.Store.FK_AtendimentoMedico">
+      <End Role="Medicos" EntitySet="Medicos" />
+      <End Role="Atendimentos" EntitySet="Atendimentos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AtendimentoPaciente" Association="ERPModel.Store.FK_AtendimentoPaciente">
+      <End Role="Pacientes" EntitySet="Pacientes" />
+      <End Role="Atendimentos" EntitySet="Atendimentos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AtendimentoTipoAtendimento" Association="ERPModel.Store.FK_AtendimentoTipoAtendimento">
+      <End Role="TiposAtendimento" EntitySet="TiposAtendimentos" />
+      <End Role="Atendimentos" EntitySet="Atendimentos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AtendimentoTratamento" Association="ERPModel.Store.FK_AtendimentoTratamento">
+      <End Role="Atendimentos" EntitySet="Atendimentos" />
+      <End Role="Tratamentos" EntitySet="Tratamentos" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Anamneses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DescricaoDoencaAtual" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="DescricaoMedicaPregressa" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="HistoricoFamiliar" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="HistoricoPessoalSocial" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Observacoes" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="QueixaPrincipal" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="TipoSangue_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Atendimentos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descricao" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Emergencia" Type="bit" Nullable="false" />
+    <Property Name="Horario" Type="datetime" Nullable="false" />
+    <Property Name="TipoAtendimento_Id" Type="int" Nullable="false" />
+    <Property Name="Paciente_Id" Type="int" Nullable="false" />
+    <Property Name="Medico_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Diagnosticos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descricao" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Observacoes" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AtendimentoId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Medicos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pacientes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Altura" Type="real" Nullable="false" />
+    <Property Name="Peso" Type="real" Nullable="false" />
+    <Property Name="Codigo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Anamnese_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TiposAtendimentos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descricao" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TiposSangues">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descricao" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tratamentos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descricao" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Observacoes" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AtendimentoId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_AnamneseTipoSangue">
+    <End Role="TiposSangue" Type="ERPModel.Store.TiposSangues" Multiplicity="1" />
+    <End Role="Anamneses" Type="ERPModel.Store.Anamneses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TiposSangue">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Anamneses">
+        <PropertyRef Name="TipoSangue_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PacienteAnamnese">
+    <End Role="Anamneses" Type="ERPModel.Store.Anamneses" Multiplicity="1" />
+    <End Role="Pacientes" Type="ERPModel.Store.Pacientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Anamneses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pacientes">
+        <PropertyRef Name="Anamnese_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AtendimentoDiagnostico">
+    <End Role="Atendimentos" Type="ERPModel.Store.Atendimentos" Multiplicity="1" />
+    <End Role="Diagnosticos" Type="ERPModel.Store.Diagnosticos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Atendimentos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Diagnosticos">
+        <PropertyRef Name="AtendimentoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AtendimentoMedico">
+    <End Role="Medicos" Type="ERPModel.Store.Medicos" Multiplicity="1" />
+    <End Role="Atendimentos" Type="ERPModel.Store.Atendimentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medicos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Atendimentos">
+        <PropertyRef Name="Medico_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AtendimentoPaciente">
+    <End Role="Pacientes" Type="ERPModel.Store.Pacientes" Multiplicity="1" />
+    <End Role="Atendimentos" Type="ERPModel.Store.Atendimentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pacientes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Atendimentos">
+        <PropertyRef Name="Paciente_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AtendimentoTipoAtendimento">
+    <End Role="TiposAtendimento" Type="ERPModel.Store.TiposAtendimentos" Multiplicity="1" />
+    <End Role="Atendimentos" Type="ERPModel.Store.Atendimentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TiposAtendimento">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Atendimentos">
+        <PropertyRef Name="TipoAtendimento_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AtendimentoTratamento">
+    <End Role="Atendimentos" Type="ERPModel.Store.Atendimentos" Multiplicity="1" />
+    <End Role="Tratamentos" Type="ERPModel.Store.Tratamentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Atendimentos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tratamentos">
+        <PropertyRef Name="AtendimentoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ERPModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Anamneses" EntityType="ERPModel.Anamnese" />
+          <EntitySet Name="Atendimentos" EntityType="ERPModel.Atendimento" />
+          <EntitySet Name="Diagnosticos" EntityType="ERPModel.Diagnostico" />
+          <EntitySet Name="Medicos" EntityType="ERPModel.Medico" />
+          <EntitySet Name="Pacientes" EntityType="ERPModel.Paciente" />
+          <EntitySet Name="TiposAtendimentos" EntityType="ERPModel.TiposAtendimento" />
+          <EntitySet Name="TiposSangues" EntityType="ERPModel.TiposSangue" />
+          <EntitySet Name="Tratamentos" EntityType="ERPModel.Tratamento" />
+          <AssociationSet Name="FK_AnamneseTipoSangue" Association="ERPModel.FK_AnamneseTipoSangue">
+            <End Role="TiposSangue" EntitySet="TiposSangues" />
+            <End Role="Anamneses" EntitySet="Anamneses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PacienteAnamnese" Association="ERPModel.FK_PacienteAnamnese">
+            <End Role="Anamneses" EntitySet="Anamneses" />
+            <End Role="Pacientes" EntitySet="Pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AtendimentoDiagnostico" Association="ERPModel.FK_AtendimentoDiagnostico">
+            <End Role="Atendimentos" EntitySet="Atendimentos" />
+            <End Role="Diagnosticos" EntitySet="Diagnosticos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AtendimentoMedico" Association="ERPModel.FK_AtendimentoMedico">
+            <End Role="Medicos" EntitySet="Medicos" />
+            <End Role="Atendimentos" EntitySet="Atendimentos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AtendimentoPaciente" Association="ERPModel.FK_AtendimentoPaciente">
+            <End Role="Pacientes" EntitySet="Pacientes" />
+            <End Role="Atendimentos" EntitySet="Atendimentos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AtendimentoTipoAtendimento" Association="ERPModel.FK_AtendimentoTipoAtendimento">
+            <End Role="TiposAtendimento" EntitySet="TiposAtendimentos" />
+            <End Role="Atendimentos" EntitySet="Atendimentos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AtendimentoTratamento" Association="ERPModel.FK_AtendimentoTratamento">
+            <End Role="Atendimentos" EntitySet="Atendimentos" />
+            <End Role="Tratamentos" EntitySet="Tratamentos" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Anamnese">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescricaoDoencaAtual" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" Nullable="true" />
+          <Property Name="DescricaoMedicaPregressa" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="HistoricoFamiliar" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="HistoricoPessoalSocial" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Observacoes" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="QueixaPrincipal" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="TipoSangue_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TiposSangue" Relationship="ERPModel.FK_AnamneseTipoSangue" FromRole="Anamneses" ToRole="TiposSangue" />
+          <NavigationProperty Name="Pacientes" Relationship="ERPModel.FK_PacienteAnamnese" FromRole="Anamneses" ToRole="Pacientes" />
+        </EntityType>
+        <EntityType Name="Atendimento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Emergencia" Type="Boolean" Nullable="false" />
+          <Property Name="Horario" Type="DateTime" Nullable="false" />
+          <Property Name="TipoAtendimento_Id" Type="Int32" Nullable="false" />
+          <Property Name="Paciente_Id" Type="Int32" Nullable="false" />
+          <Property Name="Medico_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Diagnosticos" Relationship="ERPModel.FK_AtendimentoDiagnostico" FromRole="Atendimentos" ToRole="Diagnosticos" />
+          <NavigationProperty Name="Medico" Relationship="ERPModel.FK_AtendimentoMedico" FromRole="Atendimentos" ToRole="Medicos" />
+          <NavigationProperty Name="Paciente" Relationship="ERPModel.FK_AtendimentoPaciente" FromRole="Atendimentos" ToRole="Pacientes" />
+          <NavigationProperty Name="TiposAtendimento" Relationship="ERPModel.FK_AtendimentoTipoAtendimento" FromRole="Atendimentos" ToRole="TiposAtendimento" />
+          <NavigationProperty Name="Tratamentos" Relationship="ERPModel.FK_AtendimentoTratamento" FromRole="Atendimentos" ToRole="Tratamentos" />
+        </EntityType>
+        <EntityType Name="Diagnostico">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Observacoes" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="AtendimentoId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Atendimento" Relationship="ERPModel.FK_AtendimentoDiagnostico" FromRole="Diagnosticos" ToRole="Atendimentos" />
+        </EntityType>
+        <EntityType Name="Medico">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Atendimentos" Relationship="ERPModel.FK_AtendimentoMedico" FromRole="Medicos" ToRole="Atendimentos" />
+        </EntityType>
+        <EntityType Name="Paciente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Altura" Type="Single" Nullable="false" />
+          <Property Name="Peso" Type="Single" Nullable="false" />
+          <Property Name="Codigo" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Anamnese_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Anamnese" Relationship="ERPModel.FK_PacienteAnamnese" FromRole="Pacientes" ToRole="Anamneses" />
+          <NavigationProperty Name="Atendimentos" Relationship="ERPModel.FK_AtendimentoPaciente" FromRole="Pacientes" ToRole="Atendimentos" />
+        </EntityType>
+        <EntityType Name="TiposAtendimento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Atendimentos" Relationship="ERPModel.FK_AtendimentoTipoAtendimento" FromRole="TiposAtendimento" ToRole="Atendimentos" />
+        </EntityType>
+        <EntityType Name="TiposSangue">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Anamneses" Relationship="ERPModel.FK_AnamneseTipoSangue" FromRole="TiposSangue" ToRole="Anamneses" />
+        </EntityType>
+        <EntityType Name="Tratamento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Observacoes" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="AtendimentoId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Atendimento" Relationship="ERPModel.FK_AtendimentoTratamento" FromRole="Tratamentos" ToRole="Atendimentos" />
+        </EntityType>
+        <Association Name="FK_AnamneseTipoSangue">
+          <End Role="TiposSangue" Type="ERPModel.TiposSangue" Multiplicity="1" />
+          <End Role="Anamneses" Type="ERPModel.Anamnese" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposSangue">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Anamneses">
+              <PropertyRef Name="TipoSangue_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PacienteAnamnese">
+          <End Role="Anamneses" Type="ERPModel.Anamnese" Multiplicity="1" />
+          <End Role="Pacientes" Type="ERPModel.Paciente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Anamneses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pacientes">
+              <PropertyRef Name="Anamnese_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AtendimentoDiagnostico">
+          <End Role="Atendimentos" Type="ERPModel.Atendimento" Multiplicity="1" />
+          <End Role="Diagnosticos" Type="ERPModel.Diagnostico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Atendimentos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Diagnosticos">
+              <PropertyRef Name="AtendimentoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AtendimentoMedico">
+          <End Role="Medicos" Type="ERPModel.Medico" Multiplicity="1" />
+          <End Role="Atendimentos" Type="ERPModel.Atendimento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medicos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Atendimentos">
+              <PropertyRef Name="Medico_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AtendimentoPaciente">
+          <End Role="Pacientes" Type="ERPModel.Paciente" Multiplicity="1" />
+          <End Role="Atendimentos" Type="ERPModel.Atendimento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacientes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Atendimentos">
+              <PropertyRef Name="Paciente_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AtendimentoTipoAtendimento">
+          <End Role="TiposAtendimento" Type="ERPModel.TiposAtendimento" Multiplicity="1" />
+          <End Role="Atendimentos" Type="ERPModel.Atendimento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposAtendimento">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Atendimentos">
+              <PropertyRef Name="TipoAtendimento_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AtendimentoTratamento">
+          <End Role="Atendimentos" Type="ERPModel.Atendimento" Multiplicity="1" />
+          <End Role="Tratamentos" Type="ERPModel.Tratamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Atendimentos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tratamentos">
+              <PropertyRef Name="AtendimentoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ERPModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="Anamneses">
+      <EntityTypeMapping TypeName="IsTypeOf(ERPModel.Anamnese)">
+        <MappingFragment StoreEntitySet="Anamneses">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DescricaoDoencaAtual" ColumnName="DescricaoDoencaAtual" />
+          <ScalarProperty Name="DescricaoMedicaPregressa" ColumnName="DescricaoMedicaPregressa" />
+          <ScalarProperty Name="HistoricoFamiliar" ColumnName="HistoricoFamiliar" />
+          <ScalarProperty Name="HistoricoPessoalSocial" ColumnName="HistoricoPessoalSocial" />
+          <ScalarProperty Name="Observacoes" ColumnName="Observacoes" />
+          <ScalarProperty Name="QueixaPrincipal" ColumnName="QueixaPrincipal" />
+          <ScalarProperty Name="TipoSangue_Id" ColumnName="TipoSangue_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Atendimentos">
+      <EntityTypeMapping TypeName="IsTypeOf(ERPModel.Atendimento)">
+        <MappingFragment StoreEntitySet="Atendimentos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="Emergencia" ColumnName="Emergencia" />
+          <ScalarProperty Name="Horario" ColumnName="Horario" />
+          <ScalarProperty Name="TipoAtendimento_Id" ColumnName="TipoAtendimento_Id" />
+          <ScalarProperty Name="Paciente_Id" ColumnName="Paciente_Id" />
+          <ScalarProperty Name="Medico_Id" ColumnName="Medico_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Diagnosticos">
+      <EntityTypeMapping TypeName="IsTypeOf(ERPModel.Diagnostico)">
+        <MappingFragment StoreEntitySet="Diagnosticos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="Observacoes" ColumnName="Observacoes" />
+          <ScalarProperty Name="AtendimentoId" ColumnName="AtendimentoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Medicos">
+      <EntityTypeMapping TypeName="IsTypeOf(ERPModel.Medico)">
+        <MappingFragment StoreEntitySet="Medicos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pacientes">
+      <EntityTypeMapping TypeName="IsTypeOf(ERPModel.Paciente)">
+        <MappingFragment StoreEntitySet="Pacientes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Altura" ColumnName="Altura" />
+          <ScalarProperty Name="Peso" ColumnName="Peso" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Anamnese_Id" ColumnName="Anamnese_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TiposAtendimentos">
+      <EntityTypeMapping TypeName="IsTypeOf(ERPModel.TiposAtendimento)">
+        <MappingFragment StoreEntitySet="TiposAtendimentos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TiposSangues">
+      <EntityTypeMapping TypeName="IsTypeOf(ERPModel.TiposSangue)">
+        <MappingFragment StoreEntitySet="TiposSangues">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tratamentos">
+      <EntityTypeMapping TypeName="IsTypeOf(ERPModel.Tratamento)">
+        <MappingFragment StoreEntitySet="Tratamentos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="Observacoes" ColumnName="Observacoes" />
+          <ScalarProperty Name="AtendimentoId" ColumnName="AtendimentoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="ERPMedicoModel" ZoomLevel="64">
+        <EntityTypeShape EntityType="ERPModel.Anamnese" Width="1.5" PointX="3" PointY="3.25" Height="2.9417936197916656" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.Atendimento" Width="1.5" PointX="7.5" PointY="3" Height="3.3263964843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.Diagnostico" Width="1.5" PointX="9.75" PointY="2.375" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.Medico" Width="1.5" PointX="5.25" PointY="0.75" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.Paciente" Width="1.5" PointX="5.25" PointY="3.5" Height="2.3648893229166656" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.TiposAtendimento" Width="1.5" PointX="5.25" PointY="7.125" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.TiposSangue" Width="1.5" PointX="0.75" PointY="3.875" Height="1.59568359375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.Tratamento" Width="1.5" PointX="9.75" PointY="5.125" Height="1.9802864583333317" IsExpanded="true" />
+        <AssociationConnector Association="ERPModel.FK_AnamneseTipoSangue" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="4.672841796875" />
+          <ConnectorPoint PointX="3" PointY="4.672841796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="ERPModel.FK_PacienteAnamnese" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="4.6824446614583328" />
+          <ConnectorPoint PointX="5.25" PointY="4.6824446614583328" />
+        </AssociationConnector>
+        <AssociationConnector Association="ERPModel.FK_AtendimentoDiagnostico" ManuallyRouted="false">
+          <ConnectorPoint PointX="9" PointY="3.6776432291666667" />
+          <ConnectorPoint PointX="9.75" PointY="3.6776432291666667" />
+        </AssociationConnector>
+        <AssociationConnector Association="ERPModel.FK_AtendimentoMedico" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="1.5478417968749998" />
+          <ConnectorPoint PointX="8.25" PointY="1.5478417968749998" />
+          <ConnectorPoint PointX="8.25" PointY="3" />
+        </AssociationConnector>
+        <AssociationConnector Association="ERPModel.FK_AtendimentoPaciente" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="4.6824446614583328" />
+          <ConnectorPoint PointX="7.5" PointY="4.6824446614583328" />
+        </AssociationConnector>
+        <AssociationConnector Association="ERPModel.FK_AtendimentoTipoAtendimento" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="7.922841796875" />
+          <ConnectorPoint PointX="8.25" PointY="7.922841796875" />
+          <ConnectorPoint PointX="8.25" PointY="6.326396484375" />
+        </AssociationConnector>
+        <AssociationConnector Association="ERPModel.FK_AtendimentoTratamento" ManuallyRouted="false">
+          <ConnectorPoint PointX="9" PointY="5.7256982421875" />
+          <ConnectorPoint PointX="9.75" PointY="5.7256982421875" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

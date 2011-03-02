@@ -1,7 +1,7 @@
-﻿namespace ERP.Medico.Web
+﻿namespace Erp.Medico.Web
 {
     using System.ComponentModel.DataAnnotations;
-    using ERP.Medico.Web.Resources;
+    using Erp.Medico.Web.Resources;
 
     /// <summary>
     /// Class containing the values and validation rules for user registration.

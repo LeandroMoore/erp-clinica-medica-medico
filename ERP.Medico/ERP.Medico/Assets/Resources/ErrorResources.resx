@@ -118,28 +118,28 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CreateUserStatusDuplicateEmail" xml:space="preserve">
-    <value>A user name for that e-mail address already exists. Please enter a different e-mail address.</value>
+    <value>Um username para esse email já existe. Por favor entre outro email.</value>
   </data>
   <data name="CreateUserStatusDuplicateUserName" xml:space="preserve">
-    <value>User name already exists. Please enter a different user name.</value>
+    <value>Username já existe. Por favor entre outro nome de usuário.</value>
   </data>
   <data name="CreateUserStatusFailed" xml:space="preserve">
-    <value>The user creation request has been canceled. Please verify your entry and try again. If the problem persists, please contact your system administrator.</value>
+    <value>O cadastro foi cancelado. Por favor verifique e tente novamente. Se o problema persistir, contate o administrador do sistema.</value>
   </data>
   <data name="ErrorBadUserNameOrPassword" xml:space="preserve">
-    <value>The user name or password is incorrect</value>
+    <value>Usuário ou senha incorreto.</value>
   </data>
   <data name="ErrorLoginAfterRegistrationFailed" xml:space="preserve">
-    <value>Registration was successful but there was a problem while trying to log in with your credentials: {0}</value>
+    <value>O cadastro foi feito com sucesso mas houve um problema durante o login: {0}</value>
     <comment>{0} = error message</comment>
   </data>
   <data name="ErrorWindowErrorDetails" xml:space="preserve">
-    <value>Error Details</value>
+    <value>Detalhes do erro</value>
   </data>
   <data name="ErrorWindowGenericError" xml:space="preserve">
-    <value>An unknown error has occurred. Please contact your administrator for help.</value>
+    <value>Um erro desconhecido ocorreu. Contate seu administrador para ajuda.</value>
   </data>
   <data name="ErrorWindowTitle" xml:space="preserve">
-    <value>Error</value>
+    <value>Erro</value>
   </data>
 </root>

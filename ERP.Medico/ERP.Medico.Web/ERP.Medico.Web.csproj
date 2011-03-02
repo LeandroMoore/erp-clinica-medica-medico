@@ -5,14 +5,14 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D5F29940-DDCE-450E-BD53-8954E4475538}</ProjectGuid>
+    <ProjectGuid>{2CDE2F73-71BE-4C27-A521-DBC3C830EC7E}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ERP.Medico.Web</RootNamespace>
-    <AssemblyName>ERP.Medico.Web</AssemblyName>
+    <RootNamespace>Erp.Medico.Web</RootNamespace>
+    <AssemblyName>Erp.Medico.Web</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <SilverlightApplicationList>{583146FE-BCC6-46D6-8B62-80EF994D03E0}|..\ERP.Medico\ERP.Medico.csproj|ClientBin|False</SilverlightApplicationList>
+    <SilverlightApplicationList>{2C075705-7AD5-49C3-BA04-1BCE9252F4BD}|..\Erp.Medico\Erp.Medico.csproj|ClientBin|False</SilverlightApplicationList>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
@@ -42,6 +43,8 @@
     <Reference Include="System.Data.DataSetExtensions">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel.DomainServices.EntityFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ServiceModel.DomainServices.Server" />
     <Reference Include="System.Web.Extensions">
@@ -60,11 +63,14 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ClientBin\ERP.Medico.xap" />
-    <Content Include="ERP.MedicoTestPage.aspx" />
-    <Content Include="ERP.MedicoTestPage.html" />
+    <Content Include="ClientBin\Erp.Medico.xap" />
+    <Content Include="Erp.MedicoTestPage.aspx" />
+    <Content Include="Erp.MedicoTestPage.html" />
+    <Content Include="ERPMedicoModel.edmx.sql" />
     <Content Include="Silverlight.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -73,6 +79,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ERPMedicoDomainService.cs" />
+    <Compile Include="ERPMedicoDomainService.metadata.cs" />
+    <Compile Include="ERPMedicoModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ERPMedicoModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Resources\ValidationErrorResources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -103,6 +116,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="ERPMedicoModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ERPMedicoModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

@@ -1,4 +1,4 @@
-﻿namespace ERP.Medico.Controls
+﻿namespace Erp.Medico.Controls
 {
     using System;
     using System.Collections.Generic;
@@ -6,7 +6,7 @@
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Input;
-    using ERP.Medico.Web;
+    using Erp.Medico.Web;
 
     /// <summary>
     /// Enhances <see cref="DataForm" /> functionality by using a <see cref="PasswordBox" /> 

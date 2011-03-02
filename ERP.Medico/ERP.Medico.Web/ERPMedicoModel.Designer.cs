@@ -18,49 +18,49 @@ using System.Runtime.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("ERPMedicoModel", "AnamnesePaciente", "Anamnese", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP.Medico.Model.Anamnese), "Paciente", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP.Medico.Model.Paciente))]
-[assembly: EdmRelationshipAttribute("ERPMedicoModel", "AnamneseTipoSangue", "Anamnese", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP.Medico.Model.Anamnese), "TipoSangue", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP.Medico.Model.TipoSangue))]
-[assembly: EdmRelationshipAttribute("ERPMedicoModel", "AtendimentoTipoAtendimento", "Atendimento", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP.Medico.Model.Atendimento), "TipoAtendimento", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP.Medico.Model.TipoAtendimento))]
-[assembly: EdmRelationshipAttribute("ERPMedicoModel", "AtendimentoDiagnostico", "Atendimento", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP.Medico.Model.Atendimento), "Diagnostico", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ERP.Medico.Model.Diagnostico), true)]
-[assembly: EdmRelationshipAttribute("ERPMedicoModel", "AtendimentoTratamento", "Atendimento", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP.Medico.Model.Atendimento), "Tratamento", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ERP.Medico.Model.Tratamento), true)]
-[assembly: EdmRelationshipAttribute("ERPMedicoModel", "AtendimentoPaciente", "Atendimento", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP.Medico.Model.Atendimento), "Paciente", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP.Medico.Model.Paciente))]
-[assembly: EdmRelationshipAttribute("ERPMedicoModel", "AtendimentoMedico", "Atendimento", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ERP.Medico.Model.Atendimento), "Medico", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ERP.Medico.Model.Medico))]
+[assembly: EdmRelationshipAttribute("ERPModel", "FK_AnamneseTipoSangue", "TiposSangue", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Erp.Medico.Web.TiposSangue), "Anamneses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Erp.Medico.Web.Anamnese), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "FK_PacienteAnamnese", "Anamneses", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Erp.Medico.Web.Anamnese), "Pacientes", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Erp.Medico.Web.Paciente), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "FK_AtendimentoDiagnostico", "Atendimentos", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Erp.Medico.Web.Atendimento), "Diagnosticos", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Erp.Medico.Web.Diagnostico), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "FK_AtendimentoMedico", "Medicos", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Erp.Medico.Web.Medico), "Atendimentos", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Erp.Medico.Web.Atendimento), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "FK_AtendimentoPaciente", "Pacientes", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Erp.Medico.Web.Paciente), "Atendimentos", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Erp.Medico.Web.Atendimento), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "FK_AtendimentoTipoAtendimento", "TiposAtendimento", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Erp.Medico.Web.TiposAtendimento), "Atendimentos", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Erp.Medico.Web.Atendimento), true)]
+[assembly: EdmRelationshipAttribute("ERPModel", "FK_AtendimentoTratamento", "Atendimentos", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Erp.Medico.Web.Atendimento), "Tratamentos", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Erp.Medico.Web.Tratamento), true)]
 
 #endregion
 
-namespace ERP.Medico.Model
+namespace Erp.Medico.Web
 {
     #region Contexts
     
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    public partial class ERPMedicoModelContainer : ObjectContext
+    public partial class Entities : ObjectContext
     {
         #region Constructors
     
         /// <summary>
-        /// Initializes a new ERPMedicoModelContainer object using the connection string found in the 'ERPMedicoModelContainer' section of the application configuration file.
+        /// Initializes a new Entities object using the connection string found in the 'Entities' section of the application configuration file.
         /// </summary>
-        public ERPMedicoModelContainer() : base("name=ERPMedicoModelContainer", "ERPMedicoModelContainer")
+        public Entities() : base("name=Entities", "Entities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new ERPMedicoModelContainer object.
+        /// Initialize a new Entities object.
         /// </summary>
-        public ERPMedicoModelContainer(string connectionString) : base(connectionString, "ERPMedicoModelContainer")
+        public Entities(string connectionString) : base(connectionString, "Entities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new ERPMedicoModelContainer object.
+        /// Initialize a new Entities object.
         /// </summary>
-        public ERPMedicoModelContainer(EntityConnection connection) : base(connection, "ERPMedicoModelContainer")
+        public Entities(EntityConnection connection) : base(connection, "Entities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
@@ -75,38 +75,6 @@ namespace ERP.Medico.Model
         #endregion
     
         #region ObjectSet Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Paciente> Pacientes
-        {
-            get
-            {
-                if ((_Pacientes == null))
-                {
-                    _Pacientes = base.CreateObjectSet<Paciente>("Pacientes");
-                }
-                return _Pacientes;
-            }
-        }
-        private ObjectSet<Paciente> _Pacientes;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Medico> Medicos
-        {
-            get
-            {
-                if ((_Medicos == null))
-                {
-                    _Medicos = base.CreateObjectSet<Medico>("Medicos");
-                }
-                return _Medicos;
-            }
-        }
-        private ObjectSet<Medico> _Medicos;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -143,22 +111,6 @@ namespace ERP.Medico.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Tratamento> Tratamentos
-        {
-            get
-            {
-                if ((_Tratamentos == null))
-                {
-                    _Tratamentos = base.CreateObjectSet<Tratamento>("Tratamentos");
-                }
-                return _Tratamentos;
-            }
-        }
-        private ObjectSet<Tratamento> _Tratamentos;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<Diagnostico> Diagnosticos
         {
             get
@@ -175,53 +127,85 @@ namespace ERP.Medico.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<TipoSangue> TiposSangue
+        public ObjectSet<Medico> Medicos
         {
             get
             {
-                if ((_TiposSangue == null))
+                if ((_Medicos == null))
                 {
-                    _TiposSangue = base.CreateObjectSet<TipoSangue>("TiposSangue");
+                    _Medicos = base.CreateObjectSet<Medico>("Medicos");
                 }
-                return _TiposSangue;
+                return _Medicos;
             }
         }
-        private ObjectSet<TipoSangue> _TiposSangue;
+        private ObjectSet<Medico> _Medicos;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<TipoAtendimento> TiposAtendimento
+        public ObjectSet<Paciente> Pacientes
         {
             get
             {
-                if ((_TiposAtendimento == null))
+                if ((_Pacientes == null))
                 {
-                    _TiposAtendimento = base.CreateObjectSet<TipoAtendimento>("TiposAtendimento");
+                    _Pacientes = base.CreateObjectSet<Paciente>("Pacientes");
                 }
-                return _TiposAtendimento;
+                return _Pacientes;
             }
         }
-        private ObjectSet<TipoAtendimento> _TiposAtendimento;
+        private ObjectSet<Paciente> _Pacientes;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<TiposAtendimento> TiposAtendimentos
+        {
+            get
+            {
+                if ((_TiposAtendimentos == null))
+                {
+                    _TiposAtendimentos = base.CreateObjectSet<TiposAtendimento>("TiposAtendimentos");
+                }
+                return _TiposAtendimentos;
+            }
+        }
+        private ObjectSet<TiposAtendimento> _TiposAtendimentos;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<TiposSangue> TiposSangues
+        {
+            get
+            {
+                if ((_TiposSangues == null))
+                {
+                    _TiposSangues = base.CreateObjectSet<TiposSangue>("TiposSangues");
+                }
+                return _TiposSangues;
+            }
+        }
+        private ObjectSet<TiposSangue> _TiposSangues;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Tratamento> Tratamentos
+        {
+            get
+            {
+                if ((_Tratamentos == null))
+                {
+                    _Tratamentos = base.CreateObjectSet<Tratamento>("Tratamentos");
+                }
+                return _Tratamentos;
+            }
+        }
+        private ObjectSet<Tratamento> _Tratamentos;
 
         #endregion
         #region AddTo Methods
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Pacientes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToPacientes(Paciente paciente)
-        {
-            base.AddObject("Pacientes", paciente);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Medicos EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToMedicos(Medico medico)
-        {
-            base.AddObject("Medicos", medico);
-        }
     
         /// <summary>
         /// Deprecated Method for adding a new object to the Anamneses EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
@@ -240,14 +224,6 @@ namespace ERP.Medico.Model
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Tratamentos EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToTratamentos(Tratamento tratamento)
-        {
-            base.AddObject("Tratamentos", tratamento);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the Diagnosticos EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToDiagnosticos(Diagnostico diagnostico)
@@ -256,19 +232,43 @@ namespace ERP.Medico.Model
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the TiposSangue EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Medicos EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToTiposSangue(TipoSangue tipoSangue)
+        public void AddToMedicos(Medico medico)
         {
-            base.AddObject("TiposSangue", tipoSangue);
+            base.AddObject("Medicos", medico);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the TiposAtendimento EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Pacientes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToTiposAtendimento(TipoAtendimento tipoAtendimento)
+        public void AddToPacientes(Paciente paciente)
         {
-            base.AddObject("TiposAtendimento", tipoAtendimento);
+            base.AddObject("Pacientes", paciente);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the TiposAtendimentos EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToTiposAtendimentos(TiposAtendimento tiposAtendimento)
+        {
+            base.AddObject("TiposAtendimentos", tiposAtendimento);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the TiposSangues EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToTiposSangues(TiposSangue tiposSangue)
+        {
+            base.AddObject("TiposSangues", tiposSangue);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Tratamentos EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToTratamentos(Tratamento tratamento)
+        {
+            base.AddObject("Tratamentos", tratamento);
         }
 
         #endregion
@@ -282,7 +282,7 @@ namespace ERP.Medico.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ERPMedicoModel", Name="Anamnese")]
+    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Anamnese")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Anamnese : EntityObject
@@ -293,22 +293,12 @@ namespace ERP.Medico.Model
         /// Create a new Anamnese object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="descricaoDoencaAtual">Initial value of the DescricaoDoencaAtual property.</param>
-        /// <param name="descricaoMedicaPregressa">Initial value of the DescricaoMedicaPregressa property.</param>
-        /// <param name="historicoFamiliar">Initial value of the HistoricoFamiliar property.</param>
-        /// <param name="historicoPessoalSocial">Initial value of the HistoricoPessoalSocial property.</param>
-        /// <param name="observacoes">Initial value of the Observacoes property.</param>
-        /// <param name="queixaPrincipal">Initial value of the QueixaPrincipal property.</param>
-        public static Anamnese CreateAnamnese(global::System.Int32 id, global::System.String descricaoDoencaAtual, global::System.String descricaoMedicaPregressa, global::System.String historicoFamiliar, global::System.String historicoPessoalSocial, global::System.String observacoes, global::System.String queixaPrincipal)
+        /// <param name="tipoSangue_Id">Initial value of the TipoSangue_Id property.</param>
+        public static Anamnese CreateAnamnese(global::System.Int32 id, global::System.Int32 tipoSangue_Id)
         {
             Anamnese anamnese = new Anamnese();
             anamnese.Id = id;
-            anamnese.DescricaoDoencaAtual = descricaoDoencaAtual;
-            anamnese.DescricaoMedicaPregressa = descricaoMedicaPregressa;
-            anamnese.HistoricoFamiliar = historicoFamiliar;
-            anamnese.HistoricoPessoalSocial = historicoPessoalSocial;
-            anamnese.Observacoes = observacoes;
-            anamnese.QueixaPrincipal = queixaPrincipal;
+            anamnese.TipoSangue_Id = tipoSangue_Id;
             return anamnese;
         }
 
@@ -345,7 +335,7 @@ namespace ERP.Medico.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String DescricaoDoencaAtual
         {
@@ -357,7 +347,7 @@ namespace ERP.Medico.Model
             {
                 OnDescricaoDoencaAtualChanging(value);
                 ReportPropertyChanging("DescricaoDoencaAtual");
-                _DescricaoDoencaAtual = StructuralObject.SetValidValue(value, false);
+                _DescricaoDoencaAtual = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("DescricaoDoencaAtual");
                 OnDescricaoDoencaAtualChanged();
             }
@@ -369,7 +359,7 @@ namespace ERP.Medico.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String DescricaoMedicaPregressa
         {
@@ -381,7 +371,7 @@ namespace ERP.Medico.Model
             {
                 OnDescricaoMedicaPregressaChanging(value);
                 ReportPropertyChanging("DescricaoMedicaPregressa");
-                _DescricaoMedicaPregressa = StructuralObject.SetValidValue(value, false);
+                _DescricaoMedicaPregressa = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("DescricaoMedicaPregressa");
                 OnDescricaoMedicaPregressaChanged();
             }
@@ -393,7 +383,7 @@ namespace ERP.Medico.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String HistoricoFamiliar
         {
@@ -405,7 +395,7 @@ namespace ERP.Medico.Model
             {
                 OnHistoricoFamiliarChanging(value);
                 ReportPropertyChanging("HistoricoFamiliar");
-                _HistoricoFamiliar = StructuralObject.SetValidValue(value, false);
+                _HistoricoFamiliar = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("HistoricoFamiliar");
                 OnHistoricoFamiliarChanged();
             }
@@ -417,7 +407,7 @@ namespace ERP.Medico.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String HistoricoPessoalSocial
         {
@@ -429,7 +419,7 @@ namespace ERP.Medico.Model
             {
                 OnHistoricoPessoalSocialChanging(value);
                 ReportPropertyChanging("HistoricoPessoalSocial");
-                _HistoricoPessoalSocial = StructuralObject.SetValidValue(value, false);
+                _HistoricoPessoalSocial = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("HistoricoPessoalSocial");
                 OnHistoricoPessoalSocialChanged();
             }
@@ -441,7 +431,7 @@ namespace ERP.Medico.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Observacoes
         {
@@ -453,7 +443,7 @@ namespace ERP.Medico.Model
             {
                 OnObservacoesChanging(value);
                 ReportPropertyChanging("Observacoes");
-                _Observacoes = StructuralObject.SetValidValue(value, false);
+                _Observacoes = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Observacoes");
                 OnObservacoesChanged();
             }
@@ -465,7 +455,7 @@ namespace ERP.Medico.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String QueixaPrincipal
         {
@@ -477,7 +467,7 @@ namespace ERP.Medico.Model
             {
                 OnQueixaPrincipalChanging(value);
                 ReportPropertyChanging("QueixaPrincipal");
-                _QueixaPrincipal = StructuralObject.SetValidValue(value, false);
+                _QueixaPrincipal = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("QueixaPrincipal");
                 OnQueixaPrincipalChanged();
             }
@@ -485,6 +475,30 @@ namespace ERP.Medico.Model
         private global::System.String _QueixaPrincipal;
         partial void OnQueixaPrincipalChanging(global::System.String value);
         partial void OnQueixaPrincipalChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 TipoSangue_Id
+        {
+            get
+            {
+                return _TipoSangue_Id;
+            }
+            set
+            {
+                OnTipoSangue_IdChanging(value);
+                ReportPropertyChanging("TipoSangue_Id");
+                _TipoSangue_Id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TipoSangue_Id");
+                OnTipoSangue_IdChanged();
+            }
+        }
+        private global::System.Int32 _TipoSangue_Id;
+        partial void OnTipoSangue_IdChanging(global::System.Int32 value);
+        partial void OnTipoSangue_IdChanged();
 
         #endregion
     
@@ -496,16 +510,16 @@ namespace ERP.Medico.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPMedicoModel", "AnamnesePaciente", "Paciente")]
-        public Paciente Paciente
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_AnamneseTipoSangue", "TiposSangue")]
+        public TiposSangue TiposSangue
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Paciente>("ERPMedicoModel.AnamnesePaciente", "Paciente").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TiposSangue>("ERPModel.FK_AnamneseTipoSangue", "TiposSangue").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Paciente>("ERPMedicoModel.AnamnesePaciente", "Paciente").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TiposSangue>("ERPModel.FK_AnamneseTipoSangue", "TiposSangue").Value = value;
             }
         }
         /// <summary>
@@ -513,17 +527,17 @@ namespace ERP.Medico.Model
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<Paciente> PacienteReference
+        public EntityReference<TiposSangue> TiposSangueReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Paciente>("ERPMedicoModel.AnamnesePaciente", "Paciente");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TiposSangue>("ERPModel.FK_AnamneseTipoSangue", "TiposSangue");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Paciente>("ERPMedicoModel.AnamnesePaciente", "Paciente", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TiposSangue>("ERPModel.FK_AnamneseTipoSangue", "TiposSangue", value);
                 }
             }
         }
@@ -534,34 +548,18 @@ namespace ERP.Medico.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPMedicoModel", "AnamneseTipoSangue", "TipoSangue")]
-        public TipoSangue TipoSangue
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_PacienteAnamnese", "Pacientes")]
+        public EntityCollection<Paciente> Pacientes
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TipoSangue>("ERPMedicoModel.AnamneseTipoSangue", "TipoSangue").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TipoSangue>("ERPMedicoModel.AnamneseTipoSangue", "TipoSangue").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<TipoSangue> TipoSangueReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TipoSangue>("ERPMedicoModel.AnamneseTipoSangue", "TipoSangue");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Paciente>("ERPModel.FK_PacienteAnamnese", "Pacientes");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TipoSangue>("ERPMedicoModel.AnamneseTipoSangue", "TipoSangue", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Paciente>("ERPModel.FK_PacienteAnamnese", "Pacientes", value);
                 }
             }
         }
@@ -572,7 +570,7 @@ namespace ERP.Medico.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ERPMedicoModel", Name="Atendimento")]
+    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Atendimento")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Atendimento : EntityObject
@@ -586,13 +584,19 @@ namespace ERP.Medico.Model
         /// <param name="descricao">Initial value of the Descricao property.</param>
         /// <param name="emergencia">Initial value of the Emergencia property.</param>
         /// <param name="horario">Initial value of the Horario property.</param>
-        public static Atendimento CreateAtendimento(global::System.Int32 id, global::System.String descricao, global::System.Boolean emergencia, global::System.DateTime horario)
+        /// <param name="tipoAtendimento_Id">Initial value of the TipoAtendimento_Id property.</param>
+        /// <param name="paciente_Id">Initial value of the Paciente_Id property.</param>
+        /// <param name="medico_Id">Initial value of the Medico_Id property.</param>
+        public static Atendimento CreateAtendimento(global::System.Int32 id, global::System.String descricao, global::System.Boolean emergencia, global::System.DateTime horario, global::System.Int32 tipoAtendimento_Id, global::System.Int32 paciente_Id, global::System.Int32 medico_Id)
         {
             Atendimento atendimento = new Atendimento();
             atendimento.Id = id;
             atendimento.Descricao = descricao;
             atendimento.Emergencia = emergencia;
             atendimento.Horario = horario;
+            atendimento.TipoAtendimento_Id = tipoAtendimento_Id;
+            atendimento.Paciente_Id = paciente_Id;
+            atendimento.Medico_Id = medico_Id;
             return atendimento;
         }
 
@@ -697,6 +701,78 @@ namespace ERP.Medico.Model
         private global::System.DateTime _Horario;
         partial void OnHorarioChanging(global::System.DateTime value);
         partial void OnHorarioChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 TipoAtendimento_Id
+        {
+            get
+            {
+                return _TipoAtendimento_Id;
+            }
+            set
+            {
+                OnTipoAtendimento_IdChanging(value);
+                ReportPropertyChanging("TipoAtendimento_Id");
+                _TipoAtendimento_Id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TipoAtendimento_Id");
+                OnTipoAtendimento_IdChanged();
+            }
+        }
+        private global::System.Int32 _TipoAtendimento_Id;
+        partial void OnTipoAtendimento_IdChanging(global::System.Int32 value);
+        partial void OnTipoAtendimento_IdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Paciente_Id
+        {
+            get
+            {
+                return _Paciente_Id;
+            }
+            set
+            {
+                OnPaciente_IdChanging(value);
+                ReportPropertyChanging("Paciente_Id");
+                _Paciente_Id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Paciente_Id");
+                OnPaciente_IdChanged();
+            }
+        }
+        private global::System.Int32 _Paciente_Id;
+        partial void OnPaciente_IdChanging(global::System.Int32 value);
+        partial void OnPaciente_IdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Medico_Id
+        {
+            get
+            {
+                return _Medico_Id;
+            }
+            set
+            {
+                OnMedico_IdChanging(value);
+                ReportPropertyChanging("Medico_Id");
+                _Medico_Id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Medico_Id");
+                OnMedico_IdChanged();
+            }
+        }
+        private global::System.Int32 _Medico_Id;
+        partial void OnMedico_IdChanging(global::System.Int32 value);
+        partial void OnMedico_IdChanged();
 
         #endregion
     
@@ -708,56 +784,18 @@ namespace ERP.Medico.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPMedicoModel", "AtendimentoTipoAtendimento", "TipoAtendimento")]
-        public TipoAtendimento TipoAtendimento
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TipoAtendimento>("ERPMedicoModel.AtendimentoTipoAtendimento", "TipoAtendimento").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TipoAtendimento>("ERPMedicoModel.AtendimentoTipoAtendimento", "TipoAtendimento").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<TipoAtendimento> TipoAtendimentoReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TipoAtendimento>("ERPMedicoModel.AtendimentoTipoAtendimento", "TipoAtendimento");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TipoAtendimento>("ERPMedicoModel.AtendimentoTipoAtendimento", "TipoAtendimento", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPMedicoModel", "AtendimentoDiagnostico", "Diagnostico")]
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_AtendimentoDiagnostico", "Diagnosticos")]
         public EntityCollection<Diagnostico> Diagnosticos
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Diagnostico>("ERPMedicoModel.AtendimentoDiagnostico", "Diagnostico");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Diagnostico>("ERPModel.FK_AtendimentoDiagnostico", "Diagnosticos");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Diagnostico>("ERPMedicoModel.AtendimentoDiagnostico", "Diagnostico", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Diagnostico>("ERPModel.FK_AtendimentoDiagnostico", "Diagnosticos", value);
                 }
             }
         }
@@ -768,76 +806,16 @@ namespace ERP.Medico.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPMedicoModel", "AtendimentoTratamento", "Tratamento")]
-        public EntityCollection<Tratamento> Tratamentos
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Tratamento>("ERPMedicoModel.AtendimentoTratamento", "Tratamento");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Tratamento>("ERPMedicoModel.AtendimentoTratamento", "Tratamento", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPMedicoModel", "AtendimentoPaciente", "Paciente")]
-        public Paciente Paciente
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Paciente>("ERPMedicoModel.AtendimentoPaciente", "Paciente").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Paciente>("ERPMedicoModel.AtendimentoPaciente", "Paciente").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Paciente> PacienteReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Paciente>("ERPMedicoModel.AtendimentoPaciente", "Paciente");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Paciente>("ERPMedicoModel.AtendimentoPaciente", "Paciente", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPMedicoModel", "AtendimentoMedico", "Medico")]
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_AtendimentoMedico", "Medicos")]
         public Medico Medico
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Medico>("ERPMedicoModel.AtendimentoMedico", "Medico").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Medico>("ERPModel.FK_AtendimentoMedico", "Medicos").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Medico>("ERPMedicoModel.AtendimentoMedico", "Medico").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Medico>("ERPModel.FK_AtendimentoMedico", "Medicos").Value = value;
             }
         }
         /// <summary>
@@ -849,13 +827,111 @@ namespace ERP.Medico.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Medico>("ERPMedicoModel.AtendimentoMedico", "Medico");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Medico>("ERPModel.FK_AtendimentoMedico", "Medicos");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Medico>("ERPMedicoModel.AtendimentoMedico", "Medico", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Medico>("ERPModel.FK_AtendimentoMedico", "Medicos", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_AtendimentoPaciente", "Pacientes")]
+        public Paciente Paciente
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Paciente>("ERPModel.FK_AtendimentoPaciente", "Pacientes").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Paciente>("ERPModel.FK_AtendimentoPaciente", "Pacientes").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Paciente> PacienteReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Paciente>("ERPModel.FK_AtendimentoPaciente", "Pacientes");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Paciente>("ERPModel.FK_AtendimentoPaciente", "Pacientes", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_AtendimentoTipoAtendimento", "TiposAtendimento")]
+        public TiposAtendimento TiposAtendimento
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TiposAtendimento>("ERPModel.FK_AtendimentoTipoAtendimento", "TiposAtendimento").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TiposAtendimento>("ERPModel.FK_AtendimentoTipoAtendimento", "TiposAtendimento").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<TiposAtendimento> TiposAtendimentoReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<TiposAtendimento>("ERPModel.FK_AtendimentoTipoAtendimento", "TiposAtendimento");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<TiposAtendimento>("ERPModel.FK_AtendimentoTipoAtendimento", "TiposAtendimento", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_AtendimentoTratamento", "Tratamentos")]
+        public EntityCollection<Tratamento> Tratamentos
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Tratamento>("ERPModel.FK_AtendimentoTratamento", "Tratamentos");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Tratamento>("ERPModel.FK_AtendimentoTratamento", "Tratamentos", value);
                 }
             }
         }
@@ -866,7 +942,7 @@ namespace ERP.Medico.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ERPMedicoModel", Name="Diagnostico")]
+    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Diagnostico")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Diagnostico : EntityObject
@@ -1002,16 +1078,16 @@ namespace ERP.Medico.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPMedicoModel", "AtendimentoDiagnostico", "Atendimento")]
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_AtendimentoDiagnostico", "Atendimentos")]
         public Atendimento Atendimento
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Atendimento>("ERPMedicoModel.AtendimentoDiagnostico", "Atendimento").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Atendimento>("ERPModel.FK_AtendimentoDiagnostico", "Atendimentos").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Atendimento>("ERPMedicoModel.AtendimentoDiagnostico", "Atendimento").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Atendimento>("ERPModel.FK_AtendimentoDiagnostico", "Atendimentos").Value = value;
             }
         }
         /// <summary>
@@ -1023,13 +1099,13 @@ namespace ERP.Medico.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Atendimento>("ERPMedicoModel.AtendimentoDiagnostico", "Atendimento");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Atendimento>("ERPModel.FK_AtendimentoDiagnostico", "Atendimentos");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Atendimento>("ERPMedicoModel.AtendimentoDiagnostico", "Atendimento", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Atendimento>("ERPModel.FK_AtendimentoDiagnostico", "Atendimentos", value);
                 }
             }
         }
@@ -1040,7 +1116,7 @@ namespace ERP.Medico.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ERPMedicoModel", Name="Medico")]
+    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Medico")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Medico : EntityObject
@@ -1124,18 +1200,18 @@ namespace ERP.Medico.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPMedicoModel", "AtendimentoMedico", "Atendimento")]
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_AtendimentoMedico", "Atendimentos")]
         public EntityCollection<Atendimento> Atendimentos
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Atendimento>("ERPMedicoModel.AtendimentoMedico", "Atendimento");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Atendimento>("ERPModel.FK_AtendimentoMedico", "Atendimentos");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Atendimento>("ERPMedicoModel.AtendimentoMedico", "Atendimento", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Atendimento>("ERPModel.FK_AtendimentoMedico", "Atendimentos", value);
                 }
             }
         }
@@ -1146,7 +1222,7 @@ namespace ERP.Medico.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ERPMedicoModel", Name="Paciente")]
+    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Paciente")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Paciente : EntityObject
@@ -1160,13 +1236,15 @@ namespace ERP.Medico.Model
         /// <param name="altura">Initial value of the Altura property.</param>
         /// <param name="peso">Initial value of the Peso property.</param>
         /// <param name="codigo">Initial value of the Codigo property.</param>
-        public static Paciente CreatePaciente(global::System.Int32 id, global::System.Single altura, global::System.Single peso, global::System.String codigo)
+        /// <param name="anamnese_Id">Initial value of the Anamnese_Id property.</param>
+        public static Paciente CreatePaciente(global::System.Int32 id, global::System.Single altura, global::System.Single peso, global::System.String codigo, global::System.Int32 anamnese_Id)
         {
             Paciente paciente = new Paciente();
             paciente.Id = id;
             paciente.Altura = altura;
             paciente.Peso = peso;
             paciente.Codigo = codigo;
+            paciente.Anamnese_Id = anamnese_Id;
             return paciente;
         }
 
@@ -1271,6 +1349,30 @@ namespace ERP.Medico.Model
         private global::System.String _Codigo;
         partial void OnCodigoChanging(global::System.String value);
         partial void OnCodigoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Anamnese_Id
+        {
+            get
+            {
+                return _Anamnese_Id;
+            }
+            set
+            {
+                OnAnamnese_IdChanging(value);
+                ReportPropertyChanging("Anamnese_Id");
+                _Anamnese_Id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Anamnese_Id");
+                OnAnamnese_IdChanged();
+            }
+        }
+        private global::System.Int32 _Anamnese_Id;
+        partial void OnAnamnese_IdChanging(global::System.Int32 value);
+        partial void OnAnamnese_IdChanged();
 
         #endregion
     
@@ -1282,16 +1384,16 @@ namespace ERP.Medico.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPMedicoModel", "AnamnesePaciente", "Anamnese")]
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_PacienteAnamnese", "Anamneses")]
         public Anamnese Anamnese
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Anamnese>("ERPMedicoModel.AnamnesePaciente", "Anamnese").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Anamnese>("ERPModel.FK_PacienteAnamnese", "Anamneses").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Anamnese>("ERPMedicoModel.AnamnesePaciente", "Anamnese").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Anamnese>("ERPModel.FK_PacienteAnamnese", "Anamneses").Value = value;
             }
         }
         /// <summary>
@@ -1303,13 +1405,13 @@ namespace ERP.Medico.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Anamnese>("ERPMedicoModel.AnamnesePaciente", "Anamnese");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Anamnese>("ERPModel.FK_PacienteAnamnese", "Anamneses");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Anamnese>("ERPMedicoModel.AnamnesePaciente", "Anamnese", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Anamnese>("ERPModel.FK_PacienteAnamnese", "Anamneses", value);
                 }
             }
         }
@@ -1320,34 +1422,18 @@ namespace ERP.Medico.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPMedicoModel", "AtendimentoPaciente", "Atendimento")]
-        public Atendimento Atendimento
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_AtendimentoPaciente", "Atendimentos")]
+        public EntityCollection<Atendimento> Atendimentos
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Atendimento>("ERPMedicoModel.AtendimentoPaciente", "Atendimento").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Atendimento>("ERPMedicoModel.AtendimentoPaciente", "Atendimento").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Atendimento> AtendimentoReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Atendimento>("ERPMedicoModel.AtendimentoPaciente", "Atendimento");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Atendimento>("ERPModel.FK_AtendimentoPaciente", "Atendimentos");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Atendimento>("ERPMedicoModel.AtendimentoPaciente", "Atendimento", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Atendimento>("ERPModel.FK_AtendimentoPaciente", "Atendimentos", value);
                 }
             }
         }
@@ -1358,24 +1444,24 @@ namespace ERP.Medico.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ERPMedicoModel", Name="TipoAtendimento")]
+    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="TiposAtendimento")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class TipoAtendimento : EntityObject
+    public partial class TiposAtendimento : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new TipoAtendimento object.
+        /// Create a new TiposAtendimento object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="descricao">Initial value of the Descricao property.</param>
-        public static TipoAtendimento CreateTipoAtendimento(global::System.Int32 id, global::System.String descricao)
+        public static TiposAtendimento CreateTiposAtendimento(global::System.Int32 id, global::System.String descricao)
         {
-            TipoAtendimento tipoAtendimento = new TipoAtendimento();
-            tipoAtendimento.Id = id;
-            tipoAtendimento.Descricao = descricao;
-            return tipoAtendimento;
+            TiposAtendimento tiposAtendimento = new TiposAtendimento();
+            tiposAtendimento.Id = id;
+            tiposAtendimento.Descricao = descricao;
+            return tiposAtendimento;
         }
 
         #endregion
@@ -1442,34 +1528,18 @@ namespace ERP.Medico.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPMedicoModel", "AtendimentoTipoAtendimento", "Atendimento")]
-        public Atendimento Atendimento
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_AtendimentoTipoAtendimento", "Atendimentos")]
+        public EntityCollection<Atendimento> Atendimentos
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Atendimento>("ERPMedicoModel.AtendimentoTipoAtendimento", "Atendimento").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Atendimento>("ERPMedicoModel.AtendimentoTipoAtendimento", "Atendimento").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Atendimento> AtendimentoReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Atendimento>("ERPMedicoModel.AtendimentoTipoAtendimento", "Atendimento");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Atendimento>("ERPModel.FK_AtendimentoTipoAtendimento", "Atendimentos");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Atendimento>("ERPMedicoModel.AtendimentoTipoAtendimento", "Atendimento", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Atendimento>("ERPModel.FK_AtendimentoTipoAtendimento", "Atendimentos", value);
                 }
             }
         }
@@ -1480,24 +1550,24 @@ namespace ERP.Medico.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ERPMedicoModel", Name="TipoSangue")]
+    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="TiposSangue")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class TipoSangue : EntityObject
+    public partial class TiposSangue : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new TipoSangue object.
+        /// Create a new TiposSangue object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="descricao">Initial value of the Descricao property.</param>
-        public static TipoSangue CreateTipoSangue(global::System.Int32 id, global::System.String descricao)
+        public static TiposSangue CreateTiposSangue(global::System.Int32 id, global::System.String descricao)
         {
-            TipoSangue tipoSangue = new TipoSangue();
-            tipoSangue.Id = id;
-            tipoSangue.Descricao = descricao;
-            return tipoSangue;
+            TiposSangue tiposSangue = new TiposSangue();
+            tiposSangue.Id = id;
+            tiposSangue.Descricao = descricao;
+            return tiposSangue;
         }
 
         #endregion
@@ -1564,34 +1634,18 @@ namespace ERP.Medico.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPMedicoModel", "AnamneseTipoSangue", "Anamnese")]
-        public Anamnese Anamnese
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_AnamneseTipoSangue", "Anamneses")]
+        public EntityCollection<Anamnese> Anamneses
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Anamnese>("ERPMedicoModel.AnamneseTipoSangue", "Anamnese").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Anamnese>("ERPMedicoModel.AnamneseTipoSangue", "Anamnese").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Anamnese> AnamneseReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Anamnese>("ERPMedicoModel.AnamneseTipoSangue", "Anamnese");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Anamnese>("ERPModel.FK_AnamneseTipoSangue", "Anamneses");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Anamnese>("ERPMedicoModel.AnamneseTipoSangue", "Anamnese", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Anamnese>("ERPModel.FK_AnamneseTipoSangue", "Anamneses", value);
                 }
             }
         }
@@ -1602,7 +1656,7 @@ namespace ERP.Medico.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="ERPMedicoModel", Name="Tratamento")]
+    [EdmEntityTypeAttribute(NamespaceName="ERPModel", Name="Tratamento")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Tratamento : EntityObject
@@ -1738,16 +1792,16 @@ namespace ERP.Medico.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("ERPMedicoModel", "AtendimentoTratamento", "Atendimento")]
+        [EdmRelationshipNavigationPropertyAttribute("ERPModel", "FK_AtendimentoTratamento", "Atendimentos")]
         public Atendimento Atendimento
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Atendimento>("ERPMedicoModel.AtendimentoTratamento", "Atendimento").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Atendimento>("ERPModel.FK_AtendimentoTratamento", "Atendimentos").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Atendimento>("ERPMedicoModel.AtendimentoTratamento", "Atendimento").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Atendimento>("ERPModel.FK_AtendimentoTratamento", "Atendimentos").Value = value;
             }
         }
         /// <summary>
@@ -1759,13 +1813,13 @@ namespace ERP.Medico.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Atendimento>("ERPMedicoModel.AtendimentoTratamento", "Atendimento");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Atendimento>("ERPModel.FK_AtendimentoTratamento", "Atendimentos");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Atendimento>("ERPMedicoModel.AtendimentoTratamento", "Atendimento", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Atendimento>("ERPModel.FK_AtendimentoTratamento", "Atendimentos", value);
                 }
             }
         }

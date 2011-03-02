@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ERP.Medico
+namespace Erp.Medico
 {
     using System;
 
@@ -45,7 +45,7 @@ namespace ERP.Medico
             {
                 if (object.ReferenceEquals(resourceMan, null))
                 {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ERP.Medico.Assets.Resources.SecurityQuestions", typeof(SecurityQuestions).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Erp.Medico.Assets.Resources.SecurityQuestions", typeof(SecurityQuestions).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

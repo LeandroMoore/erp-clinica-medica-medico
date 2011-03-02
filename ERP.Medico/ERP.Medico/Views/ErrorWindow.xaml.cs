@@ -1,4 +1,4 @@
-﻿namespace ERP.Medico
+﻿namespace Erp.Medico
 {
     using System;
     using System.Diagnostics;

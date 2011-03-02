@@ -1,8 +1,8 @@
 ﻿<Application   
-  x:Class="ERP.Medico.App"
+  x:Class="Erp.Medico.App"
   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-  xmlns:app="clr-namespace:ERP.Medico"
+  xmlns:app="clr-namespace:Erp.Medico"
   Startup="Application_Startup"
   UnhandledException="Application_UnhandledException">
 

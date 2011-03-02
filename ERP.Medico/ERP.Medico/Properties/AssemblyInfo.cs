@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ERP.Medico")]
+[assembly: AssemblyTitle("Erp.Medico")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft Corp.")]
-[assembly: AssemblyProduct("ERP.Medico")]
+[assembly: AssemblyProduct("Erp.Medico")]
 [assembly: AssemblyCopyright("Copyright © Microsoft Corp. 2009")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -23,7 +23,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("b73670e5-03e0-47da-91c8-fc0e0965d569")]
+[assembly: Guid("11a96a3c-f5f5-428f-905d-79b0af995716")]
 
 // Version information for an assembly consists of the following four values:
 //

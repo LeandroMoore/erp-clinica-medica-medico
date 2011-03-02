@@ -1,4 +1,4 @@
-﻿namespace ERP.Medico.LoginUI
+﻿namespace Erp.Medico.LoginUI
 {
     using System;
     using System.Collections;
@@ -10,7 +10,7 @@
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Input;
-    using ERP.Medico.Web;
+    using Erp.Medico.Web;
 
     /// <summary>
     /// Form that presents the <see cref="RegistrationData"/> and performs the registration process.

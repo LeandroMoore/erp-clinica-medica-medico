@@ -1,4 +1,4 @@
-﻿namespace ERP.Medico.Web
+﻿namespace Erp.Medico.Web
 {
     using System.Security.Authentication;
     using System.ServiceModel.DomainServices.Hosting;

@@ -4,8 +4,8 @@
   xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
   xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
   xmlns:dataControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.DataForm.Toolkit" 
-  xmlns:appControls="clr-namespace:ERP.Medico.Controls"
-  xmlns:loginWindow="clr-namespace:ERP.Medico.LoginUI"
+  xmlns:appControls="clr-namespace:Erp.Medico.Controls"
+  xmlns:loginWindow="clr-namespace:Erp.Medico.LoginUI"
   xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input">
 
     <ResourceDictionary.MergedDictionaries>

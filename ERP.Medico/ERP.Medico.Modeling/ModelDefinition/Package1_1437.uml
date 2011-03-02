@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="31483078-cc85-4cb6-8cec-f9c457e5afd9"
+  name="ViewModel" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <suppliersInternal>
+    <dependency
+      Id="dd33564d-bbae-49c2-bb6e-51808d8ea596">
+      <packageMoniker
+        Id="24f99a98-6ac1-4b1e-ba6c-7efe279e5dfa"
+        LastKnownName="Classes do domínio de negócio"
+        LastKnownLocation="Package_1427.uml" />
+    </dependency>
+    <dependency
+      Id="4ca04970-f460-49ad-b858-a5e05674cc65">
+      <packageMoniker
+        Id="b601f095-e574-4431-aab9-b8a118a0942d"
+        LastKnownName="Serviços"
+        LastKnownLocation="Package1_1417.uml" />
+    </dependency>
+  </suppliersInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="7385a30e-2d98-4ec4-93d5-53421e8e68f4"
+        name="PacienteViewModel"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="8e959ece-1354-44a6-b5d6-fc0739ef58f2"
+        name="AtendimentoViewModel"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="42290c1b-da0d-4328-8ca3-aa507cb88648"
+        name="MedicoViewModel"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="4a54f061-fae9-4b7d-8468-70872a9349e9"
+        name="..."
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="b601f095-e574-4431-aab9-b8a118a0942d"
+  name="Serviços" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="dc08e5d9-f8dc-4079-b4c6-deb22758792a"
+        name="DomainService"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="7b33fac5-0b78-44ff-aa2f-c7dec09fd5bb">
+            <packageMoniker
+              Id="24f99a98-6ac1-4b1e-ba6c-7efe279e5dfa"
+              LastKnownName="Classes do domínio de negócio"
+              LastKnownLocation="Package_1427.uml" />
+          </dependency>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="ebe26921-636f-4f6f-8aaf-1e9da931fb9e"
+            name="GetAnamneses"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="3ea08e67-dffa-4896-8781-9687f22b2e7e"
+            name="GetPacientes"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="4f5ffd83-1e1c-4208-924b-b6d63f217f81"
+            name="..."
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="58a5e9dc-ac52-4931-bfae-0b4dea898113"
+            name="InsertAnamnese"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="ee0bb6ef-fa88-4dbf-93b6-ef1c7c31f362"
+            name="DeleteAnamnese"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="08b2a669-c0a5-4c50-bf9f-eda088bf3597"
+        name="AuthenticationService"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="5c1386a9-7370-43f3-b94d-bb2cbc28d062">
+            <packageMoniker
+              Id="92bf5e68-b73b-48ce-be6d-4241d3006f66"
+              LastKnownName="Classes de autenticação"
+              LastKnownLocation="Package_1426.uml" />
+          </dependency>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="7bc46572-dc10-43d6-b4eb-1352534dda3d"
+            name="GetUser"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="691a6988-c3fc-4b96-829f-fb952120a0b4"
+            name="GetPacientes"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="250d8cf9-c8c9-42a1-87f3-787327542bd7"
+            name="Login"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1632a745-a3ec-4bdc-ab71-a41e791fcaa3"
+                  name="string username"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9608d4ed-814f-4c3e-9c34-e6fa0c6157bb"
+                  name="string password"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="13281af3-c363-48d2-9362-97ed919d4885"
+            name="UpdateUser"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="373e2257-395b-4812-98a1-5dccad65262b"
+                  name="User user"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="c01246d7-e600-4471-984a-3692c9f40565"
+            name="Logout"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="04b36014-8ccc-4c6b-b09d-78b1604208e8"
+            name="GetAuthenticatedUser"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="0b0dc915-bb98-4862-ba71-0a08d2cae23d"
+            name="GetAnonymousUser"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="20c81918-b955-405b-b4f9-e27cc4ddf421"
+        name="UserRegistrationService"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="a57571e4-6fb6-4cbd-a7e8-c0ac19134964">
+            <packageMoniker
+              Id="92bf5e68-b73b-48ce-be6d-4241d3006f66"
+              LastKnownName="Classes de autenticação"
+              LastKnownLocation="Package_1426.uml" />
+          </dependency>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="4d7db5dd-27be-4db3-891d-765e26c75b9a"
+            name="CreateUser"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="64a57410-67cc-418b-9c0c-d7282b2a342e"
+                  name="RegistrationData user"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ecee82e8-ad1b-42bc-bfa8-55d02d842cd5"
+                  name="string password"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="be5c86f0-6859-4028-82e5-f9c2d88f50cf"
+            name="GetUsers"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="4e4974b1-2c76-42c1-b0e7-4f26fa249a40"
+        name="AgendamentoService"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="e74dc70a-ce82-4046-87b7-08a8e67ad704">
+            <packageMoniker
+              Id="284e1bf2-654c-44ae-92ef-eaef3da3125f"
+              LastKnownName="Módulo Agendamento"
+              LastKnownLocation="Package_1632.uml" />
+          </dependency>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="d9b5a3ef-d7bd-4c6c-a467-88f68726d3c0"
+            name="GetAgendamentos"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

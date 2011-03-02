@@ -1,10 +1,10 @@
-﻿namespace ERP.Medico.LoginUI
+﻿namespace Erp.Medico.LoginUI
 {
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.ServiceModel.DomainServices.Client;
     using System.ServiceModel.DomainServices.Client.ApplicationServices;
-    using ERP.Medico.Web.Resources;
+    using Erp.Medico.Web.Resources;
 
     /// <summary>
     /// This internal entity is used to ease the binding between the UI controls

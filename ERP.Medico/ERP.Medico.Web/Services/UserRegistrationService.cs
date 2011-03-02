@@ -1,4 +1,4 @@
-﻿namespace ERP.Medico.Web
+﻿namespace Erp.Medico.Web
 {
     using System;
     using System.Collections.Generic;
@@ -7,7 +7,7 @@
     using System.ServiceModel.DomainServices.Server;
     using System.Web.Profile;
     using System.Web.Security;
-    using ERP.Medico.Web.Resources;
+    using Erp.Medico.Web.Resources;
 
     /// <summary>
     ///   RIA Services Domain Service that exposes methods for performing user

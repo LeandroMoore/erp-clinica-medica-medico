@@ -5,21 +5,21 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{583146FE-BCC6-46D6-8B62-80EF994D03E0}</ProjectGuid>
+    <ProjectGuid>{2C075705-7AD5-49C3-BA04-1BCE9252F4BD}</ProjectGuid>
     <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ERP.Medico</RootNamespace>
-    <AssemblyName>ERP.Medico</AssemblyName>
+    <RootNamespace>Erp.Medico</RootNamespace>
+    <AssemblyName>Erp.Medico</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
     <SilverlightApplication>true</SilverlightApplication>
     <SupportedCultures>en-US</SupportedCultures>
     <XapOutputs>true</XapOutputs>
     <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
-    <XapFilename>ERP.Medico.xap</XapFilename>
+    <XapFilename>Erp.Medico.xap</XapFilename>
     <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
-    <SilverlightAppEntry>ERP.Medico.App</SilverlightAppEntry>
+    <SilverlightAppEntry>Erp.Medico.App</SilverlightAppEntry>
     <TestPageFileName>TestPage.html</TestPageFileName>
     <CreateTestPage>true</CreateTestPage>
     <ValidateXaml>true</ValidateXaml>
@@ -27,7 +27,7 @@
     <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
     <UsePlatformExtensions>false</UsePlatformExtensions>
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
-    <LinkedServerProject>..\ERP.Medico.Web\ERP.Medico.Web.csproj</LinkedServerProject>
+    <LinkedServerProject>..\Erp.Medico.Web\Erp.Medico.Web.csproj</LinkedServerProject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -67,25 +67,27 @@
     <Reference Include="System.Windows.Controls.Data.Input" />
     <Reference Include="System.Windows.Controls.Data.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Windows.Controls.DataVisualization.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.DomainServices, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="System.Windows.Controls.Input, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Windows.Controls.Input.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Windows.Controls.Layout.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.ServiceModel.DomainServices.Client" />
     <Reference Include="System.ServiceModel.DomainServices.Client.Web" />
     <Reference Include="System.ServiceModel.Web.Extensions" />
+    <Reference Include="System.Windows.Data, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Windows.Browser" />
     <Reference Include="System.Windows.Controls" />
     <Reference Include="System.Windows.Controls.Navigation" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\ERP.Medico.Web\Resources\RegistrationDataResources.Designer.cs">
+    <Compile Include="..\Erp.Medico.Web\Resources\RegistrationDataResources.Designer.cs">
       <Link>Web\Resources\RegistrationDataResources.Designer.cs</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RegistrationDataResources.resx</DependentUpon>
     </Compile>
-    <Compile Include="..\ERP.Medico.Web\Resources\ValidationErrorResources.Designer.cs">
+    <Compile Include="..\Erp.Medico.Web\Resources\ValidationErrorResources.Designer.cs">
       <Link>Web\Resources\ValidationErrorResources.Designer.cs</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -125,9 +127,6 @@
     <Compile Include="Views\ErrorWindow.xaml.cs">
       <DependentUpon>ErrorWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\About.xaml.cs">
-      <DependentUpon>About.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
@@ -146,6 +145,9 @@
     </Compile>
     <Compile Include="Views\Login\RegistrationForm.xaml.cs">
       <DependentUpon>RegistrationForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TiposDeSangue.xaml.cs">
+      <DependentUpon>TiposDeSangue.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -186,10 +188,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:MarkupCompilePass1</Generator>
     </Page>
-    <Page Include="Views\About.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:MarkupCompilePass1</Generator>
-    </Page>
     <Page Include="Views\Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:MarkupCompilePass1</Generator>
@@ -214,6 +212,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:MarkupCompilePass1</Generator>
     </Page>
+    <Page Include="Views\TiposDeSangue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
@@ -222,12 +224,12 @@
     <None Include="Libs\System.Windows.Controls.Data.DataForm.Toolkit.dll" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="..\ERP.Medico.Web\Resources\RegistrationDataResources.resx">
+    <EmbeddedResource Include="..\Erp.Medico.Web\Resources\RegistrationDataResources.resx">
       <Link>Web\Resources\RegistrationDataResources.resx</Link>
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>RegistrationDataResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="..\ERP.Medico.Web\Resources\ValidationErrorResources.resx">
+    <EmbeddedResource Include="..\Erp.Medico.Web\Resources\ValidationErrorResources.resx">
       <Link>Web\Resources\ValidationErrorResources.resx</Link>
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ValidationErrorResources.Designer.cs</LastGenOutput>
@@ -235,20 +237,22 @@
     <EmbeddedResource Include="Assets\Resources\ApplicationStrings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ApplicationStrings.Designer.cs</LastGenOutput>
-      <CustomToolNamespace>ERP.Medico</CustomToolNamespace>
+      <CustomToolNamespace>Erp.Medico</CustomToolNamespace>
     </EmbeddedResource>
     <EmbeddedResource Include="Assets\Resources\ErrorResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ErrorResources.Designer.cs</LastGenOutput>
-      <CustomToolNamespace>ERP.Medico</CustomToolNamespace>
+      <CustomToolNamespace>Erp.Medico</CustomToolNamespace>
     </EmbeddedResource>
     <EmbeddedResource Include="Assets\Resources\SecurityQuestions.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>SecurityQuestions.Designer.cs</LastGenOutput>
-      <CustomToolNamespace>ERP.Medico</CustomToolNamespace>
+      <CustomToolNamespace>Erp.Medico</CustomToolNamespace>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\DataSources\Erp.Medico.Web.ERPMedicoDomainContext.datasource" />
+    <None Include="Properties\DataSources\Erp.Medico.Web.UserRegistrationContext.datasource" />
     <None Include="Properties\OutOfBrowserSettings.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />

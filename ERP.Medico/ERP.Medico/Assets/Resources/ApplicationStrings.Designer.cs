@@ -8,11 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ERP.Medico
-{
+namespace Erp.Medico {
     using System;
-
-
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -23,257 +22,211 @@ namespace ERP.Medico
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class ApplicationStrings
-    {
-
+    public class ApplicationStrings {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ApplicationStrings()
-        {
+        internal ApplicationStrings() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if (object.ReferenceEquals(resourceMan, null))
-                {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ERP.Medico.Assets.Resources.ApplicationStrings", typeof(ApplicationStrings).Assembly);
+        public static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Erp.Medico.Assets.Resources.ApplicationStrings", typeof(ApplicationStrings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        public static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
             }
         }
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to About.
+        ///   Looks up a localized string similar to Sobre.
         /// </summary>
-        public static string AboutPageTitle
-        {
-            get
-            {
+        public static string AboutPageTitle {
+            get {
                 return ResourceManager.GetString("AboutPageTitle", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to Already registered?.
+        ///   Looks up a localized string similar to Já cadastrado?.
         /// </summary>
-        public static string AlreadyRegisteredLabel
-        {
-            get
-            {
+        public static string AlreadyRegisteredLabel {
+            get {
                 return ResourceManager.GetString("AlreadyRegisteredLabel", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to Application Name.
+        ///   Looks up a localized string similar to ERP Clínica Médica - Médico.
         /// </summary>
-        public static string ApplicationName
-        {
-            get
-            {
+        public static string ApplicationName {
+            get {
                 return ResourceManager.GetString("ApplicationName", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to Back to Login.
+        ///   Looks up a localized string similar to Voltar para o Login.
         /// </summary>
-        public static string BackToLoginButton
-        {
-            get
-            {
+        public static string BackToLoginButton {
+            get {
                 return ResourceManager.GetString("BackToLoginButton", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to Initializing Application.....
+        ///   Looks up a localized string similar to Iniciando aplicação....
         /// </summary>
-        public static string BusyIndicatorLoadingUser
-        {
-            get
-            {
+        public static string BusyIndicatorLoadingUser {
+            get {
                 return ResourceManager.GetString("BusyIndicatorLoadingUser", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to Logging in....
+        ///   Looks up a localized string similar to Entrando....
         /// </summary>
-        public static string BusyIndicatorLoggingIn
-        {
-            get
-            {
+        public static string BusyIndicatorLoggingIn {
+            get {
                 return ResourceManager.GetString("BusyIndicatorLoggingIn", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to Submitting Registration....
+        ///   Looks up a localized string similar to Enviando cadastro....
         /// </summary>
-        public static string BusyIndicatorRegisteringUser
-        {
-            get
-            {
+        public static string BusyIndicatorRegisteringUser {
+            get {
                 return ResourceManager.GetString("BusyIndicatorRegisteringUser", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to Cancel.
+        ///   Looks up a localized string similar to Cancelar.
         /// </summary>
-        public static string CancelButton
-        {
-            get
-            {
+        public static string CancelButton {
+            get {
                 return ResourceManager.GetString("CancelButton", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to Home.
+        ///   Looks up a localized string similar to ERP Clínica Médica - Médico.
         /// </summary>
-        public static string HomePageTitle
-        {
-            get
-            {
+        public static string HomePageTitle {
+            get {
                 return ResourceManager.GetString("HomePageTitle", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to login.
+        ///   Looks up a localized string similar to |        LOGIN          .
         /// </summary>
-        public static string LoginButton
-        {
-            get
-            {
+        public static string LoginButton {
+            get {
                 return ResourceManager.GetString("LoginButton", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
-        public static string LoginWindowTitle
-        {
-            get
-            {
+        public static string LoginWindowTitle {
+            get {
                 return ResourceManager.GetString("LoginWindowTitle", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to logout.
+        ///   Looks up a localized string similar to |        SAIR.
         /// </summary>
-        public static string LogOffButton
-        {
-            get
-            {
+        public static string LogOffButton {
+            get {
                 return ResourceManager.GetString("LogOffButton", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to Not registered yet?.
+        ///   Looks up a localized string similar to Ainda não tem um cadastro?.
         /// </summary>
-        public static string NotRegisteredYetLabel
-        {
-            get
-            {
+        public static string NotRegisteredYetLabel {
+            get {
                 return ResourceManager.GetString("NotRegisteredYetLabel", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to OK.
         /// </summary>
-        public static string OKButton
-        {
-            get
-            {
+        public static string OKButton {
+            get {
                 return ResourceManager.GetString("OKButton", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to Register now.
+        ///   Looks up a localized string similar to Cadastre-se agora.
         /// </summary>
-        public static string RegisterNowButton
-        {
-            get
-            {
+        public static string RegisterNowButton {
+            get {
                 return ResourceManager.GetString("RegisterNowButton", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to Please complete all required fields to create your account.
+        ///   Looks up a localized string similar to Por favor preencha todos os campos obrigatórios..
         /// </summary>
-        public static string RegistrationFormHeader
-        {
-            get
-            {
+        public static string RegistrationFormHeader {
+            get {
                 return ResourceManager.GetString("RegistrationFormHeader", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to Register.
+        ///   Looks up a localized string similar to Cadastro.
         /// </summary>
-        public static string RegistrationWindowTitle
-        {
-            get
-            {
+        public static string RegistrationWindowTitle {
+            get {
                 return ResourceManager.GetString("RegistrationWindowTitle", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to Keep me signed in.
+        ///   Looks up a localized string similar to Mantenha-me logado.
         /// </summary>
-        public static string RememberMeLabel
-        {
-            get
-            {
+        public static string RememberMeLabel {
+            get {
                 return ResourceManager.GetString("RememberMeLabel", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to Welcome {0}.
+        ///   Looks up a localized string similar to Bem-vindo(a) {0}.
         /// </summary>
-        public static string WelcomeMessage
-        {
-            get
-            {
+        public static string WelcomeMessage {
+            get {
                 return ResourceManager.GetString("WelcomeMessage", resourceCulture);
             }
         }

@@ -1,4 +1,4 @@
-﻿namespace ERP.Medico.Controls
+﻿namespace Erp.Medico.Controls
 {
     using System;
     using System.Windows;

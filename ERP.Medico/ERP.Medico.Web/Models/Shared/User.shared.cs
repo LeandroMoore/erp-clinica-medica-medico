@@ -1,4 +1,4 @@
-﻿namespace ERP.Medico.Web
+﻿namespace Erp.Medico.Web
 {
     /// <summary>
     /// Partial class extending the User type that adds shared properties and methods

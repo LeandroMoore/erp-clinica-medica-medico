@@ -1,11 +1,11 @@
-﻿namespace ERP.Medico
+﻿namespace Erp.Medico
 {
     using System;
     using System.Runtime.Serialization;
     using System.ServiceModel.DomainServices.Client.ApplicationServices;
     using System.Windows;
     using System.Windows.Controls;
-    using ERP.Medico.Controls;
+    using Erp.Medico.Controls;
 
     /// <summary>
     /// Main <see cref="Application"/> class.

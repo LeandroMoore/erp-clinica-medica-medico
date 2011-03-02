@@ -1,9 +1,9 @@
 ﻿<StackPanel 
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:ERP.Medico.Controls"
-    xmlns:login="clr-namespace:ERP.Medico.LoginUI"
-    x:Class="ERP.Medico.LoginUI.LoginForm"
+    xmlns:local="clr-namespace:Erp.Medico.Controls"
+    xmlns:login="clr-namespace:Erp.Medico.LoginUI"
+    x:Class="Erp.Medico.LoginUI.LoginForm"
     KeyDown="LoginForm_KeyDown"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 

@@ -1,4 +1,4 @@
-﻿namespace ERP.Medico.LoginUI
+﻿namespace Erp.Medico.LoginUI
 {
     using System;
     using System.ComponentModel.DataAnnotations;

@@ -1,0 +1,33 @@
+﻿<navigation:Page x:Class="Erp.Medico.Views.TiposDeSangue"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="TiposDeSangue Page" xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" xmlns:my="clr-namespace:Erp.Medico.Web" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk">
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
+        <riaControls:DomainDataSource AutoLoad="True" d:DesignData="{d:DesignInstance my:TiposSangue, CreateList=true}" Height="0"
+                                      LoadedData="tiposSangueDomainDataSource_LoadedData" Name="tiposSangueDomainDataSource" QueryName="GetTiposSanguesQuery" Width="0" Margin="0,0,640,412">
+            <riaControls:DomainDataSource.DomainContext>
+                <my:ERPMedicoDomainContext />
+            </riaControls:DomainDataSource.DomainContext>
+        </riaControls:DomainDataSource>
+        <sdk:DataGrid AutoGenerateColumns="False" ItemsSource="{Binding ElementName=tiposSangueDomainDataSource, Path=Data}"
+                      Margin="10" Name="tiposSangueDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" >
+            <sdk:DataGrid.Columns>
+                <sdk:DataGridTextColumn x:Name="descricaoColumn" Binding="{Binding Path=Descricao}" Header="Descricao" Width="SizeToHeader" />
+            </sdk:DataGrid.Columns>
+        </sdk:DataGrid>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Right">
+            <Button Content="Novo" Click="NovoClick" Margin="5" Width="65" Height="30"/>
+            <Button Content="Excluir" Click="ExcluirClick" Margin="5" Width="65" Height="30"/>
+            <Button Content="Salvar" Click="SalvarClick" Margin="5" Width="65" Height="30"/>
+        </StackPanel>
+    </Grid>
+</navigation:Page>

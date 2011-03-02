@@ -1,5 +1,5 @@
 ﻿
-namespace ERP.Medico.Controls
+namespace Erp.Medico.Controls
 {
     /// <summary>
     /// Names and helpers for visual states in the controls.

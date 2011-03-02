@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ERP.Medico
+namespace Erp.Medico
 {
     using System;
     using System.Collections.Generic;
@@ -18,7 +18,7 @@ namespace ERP.Medico
     using System.ServiceModel.DomainServices;
     using System.ServiceModel.DomainServices.Client;
     using System.ServiceModel.DomainServices.Client.ApplicationServices;
-    using ERP.Medico.Web;
+    using Erp.Medico.Web;
     
     
     /// <summary>
@@ -77,7 +77,7 @@ namespace ERP.Medico
         }
     }
 }
-namespace ERP.Medico.Web
+namespace Erp.Medico.Web
 {
     using System;
     using System.Collections.Generic;
@@ -90,8 +90,816 @@ namespace ERP.Medico.Web
     using System.ServiceModel.DomainServices.Client;
     using System.ServiceModel.DomainServices.Client.ApplicationServices;
     using System.ServiceModel.Web;
-    using ERP.Medico.Web.Resources;
+    using System.Xml.Serialization;
+    using Erp.Medico.Web.Resources;
     
+    
+    /// <summary>
+    /// The 'Anamnese' entity class.
+    /// </summary>
+    [DataContract(Namespace="http://schemas.datacontract.org/2004/07/Erp.Medico.Web")]
+    public sealed partial class Anamnese : Entity
+    {
+        
+        private string _descricaoDoencaAtual;
+        
+        private string _descricaoMedicaPregressa;
+        
+        private string _historicoFamiliar;
+        
+        private string _historicoPessoalSocial;
+        
+        private int _id;
+        
+        private string _observacoes;
+        
+        private EntityCollection<Paciente> _pacientes;
+        
+        private string _queixaPrincipal;
+        
+        private int _tipoSangue_Id;
+        
+        private EntityRef<TiposSangue> _tiposSangue;
+        
+        #region Extensibility Method Definitions
+
+        /// <summary>
+        /// This method is invoked from the constructor once initialization is complete and
+        /// can be used for further object setup.
+        /// </summary>
+        partial void OnCreated();
+        partial void OnDescricaoDoencaAtualChanging(string value);
+        partial void OnDescricaoDoencaAtualChanged();
+        partial void OnDescricaoMedicaPregressaChanging(string value);
+        partial void OnDescricaoMedicaPregressaChanged();
+        partial void OnHistoricoFamiliarChanging(string value);
+        partial void OnHistoricoFamiliarChanged();
+        partial void OnHistoricoPessoalSocialChanging(string value);
+        partial void OnHistoricoPessoalSocialChanged();
+        partial void OnIdChanging(int value);
+        partial void OnIdChanged();
+        partial void OnObservacoesChanging(string value);
+        partial void OnObservacoesChanged();
+        partial void OnQueixaPrincipalChanging(string value);
+        partial void OnQueixaPrincipalChanged();
+        partial void OnTipoSangue_IdChanging(int value);
+        partial void OnTipoSangue_IdChanged();
+
+        #endregion
+        
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Anamnese"/> class.
+        /// </summary>
+        public Anamnese()
+        {
+            this.OnCreated();
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'DescricaoDoencaAtual' value.
+        /// </summary>
+        [DataMember()]
+        public string DescricaoDoencaAtual
+        {
+            get
+            {
+                return this._descricaoDoencaAtual;
+            }
+            set
+            {
+                if ((this._descricaoDoencaAtual != value))
+                {
+                    this.OnDescricaoDoencaAtualChanging(value);
+                    this.RaiseDataMemberChanging("DescricaoDoencaAtual");
+                    this.ValidateProperty("DescricaoDoencaAtual", value);
+                    this._descricaoDoencaAtual = value;
+                    this.RaiseDataMemberChanged("DescricaoDoencaAtual");
+                    this.OnDescricaoDoencaAtualChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'DescricaoMedicaPregressa' value.
+        /// </summary>
+        [DataMember()]
+        public string DescricaoMedicaPregressa
+        {
+            get
+            {
+                return this._descricaoMedicaPregressa;
+            }
+            set
+            {
+                if ((this._descricaoMedicaPregressa != value))
+                {
+                    this.OnDescricaoMedicaPregressaChanging(value);
+                    this.RaiseDataMemberChanging("DescricaoMedicaPregressa");
+                    this.ValidateProperty("DescricaoMedicaPregressa", value);
+                    this._descricaoMedicaPregressa = value;
+                    this.RaiseDataMemberChanged("DescricaoMedicaPregressa");
+                    this.OnDescricaoMedicaPregressaChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'HistoricoFamiliar' value.
+        /// </summary>
+        [DataMember()]
+        public string HistoricoFamiliar
+        {
+            get
+            {
+                return this._historicoFamiliar;
+            }
+            set
+            {
+                if ((this._historicoFamiliar != value))
+                {
+                    this.OnHistoricoFamiliarChanging(value);
+                    this.RaiseDataMemberChanging("HistoricoFamiliar");
+                    this.ValidateProperty("HistoricoFamiliar", value);
+                    this._historicoFamiliar = value;
+                    this.RaiseDataMemberChanged("HistoricoFamiliar");
+                    this.OnHistoricoFamiliarChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'HistoricoPessoalSocial' value.
+        /// </summary>
+        [DataMember()]
+        public string HistoricoPessoalSocial
+        {
+            get
+            {
+                return this._historicoPessoalSocial;
+            }
+            set
+            {
+                if ((this._historicoPessoalSocial != value))
+                {
+                    this.OnHistoricoPessoalSocialChanging(value);
+                    this.RaiseDataMemberChanging("HistoricoPessoalSocial");
+                    this.ValidateProperty("HistoricoPessoalSocial", value);
+                    this._historicoPessoalSocial = value;
+                    this.RaiseDataMemberChanged("HistoricoPessoalSocial");
+                    this.OnHistoricoPessoalSocialChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Id' value.
+        /// </summary>
+        [DataMember()]
+        [Editable(false, AllowInitialValue=true)]
+        [Key()]
+        [RoundtripOriginal()]
+        public int Id
+        {
+            get
+            {
+                return this._id;
+            }
+            set
+            {
+                if ((this._id != value))
+                {
+                    this.OnIdChanging(value);
+                    this.ValidateProperty("Id", value);
+                    this._id = value;
+                    this.RaisePropertyChanged("Id");
+                    this.OnIdChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Observacoes' value.
+        /// </summary>
+        [DataMember()]
+        public string Observacoes
+        {
+            get
+            {
+                return this._observacoes;
+            }
+            set
+            {
+                if ((this._observacoes != value))
+                {
+                    this.OnObservacoesChanging(value);
+                    this.RaiseDataMemberChanging("Observacoes");
+                    this.ValidateProperty("Observacoes", value);
+                    this._observacoes = value;
+                    this.RaiseDataMemberChanged("Observacoes");
+                    this.OnObservacoesChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets the collection of associated <see cref="Paciente"/> entities.
+        /// </summary>
+        [Association("Anamnese_Paciente", "Id", "Anamnese_Id")]
+        [XmlIgnore()]
+        public EntityCollection<Paciente> Pacientes
+        {
+            get
+            {
+                if ((this._pacientes == null))
+                {
+                    this._pacientes = new EntityCollection<Paciente>(this, "Pacientes", this.FilterPacientes, this.AttachPacientes, this.DetachPacientes);
+                }
+                return this._pacientes;
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'QueixaPrincipal' value.
+        /// </summary>
+        [DataMember()]
+        public string QueixaPrincipal
+        {
+            get
+            {
+                return this._queixaPrincipal;
+            }
+            set
+            {
+                if ((this._queixaPrincipal != value))
+                {
+                    this.OnQueixaPrincipalChanging(value);
+                    this.RaiseDataMemberChanging("QueixaPrincipal");
+                    this.ValidateProperty("QueixaPrincipal", value);
+                    this._queixaPrincipal = value;
+                    this.RaiseDataMemberChanged("QueixaPrincipal");
+                    this.OnQueixaPrincipalChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'TipoSangue_Id' value.
+        /// </summary>
+        [DataMember()]
+        [RoundtripOriginal()]
+        public int TipoSangue_Id
+        {
+            get
+            {
+                return this._tipoSangue_Id;
+            }
+            set
+            {
+                if ((this._tipoSangue_Id != value))
+                {
+                    this.OnTipoSangue_IdChanging(value);
+                    this.RaiseDataMemberChanging("TipoSangue_Id");
+                    this.ValidateProperty("TipoSangue_Id", value);
+                    this._tipoSangue_Id = value;
+                    this.RaiseDataMemberChanged("TipoSangue_Id");
+                    this.OnTipoSangue_IdChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the associated <see cref="TiposSangue"/> entity.
+        /// </summary>
+        [Association("TiposSangue_Anamnese", "TipoSangue_Id", "Id", IsForeignKey=true)]
+        [XmlIgnore()]
+        public TiposSangue TiposSangue
+        {
+            get
+            {
+                if ((this._tiposSangue == null))
+                {
+                    this._tiposSangue = new EntityRef<TiposSangue>(this, "TiposSangue", this.FilterTiposSangue);
+                }
+                return this._tiposSangue.Entity;
+            }
+            set
+            {
+                TiposSangue previous = this.TiposSangue;
+                if ((previous != value))
+                {
+                    this.ValidateProperty("TiposSangue", value);
+                    if ((previous != null))
+                    {
+                        this._tiposSangue.Entity = null;
+                        previous.Anamneses.Remove(this);
+                    }
+                    if ((value != null))
+                    {
+                        this.TipoSangue_Id = value.Id;
+                    }
+                    else
+                    {
+                        this.TipoSangue_Id = default(int);
+                    }
+                    this._tiposSangue.Entity = value;
+                    if ((value != null))
+                    {
+                        value.Anamneses.Add(this);
+                    }
+                    this.RaisePropertyChanged("TiposSangue");
+                }
+            }
+        }
+        
+        private void AttachPacientes(Paciente entity)
+        {
+            entity.Anamnese = this;
+        }
+        
+        private void DetachPacientes(Paciente entity)
+        {
+            entity.Anamnese = null;
+        }
+        
+        private bool FilterPacientes(Paciente entity)
+        {
+            return (entity.Anamnese_Id == this.Id);
+        }
+        
+        private bool FilterTiposSangue(TiposSangue entity)
+        {
+            return (entity.Id == this.TipoSangue_Id);
+        }
+        
+        /// <summary>
+        /// Computes a value from the key fields that uniquely identifies this entity instance.
+        /// </summary>
+        /// <returns>An object instance that uniquely identifies this entity instance.</returns>
+        public override object GetIdentity()
+        {
+            return this._id;
+        }
+    }
+    
+    /// <summary>
+    /// The 'Atendimento' entity class.
+    /// </summary>
+    [DataContract(Namespace="http://schemas.datacontract.org/2004/07/Erp.Medico.Web")]
+    public sealed partial class Atendimento : Entity
+    {
+        
+        private string _descricao;
+        
+        private EntityCollection<Diagnostico> _diagnosticos;
+        
+        private bool _emergencia;
+        
+        private DateTime _horario;
+        
+        private int _id;
+        
+        private EntityRef<Medico> _medico;
+        
+        private int _medico_Id;
+        
+        private EntityRef<Paciente> _paciente;
+        
+        private int _paciente_Id;
+        
+        private int _tipoAtendimento_Id;
+        
+        private EntityRef<TiposAtendimento> _tiposAtendimento;
+        
+        private EntityCollection<Tratamento> _tratamentos;
+        
+        #region Extensibility Method Definitions
+
+        /// <summary>
+        /// This method is invoked from the constructor once initialization is complete and
+        /// can be used for further object setup.
+        /// </summary>
+        partial void OnCreated();
+        partial void OnDescricaoChanging(string value);
+        partial void OnDescricaoChanged();
+        partial void OnEmergenciaChanging(bool value);
+        partial void OnEmergenciaChanged();
+        partial void OnHorarioChanging(DateTime value);
+        partial void OnHorarioChanged();
+        partial void OnIdChanging(int value);
+        partial void OnIdChanged();
+        partial void OnMedico_IdChanging(int value);
+        partial void OnMedico_IdChanged();
+        partial void OnPaciente_IdChanging(int value);
+        partial void OnPaciente_IdChanged();
+        partial void OnTipoAtendimento_IdChanging(int value);
+        partial void OnTipoAtendimento_IdChanged();
+
+        #endregion
+        
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Atendimento"/> class.
+        /// </summary>
+        public Atendimento()
+        {
+            this.OnCreated();
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Descricao' value.
+        /// </summary>
+        [DataMember()]
+        [Required()]
+        public string Descricao
+        {
+            get
+            {
+                return this._descricao;
+            }
+            set
+            {
+                if ((this._descricao != value))
+                {
+                    this.OnDescricaoChanging(value);
+                    this.RaiseDataMemberChanging("Descricao");
+                    this.ValidateProperty("Descricao", value);
+                    this._descricao = value;
+                    this.RaiseDataMemberChanged("Descricao");
+                    this.OnDescricaoChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets the collection of associated <see cref="Diagnostico"/> entities.
+        /// </summary>
+        [Association("Atendimento_Diagnostico", "Id", "AtendimentoId")]
+        [XmlIgnore()]
+        public EntityCollection<Diagnostico> Diagnosticos
+        {
+            get
+            {
+                if ((this._diagnosticos == null))
+                {
+                    this._diagnosticos = new EntityCollection<Diagnostico>(this, "Diagnosticos", this.FilterDiagnosticos, this.AttachDiagnosticos, this.DetachDiagnosticos);
+                }
+                return this._diagnosticos;
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Emergencia' value.
+        /// </summary>
+        [DataMember()]
+        public bool Emergencia
+        {
+            get
+            {
+                return this._emergencia;
+            }
+            set
+            {
+                if ((this._emergencia != value))
+                {
+                    this.OnEmergenciaChanging(value);
+                    this.RaiseDataMemberChanging("Emergencia");
+                    this.ValidateProperty("Emergencia", value);
+                    this._emergencia = value;
+                    this.RaiseDataMemberChanged("Emergencia");
+                    this.OnEmergenciaChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Horario' value.
+        /// </summary>
+        [DataMember()]
+        public DateTime Horario
+        {
+            get
+            {
+                return this._horario;
+            }
+            set
+            {
+                if ((this._horario != value))
+                {
+                    this.OnHorarioChanging(value);
+                    this.RaiseDataMemberChanging("Horario");
+                    this.ValidateProperty("Horario", value);
+                    this._horario = value;
+                    this.RaiseDataMemberChanged("Horario");
+                    this.OnHorarioChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Id' value.
+        /// </summary>
+        [DataMember()]
+        [Editable(false, AllowInitialValue=true)]
+        [Key()]
+        [RoundtripOriginal()]
+        public int Id
+        {
+            get
+            {
+                return this._id;
+            }
+            set
+            {
+                if ((this._id != value))
+                {
+                    this.OnIdChanging(value);
+                    this.ValidateProperty("Id", value);
+                    this._id = value;
+                    this.RaisePropertyChanged("Id");
+                    this.OnIdChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the associated <see cref="Medico"/> entity.
+        /// </summary>
+        [Association("Medico_Atendimento", "Medico_Id", "Id", IsForeignKey=true)]
+        [XmlIgnore()]
+        public Medico Medico
+        {
+            get
+            {
+                if ((this._medico == null))
+                {
+                    this._medico = new EntityRef<Medico>(this, "Medico", this.FilterMedico);
+                }
+                return this._medico.Entity;
+            }
+            set
+            {
+                Medico previous = this.Medico;
+                if ((previous != value))
+                {
+                    this.ValidateProperty("Medico", value);
+                    if ((previous != null))
+                    {
+                        this._medico.Entity = null;
+                        previous.Atendimentos.Remove(this);
+                    }
+                    if ((value != null))
+                    {
+                        this.Medico_Id = value.Id;
+                    }
+                    else
+                    {
+                        this.Medico_Id = default(int);
+                    }
+                    this._medico.Entity = value;
+                    if ((value != null))
+                    {
+                        value.Atendimentos.Add(this);
+                    }
+                    this.RaisePropertyChanged("Medico");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Medico_Id' value.
+        /// </summary>
+        [DataMember()]
+        [RoundtripOriginal()]
+        public int Medico_Id
+        {
+            get
+            {
+                return this._medico_Id;
+            }
+            set
+            {
+                if ((this._medico_Id != value))
+                {
+                    this.OnMedico_IdChanging(value);
+                    this.RaiseDataMemberChanging("Medico_Id");
+                    this.ValidateProperty("Medico_Id", value);
+                    this._medico_Id = value;
+                    this.RaiseDataMemberChanged("Medico_Id");
+                    this.OnMedico_IdChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the associated <see cref="Paciente"/> entity.
+        /// </summary>
+        [Association("Paciente_Atendimento", "Paciente_Id", "Id", IsForeignKey=true)]
+        [XmlIgnore()]
+        public Paciente Paciente
+        {
+            get
+            {
+                if ((this._paciente == null))
+                {
+                    this._paciente = new EntityRef<Paciente>(this, "Paciente", this.FilterPaciente);
+                }
+                return this._paciente.Entity;
+            }
+            set
+            {
+                Paciente previous = this.Paciente;
+                if ((previous != value))
+                {
+                    this.ValidateProperty("Paciente", value);
+                    if ((previous != null))
+                    {
+                        this._paciente.Entity = null;
+                        previous.Atendimentos.Remove(this);
+                    }
+                    if ((value != null))
+                    {
+                        this.Paciente_Id = value.Id;
+                    }
+                    else
+                    {
+                        this.Paciente_Id = default(int);
+                    }
+                    this._paciente.Entity = value;
+                    if ((value != null))
+                    {
+                        value.Atendimentos.Add(this);
+                    }
+                    this.RaisePropertyChanged("Paciente");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Paciente_Id' value.
+        /// </summary>
+        [DataMember()]
+        [RoundtripOriginal()]
+        public int Paciente_Id
+        {
+            get
+            {
+                return this._paciente_Id;
+            }
+            set
+            {
+                if ((this._paciente_Id != value))
+                {
+                    this.OnPaciente_IdChanging(value);
+                    this.RaiseDataMemberChanging("Paciente_Id");
+                    this.ValidateProperty("Paciente_Id", value);
+                    this._paciente_Id = value;
+                    this.RaiseDataMemberChanged("Paciente_Id");
+                    this.OnPaciente_IdChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'TipoAtendimento_Id' value.
+        /// </summary>
+        [DataMember()]
+        [RoundtripOriginal()]
+        public int TipoAtendimento_Id
+        {
+            get
+            {
+                return this._tipoAtendimento_Id;
+            }
+            set
+            {
+                if ((this._tipoAtendimento_Id != value))
+                {
+                    this.OnTipoAtendimento_IdChanging(value);
+                    this.RaiseDataMemberChanging("TipoAtendimento_Id");
+                    this.ValidateProperty("TipoAtendimento_Id", value);
+                    this._tipoAtendimento_Id = value;
+                    this.RaiseDataMemberChanged("TipoAtendimento_Id");
+                    this.OnTipoAtendimento_IdChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the associated <see cref="TiposAtendimento"/> entity.
+        /// </summary>
+        [Association("TiposAtendimento_Atendimento", "TipoAtendimento_Id", "Id", IsForeignKey=true)]
+        [XmlIgnore()]
+        public TiposAtendimento TiposAtendimento
+        {
+            get
+            {
+                if ((this._tiposAtendimento == null))
+                {
+                    this._tiposAtendimento = new EntityRef<TiposAtendimento>(this, "TiposAtendimento", this.FilterTiposAtendimento);
+                }
+                return this._tiposAtendimento.Entity;
+            }
+            set
+            {
+                TiposAtendimento previous = this.TiposAtendimento;
+                if ((previous != value))
+                {
+                    this.ValidateProperty("TiposAtendimento", value);
+                    if ((previous != null))
+                    {
+                        this._tiposAtendimento.Entity = null;
+                        previous.Atendimentos.Remove(this);
+                    }
+                    if ((value != null))
+                    {
+                        this.TipoAtendimento_Id = value.Id;
+                    }
+                    else
+                    {
+                        this.TipoAtendimento_Id = default(int);
+                    }
+                    this._tiposAtendimento.Entity = value;
+                    if ((value != null))
+                    {
+                        value.Atendimentos.Add(this);
+                    }
+                    this.RaisePropertyChanged("TiposAtendimento");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets the collection of associated <see cref="Tratamento"/> entities.
+        /// </summary>
+        [Association("Atendimento_Tratamento", "Id", "AtendimentoId")]
+        [XmlIgnore()]
+        public EntityCollection<Tratamento> Tratamentos
+        {
+            get
+            {
+                if ((this._tratamentos == null))
+                {
+                    this._tratamentos = new EntityCollection<Tratamento>(this, "Tratamentos", this.FilterTratamentos, this.AttachTratamentos, this.DetachTratamentos);
+                }
+                return this._tratamentos;
+            }
+        }
+        
+        private void AttachDiagnosticos(Diagnostico entity)
+        {
+            entity.Atendimento = this;
+        }
+        
+        private void DetachDiagnosticos(Diagnostico entity)
+        {
+            entity.Atendimento = null;
+        }
+        
+        private bool FilterDiagnosticos(Diagnostico entity)
+        {
+            return (entity.AtendimentoId == this.Id);
+        }
+        
+        private bool FilterMedico(Medico entity)
+        {
+            return (entity.Id == this.Medico_Id);
+        }
+        
+        private bool FilterPaciente(Paciente entity)
+        {
+            return (entity.Id == this.Paciente_Id);
+        }
+        
+        private bool FilterTiposAtendimento(TiposAtendimento entity)
+        {
+            return (entity.Id == this.TipoAtendimento_Id);
+        }
+        
+        private void AttachTratamentos(Tratamento entity)
+        {
+            entity.Atendimento = this;
+        }
+        
+        private void DetachTratamentos(Tratamento entity)
+        {
+            entity.Atendimento = null;
+        }
+        
+        private bool FilterTratamentos(Tratamento entity)
+        {
+            return (entity.AtendimentoId == this.Id);
+        }
+        
+        /// <summary>
+        /// Computes a value from the key fields that uniquely identifies this entity instance.
+        /// </summary>
+        /// <returns>An object instance that uniquely identifies this entity instance.</returns>
+        public override object GetIdentity()
+        {
+            return this._id;
+        }
+    }
     
     /// <summary>
     /// The domain context corresponding to the 'AuthenticationService' domain service.
@@ -114,7 +922,7 @@ namespace ERP.Medico.Web
         /// Initializes a new instance of the <see cref="AuthenticationContext"/> class.
         /// </summary>
         public AuthenticationContext() : 
-                this(new WebDomainClient<IAuthenticationServiceContract>(new Uri("ERP-Medico-Web-AuthenticationService.svc", UriKind.Relative)))
+                this(new WebDomainClient<IAuthenticationServiceContract>(new Uri("Erp-Medico-Web-AuthenticationService.svc", UriKind.Relative)))
         {
         }
         
@@ -311,9 +1119,1015 @@ namespace ERP.Medico.Web
     }
     
     /// <summary>
+    /// The 'Diagnostico' entity class.
+    /// </summary>
+    [DataContract(Namespace="http://schemas.datacontract.org/2004/07/Erp.Medico.Web")]
+    public sealed partial class Diagnostico : Entity
+    {
+        
+        private EntityRef<Atendimento> _atendimento;
+        
+        private int _atendimentoId;
+        
+        private string _descricao;
+        
+        private int _id;
+        
+        private string _observacoes;
+        
+        #region Extensibility Method Definitions
+
+        /// <summary>
+        /// This method is invoked from the constructor once initialization is complete and
+        /// can be used for further object setup.
+        /// </summary>
+        partial void OnCreated();
+        partial void OnAtendimentoIdChanging(int value);
+        partial void OnAtendimentoIdChanged();
+        partial void OnDescricaoChanging(string value);
+        partial void OnDescricaoChanged();
+        partial void OnIdChanging(int value);
+        partial void OnIdChanged();
+        partial void OnObservacoesChanging(string value);
+        partial void OnObservacoesChanged();
+
+        #endregion
+        
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Diagnostico"/> class.
+        /// </summary>
+        public Diagnostico()
+        {
+            this.OnCreated();
+        }
+        
+        /// <summary>
+        /// Gets or sets the associated <see cref="Atendimento"/> entity.
+        /// </summary>
+        [Association("Atendimento_Diagnostico", "AtendimentoId", "Id", IsForeignKey=true)]
+        [XmlIgnore()]
+        public Atendimento Atendimento
+        {
+            get
+            {
+                if ((this._atendimento == null))
+                {
+                    this._atendimento = new EntityRef<Atendimento>(this, "Atendimento", this.FilterAtendimento);
+                }
+                return this._atendimento.Entity;
+            }
+            set
+            {
+                Atendimento previous = this.Atendimento;
+                if ((previous != value))
+                {
+                    this.ValidateProperty("Atendimento", value);
+                    if ((previous != null))
+                    {
+                        this._atendimento.Entity = null;
+                        previous.Diagnosticos.Remove(this);
+                    }
+                    if ((value != null))
+                    {
+                        this.AtendimentoId = value.Id;
+                    }
+                    else
+                    {
+                        this.AtendimentoId = default(int);
+                    }
+                    this._atendimento.Entity = value;
+                    if ((value != null))
+                    {
+                        value.Diagnosticos.Add(this);
+                    }
+                    this.RaisePropertyChanged("Atendimento");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'AtendimentoId' value.
+        /// </summary>
+        [DataMember()]
+        [RoundtripOriginal()]
+        public int AtendimentoId
+        {
+            get
+            {
+                return this._atendimentoId;
+            }
+            set
+            {
+                if ((this._atendimentoId != value))
+                {
+                    this.OnAtendimentoIdChanging(value);
+                    this.RaiseDataMemberChanging("AtendimentoId");
+                    this.ValidateProperty("AtendimentoId", value);
+                    this._atendimentoId = value;
+                    this.RaiseDataMemberChanged("AtendimentoId");
+                    this.OnAtendimentoIdChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Descricao' value.
+        /// </summary>
+        [DataMember()]
+        [Required()]
+        public string Descricao
+        {
+            get
+            {
+                return this._descricao;
+            }
+            set
+            {
+                if ((this._descricao != value))
+                {
+                    this.OnDescricaoChanging(value);
+                    this.RaiseDataMemberChanging("Descricao");
+                    this.ValidateProperty("Descricao", value);
+                    this._descricao = value;
+                    this.RaiseDataMemberChanged("Descricao");
+                    this.OnDescricaoChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Id' value.
+        /// </summary>
+        [DataMember()]
+        [Editable(false, AllowInitialValue=true)]
+        [Key()]
+        [RoundtripOriginal()]
+        public int Id
+        {
+            get
+            {
+                return this._id;
+            }
+            set
+            {
+                if ((this._id != value))
+                {
+                    this.OnIdChanging(value);
+                    this.ValidateProperty("Id", value);
+                    this._id = value;
+                    this.RaisePropertyChanged("Id");
+                    this.OnIdChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Observacoes' value.
+        /// </summary>
+        [DataMember()]
+        [Required()]
+        public string Observacoes
+        {
+            get
+            {
+                return this._observacoes;
+            }
+            set
+            {
+                if ((this._observacoes != value))
+                {
+                    this.OnObservacoesChanging(value);
+                    this.RaiseDataMemberChanging("Observacoes");
+                    this.ValidateProperty("Observacoes", value);
+                    this._observacoes = value;
+                    this.RaiseDataMemberChanged("Observacoes");
+                    this.OnObservacoesChanged();
+                }
+            }
+        }
+        
+        private bool FilterAtendimento(Atendimento entity)
+        {
+            return (entity.Id == this.AtendimentoId);
+        }
+        
+        /// <summary>
+        /// Computes a value from the key fields that uniquely identifies this entity instance.
+        /// </summary>
+        /// <returns>An object instance that uniquely identifies this entity instance.</returns>
+        public override object GetIdentity()
+        {
+            return this._id;
+        }
+    }
+    
+    /// <summary>
+    /// The domain context corresponding to the 'ERPMedicoDomainService' domain service.
+    /// </summary>
+    public sealed partial class ERPMedicoDomainContext : DomainContext
+    {
+        
+        #region Extensibility Method Definitions
+
+        /// <summary>
+        /// This method is invoked from the constructor once initialization is complete and
+        /// can be used for further object setup.
+        /// </summary>
+        partial void OnCreated();
+
+        #endregion
+        
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ERPMedicoDomainContext"/> class.
+        /// </summary>
+        public ERPMedicoDomainContext() : 
+                this(new WebDomainClient<IERPMedicoDomainServiceContract>(new Uri("Erp-Medico-Web-ERPMedicoDomainService.svc", UriKind.Relative)))
+        {
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ERPMedicoDomainContext"/> class with the specified service URI.
+        /// </summary>
+        /// <param name="serviceUri">The ERPMedicoDomainService service URI.</param>
+        public ERPMedicoDomainContext(Uri serviceUri) : 
+                this(new WebDomainClient<IERPMedicoDomainServiceContract>(serviceUri))
+        {
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ERPMedicoDomainContext"/> class with the specified <paramref name="domainClient"/>.
+        /// </summary>
+        /// <param name="domainClient">The DomainClient instance to use for this domain context.</param>
+        public ERPMedicoDomainContext(DomainClient domainClient) : 
+                base(domainClient)
+        {
+            this.OnCreated();
+        }
+        
+        /// <summary>
+        /// Gets the set of <see cref="Anamnese"/> entities that have been loaded into this <see cref="ERPMedicoDomainContext"/> instance.
+        /// </summary>
+        public EntitySet<Anamnese> Anamneses
+        {
+            get
+            {
+                return base.EntityContainer.GetEntitySet<Anamnese>();
+            }
+        }
+        
+        /// <summary>
+        /// Gets the set of <see cref="Atendimento"/> entities that have been loaded into this <see cref="ERPMedicoDomainContext"/> instance.
+        /// </summary>
+        public EntitySet<Atendimento> Atendimentos
+        {
+            get
+            {
+                return base.EntityContainer.GetEntitySet<Atendimento>();
+            }
+        }
+        
+        /// <summary>
+        /// Gets the set of <see cref="Diagnostico"/> entities that have been loaded into this <see cref="ERPMedicoDomainContext"/> instance.
+        /// </summary>
+        public EntitySet<Diagnostico> Diagnosticos
+        {
+            get
+            {
+                return base.EntityContainer.GetEntitySet<Diagnostico>();
+            }
+        }
+        
+        /// <summary>
+        /// Gets the set of <see cref="Medico"/> entities that have been loaded into this <see cref="ERPMedicoDomainContext"/> instance.
+        /// </summary>
+        public EntitySet<Medico> Medicos
+        {
+            get
+            {
+                return base.EntityContainer.GetEntitySet<Medico>();
+            }
+        }
+        
+        /// <summary>
+        /// Gets the set of <see cref="Paciente"/> entities that have been loaded into this <see cref="ERPMedicoDomainContext"/> instance.
+        /// </summary>
+        public EntitySet<Paciente> Pacientes
+        {
+            get
+            {
+                return base.EntityContainer.GetEntitySet<Paciente>();
+            }
+        }
+        
+        /// <summary>
+        /// Gets the set of <see cref="TiposAtendimento"/> entities that have been loaded into this <see cref="ERPMedicoDomainContext"/> instance.
+        /// </summary>
+        public EntitySet<TiposAtendimento> TiposAtendimentos
+        {
+            get
+            {
+                return base.EntityContainer.GetEntitySet<TiposAtendimento>();
+            }
+        }
+        
+        /// <summary>
+        /// Gets the set of <see cref="TiposSangue"/> entities that have been loaded into this <see cref="ERPMedicoDomainContext"/> instance.
+        /// </summary>
+        public EntitySet<TiposSangue> TiposSangues
+        {
+            get
+            {
+                return base.EntityContainer.GetEntitySet<TiposSangue>();
+            }
+        }
+        
+        /// <summary>
+        /// Gets the set of <see cref="Tratamento"/> entities that have been loaded into this <see cref="ERPMedicoDomainContext"/> instance.
+        /// </summary>
+        public EntitySet<Tratamento> Tratamentos
+        {
+            get
+            {
+                return base.EntityContainer.GetEntitySet<Tratamento>();
+            }
+        }
+        
+        /// <summary>
+        /// Gets an EntityQuery instance that can be used to load <see cref="Anamnese"/> entities using the 'GetAnamneses' query.
+        /// </summary>
+        /// <returns>An EntityQuery that can be loaded to retrieve <see cref="Anamnese"/> entities.</returns>
+        public EntityQuery<Anamnese> GetAnamnesesQuery()
+        {
+            this.ValidateMethod("GetAnamnesesQuery", null);
+            return base.CreateQuery<Anamnese>("GetAnamneses", null, false, true);
+        }
+        
+        /// <summary>
+        /// Gets an EntityQuery instance that can be used to load <see cref="Atendimento"/> entities using the 'GetAtendimentos' query.
+        /// </summary>
+        /// <returns>An EntityQuery that can be loaded to retrieve <see cref="Atendimento"/> entities.</returns>
+        public EntityQuery<Atendimento> GetAtendimentosQuery()
+        {
+            this.ValidateMethod("GetAtendimentosQuery", null);
+            return base.CreateQuery<Atendimento>("GetAtendimentos", null, false, true);
+        }
+        
+        /// <summary>
+        /// Gets an EntityQuery instance that can be used to load <see cref="Diagnostico"/> entities using the 'GetDiagnosticos' query.
+        /// </summary>
+        /// <returns>An EntityQuery that can be loaded to retrieve <see cref="Diagnostico"/> entities.</returns>
+        public EntityQuery<Diagnostico> GetDiagnosticosQuery()
+        {
+            this.ValidateMethod("GetDiagnosticosQuery", null);
+            return base.CreateQuery<Diagnostico>("GetDiagnosticos", null, false, true);
+        }
+        
+        /// <summary>
+        /// Gets an EntityQuery instance that can be used to load <see cref="Medico"/> entities using the 'GetMedicos' query.
+        /// </summary>
+        /// <returns>An EntityQuery that can be loaded to retrieve <see cref="Medico"/> entities.</returns>
+        public EntityQuery<Medico> GetMedicosQuery()
+        {
+            this.ValidateMethod("GetMedicosQuery", null);
+            return base.CreateQuery<Medico>("GetMedicos", null, false, true);
+        }
+        
+        /// <summary>
+        /// Gets an EntityQuery instance that can be used to load <see cref="Paciente"/> entities using the 'GetPacientes' query.
+        /// </summary>
+        /// <returns>An EntityQuery that can be loaded to retrieve <see cref="Paciente"/> entities.</returns>
+        public EntityQuery<Paciente> GetPacientesQuery()
+        {
+            this.ValidateMethod("GetPacientesQuery", null);
+            return base.CreateQuery<Paciente>("GetPacientes", null, false, true);
+        }
+        
+        /// <summary>
+        /// Gets an EntityQuery instance that can be used to load <see cref="TiposAtendimento"/> entities using the 'GetTiposAtendimentos' query.
+        /// </summary>
+        /// <returns>An EntityQuery that can be loaded to retrieve <see cref="TiposAtendimento"/> entities.</returns>
+        public EntityQuery<TiposAtendimento> GetTiposAtendimentosQuery()
+        {
+            this.ValidateMethod("GetTiposAtendimentosQuery", null);
+            return base.CreateQuery<TiposAtendimento>("GetTiposAtendimentos", null, false, true);
+        }
+        
+        /// <summary>
+        /// Gets an EntityQuery instance that can be used to load <see cref="TiposSangue"/> entities using the 'GetTiposSangues' query.
+        /// </summary>
+        /// <returns>An EntityQuery that can be loaded to retrieve <see cref="TiposSangue"/> entities.</returns>
+        public EntityQuery<TiposSangue> GetTiposSanguesQuery()
+        {
+            this.ValidateMethod("GetTiposSanguesQuery", null);
+            return base.CreateQuery<TiposSangue>("GetTiposSangues", null, false, true);
+        }
+        
+        /// <summary>
+        /// Gets an EntityQuery instance that can be used to load <see cref="Tratamento"/> entities using the 'GetTratamentos' query.
+        /// </summary>
+        /// <returns>An EntityQuery that can be loaded to retrieve <see cref="Tratamento"/> entities.</returns>
+        public EntityQuery<Tratamento> GetTratamentosQuery()
+        {
+            this.ValidateMethod("GetTratamentosQuery", null);
+            return base.CreateQuery<Tratamento>("GetTratamentos", null, false, true);
+        }
+        
+        /// <summary>
+        /// Creates a new entity container for this domain context's entity sets.
+        /// </summary>
+        /// <returns>A new container instance.</returns>
+        protected override EntityContainer CreateEntityContainer()
+        {
+            return new ERPMedicoDomainContextEntityContainer();
+        }
+        
+        /// <summary>
+        /// Service contract for the 'ERPMedicoDomainService' domain service.
+        /// </summary>
+        [ServiceContract()]
+        public interface IERPMedicoDomainServiceContract
+        {
+            
+            /// <summary>
+            /// Asynchronously invokes the 'GetAnamneses' operation.
+            /// </summary>
+            /// <param name="callback">Callback to invoke on completion.</param>
+            /// <param name="asyncState">Optional state object.</param>
+            /// <returns>An IAsyncResult that can be used to monitor the request.</returns>
+            [FaultContract(typeof(DomainServiceFault), Action="http://tempuri.org/ERPMedicoDomainService/GetAnamnesesDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+            [OperationContract(AsyncPattern=true, Action="http://tempuri.org/ERPMedicoDomainService/GetAnamneses", ReplyAction="http://tempuri.org/ERPMedicoDomainService/GetAnamnesesResponse")]
+            [WebGet()]
+            IAsyncResult BeginGetAnamneses(AsyncCallback callback, object asyncState);
+            
+            /// <summary>
+            /// Completes the asynchronous operation begun by 'BeginGetAnamneses'.
+            /// </summary>
+            /// <param name="result">The IAsyncResult returned from 'BeginGetAnamneses'.</param>
+            /// <returns>The 'QueryResult' returned from the 'GetAnamneses' operation.</returns>
+            QueryResult<Anamnese> EndGetAnamneses(IAsyncResult result);
+            
+            /// <summary>
+            /// Asynchronously invokes the 'GetAtendimentos' operation.
+            /// </summary>
+            /// <param name="callback">Callback to invoke on completion.</param>
+            /// <param name="asyncState">Optional state object.</param>
+            /// <returns>An IAsyncResult that can be used to monitor the request.</returns>
+            [FaultContract(typeof(DomainServiceFault), Action="http://tempuri.org/ERPMedicoDomainService/GetAtendimentosDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+            [OperationContract(AsyncPattern=true, Action="http://tempuri.org/ERPMedicoDomainService/GetAtendimentos", ReplyAction="http://tempuri.org/ERPMedicoDomainService/GetAtendimentosResponse")]
+            [WebGet()]
+            IAsyncResult BeginGetAtendimentos(AsyncCallback callback, object asyncState);
+            
+            /// <summary>
+            /// Completes the asynchronous operation begun by 'BeginGetAtendimentos'.
+            /// </summary>
+            /// <param name="result">The IAsyncResult returned from 'BeginGetAtendimentos'.</param>
+            /// <returns>The 'QueryResult' returned from the 'GetAtendimentos' operation.</returns>
+            QueryResult<Atendimento> EndGetAtendimentos(IAsyncResult result);
+            
+            /// <summary>
+            /// Asynchronously invokes the 'GetDiagnosticos' operation.
+            /// </summary>
+            /// <param name="callback">Callback to invoke on completion.</param>
+            /// <param name="asyncState">Optional state object.</param>
+            /// <returns>An IAsyncResult that can be used to monitor the request.</returns>
+            [FaultContract(typeof(DomainServiceFault), Action="http://tempuri.org/ERPMedicoDomainService/GetDiagnosticosDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+            [OperationContract(AsyncPattern=true, Action="http://tempuri.org/ERPMedicoDomainService/GetDiagnosticos", ReplyAction="http://tempuri.org/ERPMedicoDomainService/GetDiagnosticosResponse")]
+            [WebGet()]
+            IAsyncResult BeginGetDiagnosticos(AsyncCallback callback, object asyncState);
+            
+            /// <summary>
+            /// Completes the asynchronous operation begun by 'BeginGetDiagnosticos'.
+            /// </summary>
+            /// <param name="result">The IAsyncResult returned from 'BeginGetDiagnosticos'.</param>
+            /// <returns>The 'QueryResult' returned from the 'GetDiagnosticos' operation.</returns>
+            QueryResult<Diagnostico> EndGetDiagnosticos(IAsyncResult result);
+            
+            /// <summary>
+            /// Asynchronously invokes the 'GetMedicos' operation.
+            /// </summary>
+            /// <param name="callback">Callback to invoke on completion.</param>
+            /// <param name="asyncState">Optional state object.</param>
+            /// <returns>An IAsyncResult that can be used to monitor the request.</returns>
+            [FaultContract(typeof(DomainServiceFault), Action="http://tempuri.org/ERPMedicoDomainService/GetMedicosDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+            [OperationContract(AsyncPattern=true, Action="http://tempuri.org/ERPMedicoDomainService/GetMedicos", ReplyAction="http://tempuri.org/ERPMedicoDomainService/GetMedicosResponse")]
+            [WebGet()]
+            IAsyncResult BeginGetMedicos(AsyncCallback callback, object asyncState);
+            
+            /// <summary>
+            /// Completes the asynchronous operation begun by 'BeginGetMedicos'.
+            /// </summary>
+            /// <param name="result">The IAsyncResult returned from 'BeginGetMedicos'.</param>
+            /// <returns>The 'QueryResult' returned from the 'GetMedicos' operation.</returns>
+            QueryResult<Medico> EndGetMedicos(IAsyncResult result);
+            
+            /// <summary>
+            /// Asynchronously invokes the 'GetPacientes' operation.
+            /// </summary>
+            /// <param name="callback">Callback to invoke on completion.</param>
+            /// <param name="asyncState">Optional state object.</param>
+            /// <returns>An IAsyncResult that can be used to monitor the request.</returns>
+            [FaultContract(typeof(DomainServiceFault), Action="http://tempuri.org/ERPMedicoDomainService/GetPacientesDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+            [OperationContract(AsyncPattern=true, Action="http://tempuri.org/ERPMedicoDomainService/GetPacientes", ReplyAction="http://tempuri.org/ERPMedicoDomainService/GetPacientesResponse")]
+            [WebGet()]
+            IAsyncResult BeginGetPacientes(AsyncCallback callback, object asyncState);
+            
+            /// <summary>
+            /// Completes the asynchronous operation begun by 'BeginGetPacientes'.
+            /// </summary>
+            /// <param name="result">The IAsyncResult returned from 'BeginGetPacientes'.</param>
+            /// <returns>The 'QueryResult' returned from the 'GetPacientes' operation.</returns>
+            QueryResult<Paciente> EndGetPacientes(IAsyncResult result);
+            
+            /// <summary>
+            /// Asynchronously invokes the 'GetTiposAtendimentos' operation.
+            /// </summary>
+            /// <param name="callback">Callback to invoke on completion.</param>
+            /// <param name="asyncState">Optional state object.</param>
+            /// <returns>An IAsyncResult that can be used to monitor the request.</returns>
+            [FaultContract(typeof(DomainServiceFault), Action="http://tempuri.org/ERPMedicoDomainService/GetTiposAtendimentosDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+            [OperationContract(AsyncPattern=true, Action="http://tempuri.org/ERPMedicoDomainService/GetTiposAtendimentos", ReplyAction="http://tempuri.org/ERPMedicoDomainService/GetTiposAtendimentosResponse")]
+            [WebGet()]
+            IAsyncResult BeginGetTiposAtendimentos(AsyncCallback callback, object asyncState);
+            
+            /// <summary>
+            /// Completes the asynchronous operation begun by 'BeginGetTiposAtendimentos'.
+            /// </summary>
+            /// <param name="result">The IAsyncResult returned from 'BeginGetTiposAtendimentos'.</param>
+            /// <returns>The 'QueryResult' returned from the 'GetTiposAtendimentos' operation.</returns>
+            QueryResult<TiposAtendimento> EndGetTiposAtendimentos(IAsyncResult result);
+            
+            /// <summary>
+            /// Asynchronously invokes the 'GetTiposSangues' operation.
+            /// </summary>
+            /// <param name="callback">Callback to invoke on completion.</param>
+            /// <param name="asyncState">Optional state object.</param>
+            /// <returns>An IAsyncResult that can be used to monitor the request.</returns>
+            [FaultContract(typeof(DomainServiceFault), Action="http://tempuri.org/ERPMedicoDomainService/GetTiposSanguesDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+            [OperationContract(AsyncPattern=true, Action="http://tempuri.org/ERPMedicoDomainService/GetTiposSangues", ReplyAction="http://tempuri.org/ERPMedicoDomainService/GetTiposSanguesResponse")]
+            [WebGet()]
+            IAsyncResult BeginGetTiposSangues(AsyncCallback callback, object asyncState);
+            
+            /// <summary>
+            /// Completes the asynchronous operation begun by 'BeginGetTiposSangues'.
+            /// </summary>
+            /// <param name="result">The IAsyncResult returned from 'BeginGetTiposSangues'.</param>
+            /// <returns>The 'QueryResult' returned from the 'GetTiposSangues' operation.</returns>
+            QueryResult<TiposSangue> EndGetTiposSangues(IAsyncResult result);
+            
+            /// <summary>
+            /// Asynchronously invokes the 'GetTratamentos' operation.
+            /// </summary>
+            /// <param name="callback">Callback to invoke on completion.</param>
+            /// <param name="asyncState">Optional state object.</param>
+            /// <returns>An IAsyncResult that can be used to monitor the request.</returns>
+            [FaultContract(typeof(DomainServiceFault), Action="http://tempuri.org/ERPMedicoDomainService/GetTratamentosDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+            [OperationContract(AsyncPattern=true, Action="http://tempuri.org/ERPMedicoDomainService/GetTratamentos", ReplyAction="http://tempuri.org/ERPMedicoDomainService/GetTratamentosResponse")]
+            [WebGet()]
+            IAsyncResult BeginGetTratamentos(AsyncCallback callback, object asyncState);
+            
+            /// <summary>
+            /// Completes the asynchronous operation begun by 'BeginGetTratamentos'.
+            /// </summary>
+            /// <param name="result">The IAsyncResult returned from 'BeginGetTratamentos'.</param>
+            /// <returns>The 'QueryResult' returned from the 'GetTratamentos' operation.</returns>
+            QueryResult<Tratamento> EndGetTratamentos(IAsyncResult result);
+            
+            /// <summary>
+            /// Asynchronously invokes the 'SubmitChanges' operation.
+            /// </summary>
+            /// <param name="changeSet">The change-set to submit.</param>
+            /// <param name="callback">Callback to invoke on completion.</param>
+            /// <param name="asyncState">Optional state object.</param>
+            /// <returns>An IAsyncResult that can be used to monitor the request.</returns>
+            [FaultContract(typeof(DomainServiceFault), Action="http://tempuri.org/ERPMedicoDomainService/SubmitChangesDomainServiceFault", Name="DomainServiceFault", Namespace="DomainServices")]
+            [OperationContract(AsyncPattern=true, Action="http://tempuri.org/ERPMedicoDomainService/SubmitChanges", ReplyAction="http://tempuri.org/ERPMedicoDomainService/SubmitChangesResponse")]
+            IAsyncResult BeginSubmitChanges(IEnumerable<ChangeSetEntry> changeSet, AsyncCallback callback, object asyncState);
+            
+            /// <summary>
+            /// Completes the asynchronous operation begun by 'BeginSubmitChanges'.
+            /// </summary>
+            /// <param name="result">The IAsyncResult returned from 'BeginSubmitChanges'.</param>
+            /// <returns>The collection of change-set entry elements returned from 'SubmitChanges'.</returns>
+            IEnumerable<ChangeSetEntry> EndSubmitChanges(IAsyncResult result);
+        }
+        
+        internal sealed class ERPMedicoDomainContextEntityContainer : EntityContainer
+        {
+            
+            public ERPMedicoDomainContextEntityContainer()
+            {
+                this.CreateEntitySet<Anamnese>(EntitySetOperations.All);
+                this.CreateEntitySet<Atendimento>(EntitySetOperations.All);
+                this.CreateEntitySet<Diagnostico>(EntitySetOperations.All);
+                this.CreateEntitySet<Medico>(EntitySetOperations.All);
+                this.CreateEntitySet<Paciente>(EntitySetOperations.All);
+                this.CreateEntitySet<TiposAtendimento>(EntitySetOperations.All);
+                this.CreateEntitySet<TiposSangue>(EntitySetOperations.All);
+                this.CreateEntitySet<Tratamento>(EntitySetOperations.All);
+            }
+        }
+    }
+    
+    /// <summary>
+    /// The 'Medico' entity class.
+    /// </summary>
+    [DataContract(Namespace="http://schemas.datacontract.org/2004/07/Erp.Medico.Web")]
+    public sealed partial class Medico : Entity
+    {
+        
+        private EntityCollection<Atendimento> _atendimentos;
+        
+        private int _id;
+        
+        private string _nome;
+        
+        #region Extensibility Method Definitions
+
+        /// <summary>
+        /// This method is invoked from the constructor once initialization is complete and
+        /// can be used for further object setup.
+        /// </summary>
+        partial void OnCreated();
+        partial void OnIdChanging(int value);
+        partial void OnIdChanged();
+        partial void OnNomeChanging(string value);
+        partial void OnNomeChanged();
+
+        #endregion
+        
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Medico"/> class.
+        /// </summary>
+        public Medico()
+        {
+            this.OnCreated();
+        }
+        
+        /// <summary>
+        /// Gets the collection of associated <see cref="Atendimento"/> entities.
+        /// </summary>
+        [Association("Medico_Atendimento", "Id", "Medico_Id")]
+        [XmlIgnore()]
+        public EntityCollection<Atendimento> Atendimentos
+        {
+            get
+            {
+                if ((this._atendimentos == null))
+                {
+                    this._atendimentos = new EntityCollection<Atendimento>(this, "Atendimentos", this.FilterAtendimentos, this.AttachAtendimentos, this.DetachAtendimentos);
+                }
+                return this._atendimentos;
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Id' value.
+        /// </summary>
+        [DataMember()]
+        [Editable(false, AllowInitialValue=true)]
+        [Key()]
+        [RoundtripOriginal()]
+        public int Id
+        {
+            get
+            {
+                return this._id;
+            }
+            set
+            {
+                if ((this._id != value))
+                {
+                    this.OnIdChanging(value);
+                    this.ValidateProperty("Id", value);
+                    this._id = value;
+                    this.RaisePropertyChanged("Id");
+                    this.OnIdChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Nome' value.
+        /// </summary>
+        [DataMember()]
+        [Required()]
+        public string Nome
+        {
+            get
+            {
+                return this._nome;
+            }
+            set
+            {
+                if ((this._nome != value))
+                {
+                    this.OnNomeChanging(value);
+                    this.RaiseDataMemberChanging("Nome");
+                    this.ValidateProperty("Nome", value);
+                    this._nome = value;
+                    this.RaiseDataMemberChanged("Nome");
+                    this.OnNomeChanged();
+                }
+            }
+        }
+        
+        private void AttachAtendimentos(Atendimento entity)
+        {
+            entity.Medico = this;
+        }
+        
+        private void DetachAtendimentos(Atendimento entity)
+        {
+            entity.Medico = null;
+        }
+        
+        private bool FilterAtendimentos(Atendimento entity)
+        {
+            return (entity.Medico_Id == this.Id);
+        }
+        
+        /// <summary>
+        /// Computes a value from the key fields that uniquely identifies this entity instance.
+        /// </summary>
+        /// <returns>An object instance that uniquely identifies this entity instance.</returns>
+        public override object GetIdentity()
+        {
+            return this._id;
+        }
+    }
+    
+    /// <summary>
+    /// The 'Paciente' entity class.
+    /// </summary>
+    [DataContract(Namespace="http://schemas.datacontract.org/2004/07/Erp.Medico.Web")]
+    public sealed partial class Paciente : Entity
+    {
+        
+        private float _altura;
+        
+        private EntityRef<Anamnese> _anamnese;
+        
+        private int _anamnese_Id;
+        
+        private EntityCollection<Atendimento> _atendimentos;
+        
+        private string _codigo;
+        
+        private int _id;
+        
+        private float _peso;
+        
+        #region Extensibility Method Definitions
+
+        /// <summary>
+        /// This method is invoked from the constructor once initialization is complete and
+        /// can be used for further object setup.
+        /// </summary>
+        partial void OnCreated();
+        partial void OnAlturaChanging(float value);
+        partial void OnAlturaChanged();
+        partial void OnAnamnese_IdChanging(int value);
+        partial void OnAnamnese_IdChanged();
+        partial void OnCodigoChanging(string value);
+        partial void OnCodigoChanged();
+        partial void OnIdChanging(int value);
+        partial void OnIdChanged();
+        partial void OnPesoChanging(float value);
+        partial void OnPesoChanged();
+
+        #endregion
+        
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Paciente"/> class.
+        /// </summary>
+        public Paciente()
+        {
+            this.OnCreated();
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Altura' value.
+        /// </summary>
+        [DataMember()]
+        public float Altura
+        {
+            get
+            {
+                return this._altura;
+            }
+            set
+            {
+                if ((this._altura != value))
+                {
+                    this.OnAlturaChanging(value);
+                    this.RaiseDataMemberChanging("Altura");
+                    this.ValidateProperty("Altura", value);
+                    this._altura = value;
+                    this.RaiseDataMemberChanged("Altura");
+                    this.OnAlturaChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the associated <see cref="Anamnese"/> entity.
+        /// </summary>
+        [Association("Anamnese_Paciente", "Anamnese_Id", "Id", IsForeignKey=true)]
+        [XmlIgnore()]
+        public Anamnese Anamnese
+        {
+            get
+            {
+                if ((this._anamnese == null))
+                {
+                    this._anamnese = new EntityRef<Anamnese>(this, "Anamnese", this.FilterAnamnese);
+                }
+                return this._anamnese.Entity;
+            }
+            set
+            {
+                Anamnese previous = this.Anamnese;
+                if ((previous != value))
+                {
+                    this.ValidateProperty("Anamnese", value);
+                    if ((previous != null))
+                    {
+                        this._anamnese.Entity = null;
+                        previous.Pacientes.Remove(this);
+                    }
+                    if ((value != null))
+                    {
+                        this.Anamnese_Id = value.Id;
+                    }
+                    else
+                    {
+                        this.Anamnese_Id = default(int);
+                    }
+                    this._anamnese.Entity = value;
+                    if ((value != null))
+                    {
+                        value.Pacientes.Add(this);
+                    }
+                    this.RaisePropertyChanged("Anamnese");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Anamnese_Id' value.
+        /// </summary>
+        [DataMember()]
+        [RoundtripOriginal()]
+        public int Anamnese_Id
+        {
+            get
+            {
+                return this._anamnese_Id;
+            }
+            set
+            {
+                if ((this._anamnese_Id != value))
+                {
+                    this.OnAnamnese_IdChanging(value);
+                    this.RaiseDataMemberChanging("Anamnese_Id");
+                    this.ValidateProperty("Anamnese_Id", value);
+                    this._anamnese_Id = value;
+                    this.RaiseDataMemberChanged("Anamnese_Id");
+                    this.OnAnamnese_IdChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets the collection of associated <see cref="Atendimento"/> entities.
+        /// </summary>
+        [Association("Paciente_Atendimento", "Id", "Paciente_Id")]
+        [XmlIgnore()]
+        public EntityCollection<Atendimento> Atendimentos
+        {
+            get
+            {
+                if ((this._atendimentos == null))
+                {
+                    this._atendimentos = new EntityCollection<Atendimento>(this, "Atendimentos", this.FilterAtendimentos, this.AttachAtendimentos, this.DetachAtendimentos);
+                }
+                return this._atendimentos;
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Codigo' value.
+        /// </summary>
+        [DataMember()]
+        [Required()]
+        public string Codigo
+        {
+            get
+            {
+                return this._codigo;
+            }
+            set
+            {
+                if ((this._codigo != value))
+                {
+                    this.OnCodigoChanging(value);
+                    this.RaiseDataMemberChanging("Codigo");
+                    this.ValidateProperty("Codigo", value);
+                    this._codigo = value;
+                    this.RaiseDataMemberChanged("Codigo");
+                    this.OnCodigoChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Id' value.
+        /// </summary>
+        [DataMember()]
+        [Editable(false, AllowInitialValue=true)]
+        [Key()]
+        [RoundtripOriginal()]
+        public int Id
+        {
+            get
+            {
+                return this._id;
+            }
+            set
+            {
+                if ((this._id != value))
+                {
+                    this.OnIdChanging(value);
+                    this.ValidateProperty("Id", value);
+                    this._id = value;
+                    this.RaisePropertyChanged("Id");
+                    this.OnIdChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Peso' value.
+        /// </summary>
+        [DataMember()]
+        public float Peso
+        {
+            get
+            {
+                return this._peso;
+            }
+            set
+            {
+                if ((this._peso != value))
+                {
+                    this.OnPesoChanging(value);
+                    this.RaiseDataMemberChanging("Peso");
+                    this.ValidateProperty("Peso", value);
+                    this._peso = value;
+                    this.RaiseDataMemberChanged("Peso");
+                    this.OnPesoChanged();
+                }
+            }
+        }
+        
+        private bool FilterAnamnese(Anamnese entity)
+        {
+            return (entity.Id == this.Anamnese_Id);
+        }
+        
+        private void AttachAtendimentos(Atendimento entity)
+        {
+            entity.Paciente = this;
+        }
+        
+        private void DetachAtendimentos(Atendimento entity)
+        {
+            entity.Paciente = null;
+        }
+        
+        private bool FilterAtendimentos(Atendimento entity)
+        {
+            return (entity.Paciente_Id == this.Id);
+        }
+        
+        /// <summary>
+        /// Computes a value from the key fields that uniquely identifies this entity instance.
+        /// </summary>
+        /// <returns>An object instance that uniquely identifies this entity instance.</returns>
+        public override object GetIdentity()
+        {
+            return this._id;
+        }
+    }
+    
+    /// <summary>
     /// The 'RegistrationData' entity class.
     /// </summary>
-    [DataContract(Namespace="http://schemas.datacontract.org/2004/07/ERP.Medico.Web")]
+    [DataContract(Namespace="http://schemas.datacontract.org/2004/07/Erp.Medico.Web")]
     public sealed partial class RegistrationData : Entity
     {
         
@@ -510,9 +2324,471 @@ namespace ERP.Medico.Web
     }
     
     /// <summary>
+    /// The 'TiposAtendimento' entity class.
+    /// </summary>
+    [DataContract(Namespace="http://schemas.datacontract.org/2004/07/Erp.Medico.Web")]
+    public sealed partial class TiposAtendimento : Entity
+    {
+        
+        private EntityCollection<Atendimento> _atendimentos;
+        
+        private string _descricao;
+        
+        private int _id;
+        
+        #region Extensibility Method Definitions
+
+        /// <summary>
+        /// This method is invoked from the constructor once initialization is complete and
+        /// can be used for further object setup.
+        /// </summary>
+        partial void OnCreated();
+        partial void OnDescricaoChanging(string value);
+        partial void OnDescricaoChanged();
+        partial void OnIdChanging(int value);
+        partial void OnIdChanged();
+
+        #endregion
+        
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TiposAtendimento"/> class.
+        /// </summary>
+        public TiposAtendimento()
+        {
+            this.OnCreated();
+        }
+        
+        /// <summary>
+        /// Gets the collection of associated <see cref="Atendimento"/> entities.
+        /// </summary>
+        [Association("TiposAtendimento_Atendimento", "Id", "TipoAtendimento_Id")]
+        [XmlIgnore()]
+        public EntityCollection<Atendimento> Atendimentos
+        {
+            get
+            {
+                if ((this._atendimentos == null))
+                {
+                    this._atendimentos = new EntityCollection<Atendimento>(this, "Atendimentos", this.FilterAtendimentos, this.AttachAtendimentos, this.DetachAtendimentos);
+                }
+                return this._atendimentos;
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Descricao' value.
+        /// </summary>
+        [DataMember()]
+        [Required()]
+        public string Descricao
+        {
+            get
+            {
+                return this._descricao;
+            }
+            set
+            {
+                if ((this._descricao != value))
+                {
+                    this.OnDescricaoChanging(value);
+                    this.RaiseDataMemberChanging("Descricao");
+                    this.ValidateProperty("Descricao", value);
+                    this._descricao = value;
+                    this.RaiseDataMemberChanged("Descricao");
+                    this.OnDescricaoChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Id' value.
+        /// </summary>
+        [DataMember()]
+        [Editable(false, AllowInitialValue=true)]
+        [Key()]
+        [RoundtripOriginal()]
+        public int Id
+        {
+            get
+            {
+                return this._id;
+            }
+            set
+            {
+                if ((this._id != value))
+                {
+                    this.OnIdChanging(value);
+                    this.ValidateProperty("Id", value);
+                    this._id = value;
+                    this.RaisePropertyChanged("Id");
+                    this.OnIdChanged();
+                }
+            }
+        }
+        
+        private void AttachAtendimentos(Atendimento entity)
+        {
+            entity.TiposAtendimento = this;
+        }
+        
+        private void DetachAtendimentos(Atendimento entity)
+        {
+            entity.TiposAtendimento = null;
+        }
+        
+        private bool FilterAtendimentos(Atendimento entity)
+        {
+            return (entity.TipoAtendimento_Id == this.Id);
+        }
+        
+        /// <summary>
+        /// Computes a value from the key fields that uniquely identifies this entity instance.
+        /// </summary>
+        /// <returns>An object instance that uniquely identifies this entity instance.</returns>
+        public override object GetIdentity()
+        {
+            return this._id;
+        }
+    }
+    
+    /// <summary>
+    /// The 'TiposSangue' entity class.
+    /// </summary>
+    [DataContract(Namespace="http://schemas.datacontract.org/2004/07/Erp.Medico.Web")]
+    public sealed partial class TiposSangue : Entity
+    {
+        
+        private EntityCollection<Anamnese> _anamneses;
+        
+        private string _descricao;
+        
+        private int _id;
+        
+        #region Extensibility Method Definitions
+
+        /// <summary>
+        /// This method is invoked from the constructor once initialization is complete and
+        /// can be used for further object setup.
+        /// </summary>
+        partial void OnCreated();
+        partial void OnDescricaoChanging(string value);
+        partial void OnDescricaoChanged();
+        partial void OnIdChanging(int value);
+        partial void OnIdChanged();
+
+        #endregion
+        
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TiposSangue"/> class.
+        /// </summary>
+        public TiposSangue()
+        {
+            this.OnCreated();
+        }
+        
+        /// <summary>
+        /// Gets the collection of associated <see cref="Anamnese"/> entities.
+        /// </summary>
+        [Association("TiposSangue_Anamnese", "Id", "TipoSangue_Id")]
+        [XmlIgnore()]
+        public EntityCollection<Anamnese> Anamneses
+        {
+            get
+            {
+                if ((this._anamneses == null))
+                {
+                    this._anamneses = new EntityCollection<Anamnese>(this, "Anamneses", this.FilterAnamneses, this.AttachAnamneses, this.DetachAnamneses);
+                }
+                return this._anamneses;
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Descricao' value.
+        /// </summary>
+        [DataMember()]
+        [Required()]
+        public string Descricao
+        {
+            get
+            {
+                return this._descricao;
+            }
+            set
+            {
+                if ((this._descricao != value))
+                {
+                    this.OnDescricaoChanging(value);
+                    this.RaiseDataMemberChanging("Descricao");
+                    this.ValidateProperty("Descricao", value);
+                    this._descricao = value;
+                    this.RaiseDataMemberChanged("Descricao");
+                    this.OnDescricaoChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Id' value.
+        /// </summary>
+        [DataMember()]
+        [Editable(false, AllowInitialValue=true)]
+        [Key()]
+        [RoundtripOriginal()]
+        public int Id
+        {
+            get
+            {
+                return this._id;
+            }
+            set
+            {
+                if ((this._id != value))
+                {
+                    this.OnIdChanging(value);
+                    this.ValidateProperty("Id", value);
+                    this._id = value;
+                    this.RaisePropertyChanged("Id");
+                    this.OnIdChanged();
+                }
+            }
+        }
+        
+        private void AttachAnamneses(Anamnese entity)
+        {
+            entity.TiposSangue = this;
+        }
+        
+        private void DetachAnamneses(Anamnese entity)
+        {
+            entity.TiposSangue = null;
+        }
+        
+        private bool FilterAnamneses(Anamnese entity)
+        {
+            return (entity.TipoSangue_Id == this.Id);
+        }
+        
+        /// <summary>
+        /// Computes a value from the key fields that uniquely identifies this entity instance.
+        /// </summary>
+        /// <returns>An object instance that uniquely identifies this entity instance.</returns>
+        public override object GetIdentity()
+        {
+            return this._id;
+        }
+    }
+    
+    /// <summary>
+    /// The 'Tratamento' entity class.
+    /// </summary>
+    [DataContract(Namespace="http://schemas.datacontract.org/2004/07/Erp.Medico.Web")]
+    public sealed partial class Tratamento : Entity
+    {
+        
+        private EntityRef<Atendimento> _atendimento;
+        
+        private int _atendimentoId;
+        
+        private string _descricao;
+        
+        private int _id;
+        
+        private string _observacoes;
+        
+        #region Extensibility Method Definitions
+
+        /// <summary>
+        /// This method is invoked from the constructor once initialization is complete and
+        /// can be used for further object setup.
+        /// </summary>
+        partial void OnCreated();
+        partial void OnAtendimentoIdChanging(int value);
+        partial void OnAtendimentoIdChanged();
+        partial void OnDescricaoChanging(string value);
+        partial void OnDescricaoChanged();
+        partial void OnIdChanging(int value);
+        partial void OnIdChanged();
+        partial void OnObservacoesChanging(string value);
+        partial void OnObservacoesChanged();
+
+        #endregion
+        
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Tratamento"/> class.
+        /// </summary>
+        public Tratamento()
+        {
+            this.OnCreated();
+        }
+        
+        /// <summary>
+        /// Gets or sets the associated <see cref="Atendimento"/> entity.
+        /// </summary>
+        [Association("Atendimento_Tratamento", "AtendimentoId", "Id", IsForeignKey=true)]
+        [XmlIgnore()]
+        public Atendimento Atendimento
+        {
+            get
+            {
+                if ((this._atendimento == null))
+                {
+                    this._atendimento = new EntityRef<Atendimento>(this, "Atendimento", this.FilterAtendimento);
+                }
+                return this._atendimento.Entity;
+            }
+            set
+            {
+                Atendimento previous = this.Atendimento;
+                if ((previous != value))
+                {
+                    this.ValidateProperty("Atendimento", value);
+                    if ((previous != null))
+                    {
+                        this._atendimento.Entity = null;
+                        previous.Tratamentos.Remove(this);
+                    }
+                    if ((value != null))
+                    {
+                        this.AtendimentoId = value.Id;
+                    }
+                    else
+                    {
+                        this.AtendimentoId = default(int);
+                    }
+                    this._atendimento.Entity = value;
+                    if ((value != null))
+                    {
+                        value.Tratamentos.Add(this);
+                    }
+                    this.RaisePropertyChanged("Atendimento");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'AtendimentoId' value.
+        /// </summary>
+        [DataMember()]
+        [RoundtripOriginal()]
+        public int AtendimentoId
+        {
+            get
+            {
+                return this._atendimentoId;
+            }
+            set
+            {
+                if ((this._atendimentoId != value))
+                {
+                    this.OnAtendimentoIdChanging(value);
+                    this.RaiseDataMemberChanging("AtendimentoId");
+                    this.ValidateProperty("AtendimentoId", value);
+                    this._atendimentoId = value;
+                    this.RaiseDataMemberChanged("AtendimentoId");
+                    this.OnAtendimentoIdChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Descricao' value.
+        /// </summary>
+        [DataMember()]
+        [Required()]
+        public string Descricao
+        {
+            get
+            {
+                return this._descricao;
+            }
+            set
+            {
+                if ((this._descricao != value))
+                {
+                    this.OnDescricaoChanging(value);
+                    this.RaiseDataMemberChanging("Descricao");
+                    this.ValidateProperty("Descricao", value);
+                    this._descricao = value;
+                    this.RaiseDataMemberChanged("Descricao");
+                    this.OnDescricaoChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Id' value.
+        /// </summary>
+        [DataMember()]
+        [Editable(false, AllowInitialValue=true)]
+        [Key()]
+        [RoundtripOriginal()]
+        public int Id
+        {
+            get
+            {
+                return this._id;
+            }
+            set
+            {
+                if ((this._id != value))
+                {
+                    this.OnIdChanging(value);
+                    this.ValidateProperty("Id", value);
+                    this._id = value;
+                    this.RaisePropertyChanged("Id");
+                    this.OnIdChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Observacoes' value.
+        /// </summary>
+        [DataMember()]
+        [Required()]
+        public string Observacoes
+        {
+            get
+            {
+                return this._observacoes;
+            }
+            set
+            {
+                if ((this._observacoes != value))
+                {
+                    this.OnObservacoesChanging(value);
+                    this.RaiseDataMemberChanging("Observacoes");
+                    this.ValidateProperty("Observacoes", value);
+                    this._observacoes = value;
+                    this.RaiseDataMemberChanged("Observacoes");
+                    this.OnObservacoesChanged();
+                }
+            }
+        }
+        
+        private bool FilterAtendimento(Atendimento entity)
+        {
+            return (entity.Id == this.AtendimentoId);
+        }
+        
+        /// <summary>
+        /// Computes a value from the key fields that uniquely identifies this entity instance.
+        /// </summary>
+        /// <returns>An object instance that uniquely identifies this entity instance.</returns>
+        public override object GetIdentity()
+        {
+            return this._id;
+        }
+    }
+    
+    /// <summary>
     /// The 'User' entity class.
     /// </summary>
-    [DataContract(Namespace="http://schemas.datacontract.org/2004/07/ERP.Medico.Web")]
+    [DataContract(Namespace="http://schemas.datacontract.org/2004/07/Erp.Medico.Web")]
     public sealed partial class User : Entity, global::System.Security.Principal.IIdentity, global::System.Security.Principal.IPrincipal
     {
         
@@ -709,7 +2985,7 @@ namespace ERP.Medico.Web
         /// Initializes a new instance of the <see cref="UserRegistrationContext"/> class.
         /// </summary>
         public UserRegistrationContext() : 
-                this(new WebDomainClient<IUserRegistrationServiceContract>(new Uri("ERP-Medico-Web-UserRegistrationService.svc", UriKind.Relative)))
+                this(new WebDomainClient<IUserRegistrationServiceContract>(new Uri("Erp-Medico-Web-UserRegistrationService.svc", UriKind.Relative)))
         {
         }
         
