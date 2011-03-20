@@ -1,0 +1,32 @@
+﻿<navigation:Page x:Class="ERP.Medico.Views.Paciente.ItensPaciente" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="Exames" xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" xmlns:my="clr-namespace:ERP.Medico.Web" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:my1="clr-namespace:ERP.Medico.Web.Models">
+    <Grid x:Name="LayoutRoot">
+        <Grid>
+            <sdk:DataGrid AutoGenerateColumns="False" Name="itemPacienteDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" >
+                <sdk:DataGrid.Columns>
+                    <sdk:DataGridTextColumn x:Name="descricaoColumn" Binding="{Binding Path=Descricao}" Header="Descrição" Width="SizeToHeader" />
+                    <sdk:DataGridTemplateColumn x:Name="horarioColumn" Header="Data e hora" Width="SizeToHeader">
+                        <sdk:DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <sdk:DatePicker SelectedDate="{Binding Path=Horario, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" />
+                            </DataTemplate>
+                        </sdk:DataGridTemplateColumn.CellEditingTemplate>
+                        <sdk:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Horario, StringFormat=\{0:d\}}" />
+                            </DataTemplate>
+                        </sdk:DataGridTemplateColumn.CellTemplate>
+                    </sdk:DataGridTemplateColumn>
+                    <sdk:DataGridTextColumn x:Name="observacoesColumn" Binding="{Binding Path=Observacoes}" Header="Observações" Width="SizeToHeader" />
+                </sdk:DataGrid.Columns>
+            </sdk:DataGrid>
+        </Grid>
+    </Grid>
+</navigation:Page>
