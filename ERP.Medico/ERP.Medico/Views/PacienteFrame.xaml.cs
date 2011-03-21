@@ -1,7 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.ServiceModel.DomainServices.Client;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using ERP.Medico.Web;
+using ERP.Medico.Web.Models;
 
 namespace ERP.Medico.Views
 {
@@ -15,6 +20,19 @@ namespace ERP.Medico.Views
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+            var pacienteId = App.Current.PacienteAtual;
+            var ctx = new ViewModelsDomainContext();
+            var query = ctx.GetAtendimentosPacienteQuery(pacienteId);
+            var operation = ctx.Load(query);
+            operation.Completed += (s, ex) =>
+                                       {
+                                           if (operation.HasError)
+                                           {
+                                               MessageBox.Show(operation.Error.Message);
+                                               return;
+                                           }
+                                           atendimentosList.ItemsSource = operation.Entities;
+                                       };
         }
 
         /// <summary>
@@ -47,5 +65,6 @@ namespace ERP.Medico.Views
             e.Handled = true;
             ErrorWindow.CreateNew(e.Exception);
         }
+
     }
 }

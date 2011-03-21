@@ -23,7 +23,7 @@ namespace ERP.Medico.Views.Paciente
 
             EntityQuery<ItemPaciente> itens;
 
-            var pacienteId = int.Parse(NavigationContext.QueryString["Paciente"]);
+            var pacienteId = App.Current.PacienteAtual;
 
             if (!NavigationContext.QueryString.ContainsKey("Tipo")) return;
 

@@ -31,6 +31,11 @@ namespace ERP.Medico.Web
             return this.ObjectContext.Atendimento;
         }
 
+        public IQueryable<Atendimento> GetAtendimentosPaciente(int pacienteId)
+        {
+            return this.ObjectContext.Atendimento.Where(a =>a.PacienteId == pacienteId);
+        }
+
         public void InsertAtendimento(Atendimento atendimento)
         {
             if ((atendimento.EntityState != EntityState.Detached))
@@ -60,6 +65,7 @@ namespace ERP.Medico.Web
                 this.ObjectContext.Atendimento.DeleteObject(atendimento);
             }
         }
+
 
         // TODO:
         // Consider constraining the results of your query method.  If you need additional input you can
@@ -182,9 +188,9 @@ namespace ERP.Medico.Web
         // Consider constraining the results of your query method.  If you need additional input you can
         // add parameters to this method or create additional query methods with different names.
         // To support paging you will need to add ordering to the 'Paciente' query.
-        public IQueryable<Paciente> GetPaciente()
+        public Paciente GetPaciente(int pacienteId)
         {
-            return this.ObjectContext.Paciente;
+            return this.ObjectContext.Paciente.FirstOrDefault(p => p.Id == pacienteId);
         }
 
         public void InsertPaciente(Paciente paciente)
@@ -294,6 +300,16 @@ namespace ERP.Medico.Web
                 this.ObjectContext.Tratamento.DeleteObject(tratamento);
             }
         }
+
+        //public IQueryable<Paciente> GetPacientesMedico(int medicoId)
+        //{
+        //    var ctx = new ViewModelsDomainService();
+        //    var agendamentos = ctx.GetAgendamentosMedico(medicoId);
+        //    if (agendamentos == null)
+        //        return null;
+
+        //    return agendamentos.Select(a => a.Paciente).Distinct().AsQueryable();
+        //}
 
 
 

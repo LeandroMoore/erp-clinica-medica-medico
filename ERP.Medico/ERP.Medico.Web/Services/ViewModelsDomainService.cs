@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using ERP.Medico.Web.ExternalData;
 using ERP.Medico.Web.Models;
 using System.Linq;
@@ -64,14 +65,55 @@ namespace ERP.Medico.Web
             return AgendamentosManager.GetAgendamentos(medico.Codigo, data).AsQueryable();
         }
 
-        public IQueryable<Paciente> GetPacientesMedico(int medicoId)
+        public IEnumerable<PacienteSimp> GetPacientesMedico(int medicoId)
         {
             var agendamentos = GetAgendamentosMedico(medicoId);
             if (agendamentos == null)
                 return null;
 
-            return agendamentos.Select(a => a.Paciente).Distinct().AsQueryable();
+            return agendamentos.Select(a => a.Paciente).Distinct().Select(paciente => new PacienteSimp()
+            {
+                Id = paciente.Id,
+                Codigo = paciente.Codigo,
+                Nome = paciente.Nome,
+                HistoricoFamiliar = paciente.HistoricoFamiliar,
+                HistoricoPessoal = paciente.HistoricoPessoal,
+                Observacoes = paciente.Observacoes,
+                TipoSangue = paciente.TipoSangue
+            }).ToList();
         }
+
+        public IQueryable<AtendimentoSimp> GetAtendimentosPaciente(int pacienteId)
+        {
+            var ctx = new ERPMedicoDomainService();
+            var atendimentos = ctx.GetAtendimentosPaciente(pacienteId);
+            if (atendimentos == null)
+                return null;
+            return atendimentos.Select(a => new AtendimentoSimp
+                {
+                    Id = a.Id,
+                    PacienteId = a.PacienteId,
+                    Horario = a.Horario
+                });
+        }
+
+        public PacienteSimp GetPacientes(int pacienteId)
+        {
+            var ctx = new ERPMedicoDomainService();
+            var paciente = ctx.GetPaciente(pacienteId);
+            if (paciente != null)
+                return new PacienteSimp()
+                           {
+                               Codigo = paciente.Codigo,
+                               Nome = paciente.Nome,
+                               HistoricoFamiliar = paciente.HistoricoFamiliar,
+                               HistoricoPessoal = paciente.HistoricoPessoal,
+                               Observacoes = paciente.Observacoes,
+                               TipoSangue = paciente.TipoSangue
+                           };
+            return null;
+        }
+
     }
 }
 

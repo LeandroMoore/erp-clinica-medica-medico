@@ -85,6 +85,8 @@
     </Compile>
     <Compile Include="ExternalData\AgendamentosManager.cs" />
     <Compile Include="Models\Agendamento.cs" />
+    <Compile Include="Models\AtendimentoSimp.cs" />
+    <Compile Include="Models\PacienteSimp.cs" />
     <Compile Include="Services\ERPMedicoDomainService.cs" />
     <Compile Include="Services\ERPMedicoDomainService.metadata.cs" />
     <Compile Include="GlobalSuppressions.cs" />

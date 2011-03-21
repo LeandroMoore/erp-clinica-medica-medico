@@ -28,8 +28,13 @@
                 <Rectangle x:Name="Divider1" Style="{StaticResource DividerStyle}"/>
 
                 <HyperlinkButton x:Name="Link2" Style="{StaticResource LinkStyle}" 
-                                     NavigateUri="/Exames" TargetName="PacienteContentFrame" Content="Exames"/>
-
+                                     NavigateUri="/Paciente/Exames" TargetName="PacienteContentFrame" Content="Exames"  />
+                <HyperlinkButton x:Name="Link3" Style="{StaticResource LinkStyle}" 
+                                     NavigateUri="/Paciente/Prescricoes" TargetName="PacienteContentFrame" Content="Prescrições"  />
+                <HyperlinkButton x:Name="Link4" Style="{StaticResource LinkStyle}" 
+                                     NavigateUri="/Paciente/Tratamentos" TargetName="PacienteContentFrame" Content="Tratamentos"  />
+                <HyperlinkButton x:Name="Link5" Style="{StaticResource LinkStyle}" 
+                                     NavigateUri="/Paciente/Diagnosticos" TargetName="PacienteContentFrame" Content="Diagnósticos"  />
             </StackPanel>
         </Border>
 
@@ -38,11 +43,12 @@
             <navigation:Frame.UriMapper>
                 <uriMapper:UriMapper>
                     <uriMapper:UriMapping Uri="/" MappedUri="/Views/Paciente/DadosPaciente.xaml"/>
+                    <uriMapper:UriMapping Uri="/Paciente/{tipoexame}" MappedUri="/Views/Paciente/ItensPaciente.xaml?Tipo={tipoexame}"/>
                     <uriMapper:UriMapping Uri="/{pageName}" MappedUri="/Views/Paciente/{pageName}.xaml"/>
                 </uriMapper:UriMapper>
             </navigation:Frame.UriMapper>
         </navigation:Frame>
+        <ListBox Grid.Column="1" Grid.Row="1" x:Name="atendimentosList" DisplayMemberPath="Horario"/>
 
-       
     </Grid>
 </navigation:Page>

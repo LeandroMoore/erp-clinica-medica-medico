@@ -1,4 +1,7 @@
-﻿using ERP.Medico.Web;
+﻿using System;
+using System.Windows;
+using ERP.Medico.Web;
+using ERP.Medico.Web.Models;
 
 namespace ERP.Medico
 {
@@ -25,12 +28,21 @@ namespace ERP.Medico
         /// </summary>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            /*
+            
             var ctx = new ViewModelsDomainContext();
-            ctx.Load(ctx.GetPacientesMedicoQuery(1)); // FAKE
+            var operation = ctx.Load(ctx.GetPacientesMedicoQuery(1)); // FAKE
 
-           pacienteDataGrid.ItemsSource = ctx.Pacientes;
-             * */
+            operation.Completed += (s, ex) =>
+                                       {
+                                           if (operation.HasError)
+                                           {
+                                               MessageBox.Show(operation.Error.Message);
+                                               return;
+                                           }
+                                           pacienteDataGrid.ItemsSource = ctx.PacienteSimps;
+                                       };
+           
+           
         }
 
         private void pacienteDomainDataSource_LoadedData(object sender, LoadedDataEventArgs e)
@@ -40,6 +52,15 @@ namespace ERP.Medico
             {
                 System.Windows.MessageBox.Show(e.Error.ToString(), "Load Error", System.Windows.MessageBoxButton.OK);
                 e.MarkErrorAsHandled();
+            }
+        }
+
+        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (pacienteDataGrid.SelectedItem != null)
+            {
+                App.Current.PacienteAtual = ((PacienteSimp)pacienteDataGrid.SelectedItem).Id;
+                NavigationService.Navigate(new Uri("/Paciente", UriKind.Relative));
             }
         }
     }

@@ -8,6 +8,11 @@
   Style="{StaticResource PageStyle}" xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" xmlns:my="clr-namespace:ERP.Medico.Web" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk">
 
     <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+
         <ScrollViewer x:Name="PageScrollViewer" Style="{StaticResource PageScrollViewerStyle}" HorizontalScrollBarVisibility="Disabled">
 
             <StackPanel x:Name="ContentStackPanel" Style="{StaticResource ContentStackPanelStyle}">
@@ -22,6 +27,7 @@
             </StackPanel>
 
         </ScrollViewer>
+        <Button x:Name="abrirFicha" Grid.Row="1" Content="Abrir ficha do paciente" Click="Button_Click" />
     </Grid>
 
 </navigation:Page>

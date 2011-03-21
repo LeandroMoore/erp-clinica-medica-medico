@@ -12,7 +12,8 @@ namespace ERP.Medico.Web.ExternalData
     {
         private static IList<Paciente> GetPacientes()
         {
-            return new Entities().Paciente.ToList();
+            var pacientes = new Entities().Paciente;
+            return pacientes.ToList();
         }
 
         private static readonly IList<Paciente> PacientesFake = GetPacientes();
