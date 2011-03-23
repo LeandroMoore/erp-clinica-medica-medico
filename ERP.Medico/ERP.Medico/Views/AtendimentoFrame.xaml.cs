@@ -89,5 +89,10 @@ namespace ERP.Medico.Views
             ctx.SubmitChanges();
         }
 
+        private void VoltarLink_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Paciente", UriKind.Relative));
+        }
+
     }
 }

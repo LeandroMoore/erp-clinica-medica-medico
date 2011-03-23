@@ -15,25 +15,30 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="35" />
         </Grid.RowDefinitions>
-       
-        <Border x:Name="LinksBorder" Style="{StaticResource LinksBorderStyle}">
-            <StackPanel x:Name="LinksStackPanel" Style="{StaticResource LinksStackPanelStyle}">
 
-                <HyperlinkButton x:Name="Link1" Style="{StaticResource LinkStyle}" 
+        <Grid Background="Navy">
+            <HyperlinkButton HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" x:Name="VoltarLink" Style="{StaticResource LinkStyle}"
+                                     Click="VoltarLink_Click" TargetName="PacienteContentFrame" Content="Voltar à ficha do paciente"  />
+            
+            <Border x:Name="LinksBorder" Style="{StaticResource LinksBorderStyle}">
+                <StackPanel x:Name="LinksStackPanel" Style="{StaticResource LinksStackPanelStyle}">
+
+                    <HyperlinkButton x:Name="Link1" Style="{StaticResource LinkStyle}" 
                                      NavigateUri="/DadosAtendimento" TargetName="AtendimentoContentFrame" Content="Dados"/>
 
-                <Rectangle x:Name="Divider1" Style="{StaticResource DividerStyle}"/>
+                    <Rectangle x:Name="Divider1" Style="{StaticResource DividerStyle}"/>
 
-                <HyperlinkButton x:Name="Link2" Style="{StaticResource LinkStyle}" 
+                    <HyperlinkButton x:Name="Link2" Style="{StaticResource LinkStyle}" 
                                      NavigateUri="/Atendimento/Exames" TargetName="AtendimentoContentFrame" Content="Exames"  />
-                <HyperlinkButton x:Name="Link3" Style="{StaticResource LinkStyle}" 
+                    <HyperlinkButton x:Name="Link3" Style="{StaticResource LinkStyle}" 
                                      NavigateUri="/Atendimento/Prescricoes" TargetName="AtendimentoContentFrame" Content="Prescrições"  />
-                <HyperlinkButton x:Name="Link4" Style="{StaticResource LinkStyle}" 
+                    <HyperlinkButton x:Name="Link4" Style="{StaticResource LinkStyle}" 
                                      NavigateUri="/Atendimento/Tratamentos" TargetName="AtendimentoContentFrame" Content="Tratamentos"  />
-                <HyperlinkButton x:Name="Link5" Style="{StaticResource LinkStyle}" 
+                    <HyperlinkButton x:Name="Link5" Style="{StaticResource LinkStyle}" 
                                      NavigateUri="/Atendimento/Diagnosticos" TargetName="AtendimentoContentFrame" Content="Diagnósticos"  />
-            </StackPanel>
-        </Border>
+                </StackPanel>
+            </Border>
+        </Grid>
 
         <navigation:Frame Grid.Row="1" x:Name="AtendimentoContentFrame" Style="{StaticResource ContentFrameStyle}" 
                               Source="/DadosAtendimento" Navigated="ContentFrame_Navigated" NavigationFailed="ContentFrame_NavigationFailed">
