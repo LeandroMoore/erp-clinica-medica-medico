@@ -6,13 +6,14 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="500" d:DesignWidth="700" xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices" xmlns:my="clr-namespace:ERP.Medico.Web" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk">
+    d:DesignHeight="500" d:DesignWidth="700" Title="Paciente">
 
-    
+
     <Grid x:Name="LayoutRoot" Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition Height="*" />
+            
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -48,7 +49,19 @@
                 </uriMapper:UriMapper>
             </navigation:Frame.UriMapper>
         </navigation:Frame>
-        <ListBox Grid.Column="1" Grid.Row="1" x:Name="atendimentosList" DisplayMemberPath="Horario"/>
+        <Grid Grid.Column="1" Grid.Row="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="35" />
+            </Grid.RowDefinitions>
+            <ListBox x:Name="atendimentosList" DisplayMemberPath="Horario"/>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Grid.Row="1" HorizontalAlignment="Center">
+                <Button Margin="5" Width="65" Height="25" Content="Novo" Click="Button_Click_1" />
+                <Button Margin="5" Width="65" Height="25" Content="Edita" Click="Button_Click" />
+
+            </StackPanel>
+
+        </Grid>
 
     </Grid>
 </navigation:Page>

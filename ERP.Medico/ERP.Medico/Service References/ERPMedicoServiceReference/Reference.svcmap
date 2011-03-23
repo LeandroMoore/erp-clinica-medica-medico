@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="78964dbe-0549-4b3f-85ba-178808e2f062" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:52878/ERPMedicoService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ERPMedicoService.xsd" MetadataType="Schema" ID="d15ea604-1670-4634-9335-551088949b6a" SourceId="1" SourceUrl="http://localhost:52878/ERPMedicoService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ERPMedicoService.wsdl" MetadataType="Wsdl" ID="3732b91c-517b-468c-b10b-43a7fd14984c" SourceId="1" SourceUrl="http://localhost:52878/ERPMedicoService.svc?wsdl" />
+    <MetadataFile FileName="ERPMedicoService1.xsd" MetadataType="Schema" ID="fca7efcb-dc13-4720-a11d-a6dbab592f18" SourceId="1" SourceUrl="http://localhost:52878/ERPMedicoService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ERPMedicoService.disco" MetadataType="Disco" ID="0b164ac7-fa82-48b1-96a8-e731f43a6cb6" SourceId="1" SourceUrl="http://localhost:52878/ERPMedicoService.svc?disco" />
+    <MetadataFile FileName="ERPMedicoService1.wsdl" MetadataType="Wsdl" ID="c6a0fbc9-b53c-4d97-abc8-b0e0e57294e1" SourceId="1" SourceUrl="http://localhost:52878/ERPMedicoService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="ERPMedicoService2.xsd" MetadataType="Schema" ID="536857b1-a990-4ba0-bbd5-4afc9714f985" SourceId="1" SourceUrl="http://localhost:52878/ERPMedicoService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

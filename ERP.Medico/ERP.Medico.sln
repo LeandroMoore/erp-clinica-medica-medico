@@ -1,12 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP.Medico", "ERP.Medico\ERP.Medico.csproj", "{ACC6C8EA-A13A-49DC-882D-55BC99A4ECBF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP.Medico", "ERP.Medico\ERP.Medico.csproj", "{9BD11F00-8333-49EF-8A69-A7492F7C65EA}"
 	ProjectSection(ProjectDependencies) = postProject
-		{754D5E9B-D43F-484A-ACAE-AB8D775DCFB9} = {754D5E9B-D43F-484A-ACAE-AB8D775DCFB9}
+		{8293BA6D-F94B-42C4-BC57-B354FD3B2BD2} = {8293BA6D-F94B-42C4-BC57-B354FD3B2BD2}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP.Medico.Web", "ERP.Medico.Web\ERP.Medico.Web.csproj", "{754D5E9B-D43F-484A-ACAE-AB8D775DCFB9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP.Medico.Web", "ERP.Medico.Web\ERP.Medico.Web.csproj", "{8293BA6D-F94B-42C4-BC57-B354FD3B2BD2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,14 +14,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{ACC6C8EA-A13A-49DC-882D-55BC99A4ECBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ACC6C8EA-A13A-49DC-882D-55BC99A4ECBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ACC6C8EA-A13A-49DC-882D-55BC99A4ECBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ACC6C8EA-A13A-49DC-882D-55BC99A4ECBF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{754D5E9B-D43F-484A-ACAE-AB8D775DCFB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{754D5E9B-D43F-484A-ACAE-AB8D775DCFB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{754D5E9B-D43F-484A-ACAE-AB8D775DCFB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{754D5E9B-D43F-484A-ACAE-AB8D775DCFB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BD11F00-8333-49EF-8A69-A7492F7C65EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BD11F00-8333-49EF-8A69-A7492F7C65EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BD11F00-8333-49EF-8A69-A7492F7C65EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BD11F00-8333-49EF-8A69-A7492F7C65EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8293BA6D-F94B-42C4-BC57-B354FD3B2BD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8293BA6D-F94B-42C4-BC57-B354FD3B2BD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8293BA6D-F94B-42C4-BC57-B354FD3B2BD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8293BA6D-F94B-42C4-BC57-B354FD3B2BD2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

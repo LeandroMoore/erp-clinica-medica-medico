@@ -1,5 +1,6 @@
 ﻿using System;
-using ERP.Medico.Web.Models;
+using System.Collections;
+using ERP.Medico.ERPMedicoServiceReference;
 
 namespace ERP.Medico
 {
@@ -22,6 +23,7 @@ namespace ERP.Medico
             abrirFicha.IsEnabled = false;
             agendamentoDataGrid.SelectionChanged +=
                 (s, e) => abrirFicha.IsEnabled = (agendamentoDataGrid.SelectedItem != null);
+            dataPicker.SelectedDateChanged += (s, e) => SelecionaAgendamentos();
         }
 
         /// <summary>
@@ -30,15 +32,20 @@ namespace ERP.Medico
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             dataPicker.SelectedDate = DateTime.Now.Date;
+            SelecionaAgendamentos();
         }
 
-        private void agendamentoDomainDataSource_LoadedData(object sender, LoadedDataEventArgs e)
+        private void SelecionaAgendamentos()
         {
-
-            if (e.HasError)
+            if (dataPicker.SelectedDate != null)
             {
-                System.Windows.MessageBox.Show(e.Error.ToString(), "Load Error", System.Windows.MessageBoxButton.OK);
-                e.MarkErrorAsHandled();
+                var proxy = new ERPMedicoServiceClient();
+                proxy.GetAgendamentosMedicoDataCompleted += (s, ex) =>
+                                                                {
+                                                                    agendamentoDataGrid.ItemsSource = ex.Result;
+                                                                };
+
+                proxy.GetAgendamentosMedicoDataAsync(1, (DateTime) dataPicker.SelectedDate);
             }
         }
 

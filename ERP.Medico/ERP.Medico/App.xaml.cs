@@ -1,4 +1,6 @@
-﻿namespace ERP.Medico
+﻿using ERP.Medico.Web;
+
+namespace ERP.Medico
 {
     using System;
     using System.Runtime.Serialization;
@@ -79,5 +81,9 @@
         }
 
         public int PacienteAtual { get; set; }
+
+        public int AtendimentoAtual { get; set; }
+
+        public ERPMedicoDomainContext ContextoAtual { get; set;}
     }
 }

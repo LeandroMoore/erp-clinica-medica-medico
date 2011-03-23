@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{ACC6C8EA-A13A-49DC-882D-55BC99A4ECBF}</ProjectGuid>
+    <ProjectGuid>{9BD11F00-8333-49EF-8A69-A7492F7C65EA}</ProjectGuid>
     <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -60,8 +60,11 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Net" />
     <Reference Include="System.ServiceModel" />
-    <Reference Include="System.Windows.Controls.Data, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
-    <Reference Include="System.Windows.Controls.Data.DataForm.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.DataForm.Toolkit, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\System.Windows.Controls.Data.DataForm.Toolkit.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Controls.Data.Input" />
     <Reference Include="System.ServiceModel.DomainServices.Client" />
     <Reference Include="System.ServiceModel.DomainServices.Client.Web" />
@@ -114,14 +117,31 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SecurityQuestions.resx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pacientes.xaml.cs">
-      <DependentUpon>Pacientes.xaml</DependentUpon>
+    <Compile Include="Service References\ERPMedicoServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Agendamentos.xaml.cs">
+      <DependentUpon>Agendamentos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AtendimentoFrame.xaml.cs">
+      <DependentUpon>AtendimentoFrame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Atendimento\DadosAtendimento.xaml.cs">
+      <DependentUpon>DadosAtendimento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Atendimento\ItensAtendimento.xaml.cs">
+      <DependentUpon>ItensAtendimento.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ErrorWindow.xaml.cs">
       <DependentUpon>ErrorWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Agendamentos.xaml.cs">
-      <DependentUpon>Agendamentos.xaml</DependentUpon>
+    <Compile Include="Views\About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -141,6 +161,9 @@
     </Compile>
     <Compile Include="Views\PacienteFrame.xaml.cs">
       <DependentUpon>PacienteFrame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pacientes.xaml.cs">
+      <DependentUpon>Pacientes.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Paciente\DadosPaciente.xaml.cs">
       <DependentUpon>DadosPaciente.xaml</DependentUpon>
@@ -163,7 +186,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Pacientes.xaml">
+    <Page Include="Views\Agendamentos.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AtendimentoFrame.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Atendimento\DadosAtendimento.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Atendimento\ItensAtendimento.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -171,7 +206,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:MarkupCompilePass1</Generator>
     </Page>
-    <Page Include="Views\Agendamentos.xaml">
+    <Page Include="Views\About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+    </Page>
+    <Page Include="Views\Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:MarkupCompilePass1</Generator>
     </Page>
@@ -196,20 +235,47 @@
       <Generator>MSBuild:MarkupCompilePass1</Generator>
     </Page>
     <Page Include="Views\PacienteFrame.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pacientes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Paciente\DadosPaciente.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Paciente\ItensPaciente.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\DataSources\ERP.Medico.Web.ERPMedicoDomainContext.datasource" />
+    <None Include="Service References\ERPMedicoServiceReference\ERP.Medico.ERPMedicoServiceReference.Agendamento.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ERPMedicoServiceReference\ERPMedicoService.disco" />
+    <None Include="Service References\ERPMedicoServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\ERPMedicoServiceReference\configuration.svcinfo" />
+    <None Include="Service References\ERPMedicoServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="ServiceReferences.ClientConfig" />
+    <None Include="Service References\ERPMedicoServiceReference\ERPMedicoService.wsdl" />
+    <None Include="Service References\ERPMedicoServiceReference\ERPMedicoService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ERPMedicoServiceReference\ERPMedicoService1.wsdl" />
+    <None Include="Service References\ERPMedicoServiceReference\ERPMedicoService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ERPMedicoServiceReference\ERPMedicoService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Libs\System.Windows.Controls.Data.DataForm.Toolkit.dll" />
@@ -242,16 +308,15 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\DataSources\ERP.Medico.Web.ERPMedicoDomainContext.datasource" />
-    <None Include="Properties\DataSources\ERP.Medico.Web.ViewModelsDomainContext.datasource" />
     <None Include="Properties\OutOfBrowserSettings.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Atendimento\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ERPMedicoServiceReference\" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

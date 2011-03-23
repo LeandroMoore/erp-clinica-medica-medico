@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.ServiceModel.DomainServices.Client;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 using ERP.Medico.Web;
-using ERP.Medico.Web.Models;
 
 namespace ERP.Medico.Views
 {
@@ -17,12 +14,13 @@ namespace ERP.Medico.Views
             InitializeComponent();
         }
 
+        ERPMedicoDomainContext ctx = new ERPMedicoDomainContext();
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
             var pacienteId = App.Current.PacienteAtual;
-            var ctx = new ViewModelsDomainContext();
-            var query = ctx.GetAtendimentosPacienteQuery(pacienteId);
+            var query = ctx.GetAtendimentoQuery().Where(a => a.PacienteId == pacienteId);
             var operation = ctx.Load(query);
             operation.Completed += (s, ex) =>
                                        {
@@ -64,6 +62,21 @@ namespace ERP.Medico.Views
         {
             e.Handled = true;
             ErrorWindow.CreateNew(e.Exception);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (atendimentosList.SelectedItem != null)
+            {
+                App.Current.AtendimentoAtual = ((Web.Atendimento) atendimentosList.SelectedItem).Id;
+                NavigationService.Navigate(new Uri("/Atendimento", UriKind.Relative));
+            }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            App.Current.AtendimentoAtual = -1;
+            NavigationService.Navigate(new Uri("/Atendimento", UriKind.Relative));
         }
 
     }

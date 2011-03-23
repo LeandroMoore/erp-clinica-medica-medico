@@ -48,12 +48,14 @@ namespace ERP.Medico.Web
 
             public int Id { get; set; }
 
+            [Include]
             public Medico Medico { get; set; }
 
             public Nullable<int> MedicoId { get; set; }
 
             public string Observacoes { get; set; }
 
+            [Include]
             public Paciente Paciente { get; set; }
 
             public int PacienteId { get; set; }
@@ -91,6 +93,7 @@ namespace ERP.Medico.Web
             {
             }
 
+            [Include]
             public Atendimento Atendimento { get; set; }
 
             public int AtendimentoId { get; set; }
@@ -126,6 +129,7 @@ namespace ERP.Medico.Web
             {
             }
 
+            [Include]
             public Atendimento Atendimento { get; set; }
 
             public int AtendimentoId { get; set; }
@@ -204,11 +208,11 @@ namespace ERP.Medico.Web
 
             public int Id { get; set; }
 
+            public string Nome { get; set; }
+
             public string Observacoes { get; set; }
 
             public string TipoSangue { get; set; }
-
-            public string Nome { get; set; }
         }
     }
 
@@ -235,6 +239,7 @@ namespace ERP.Medico.Web
             {
             }
 
+            [Include]
             public Atendimento Atendimento { get; set; }
 
             public int AtendimentoId { get; set; }
@@ -270,6 +275,7 @@ namespace ERP.Medico.Web
             {
             }
 
+            [Include]
             public Atendimento Atendimento { get; set; }
 
             public int AtendimentoId { get; set; }

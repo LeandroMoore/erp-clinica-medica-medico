@@ -1,18 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Data;
-using System.Data.Objects;
-using System.Linq;
-using System.ServiceModel.DomainServices.EntityFramework;
-using System.ServiceModel.DomainServices.Hosting;
-using System.ServiceModel.DomainServices.Server;
-using ERP.Medico.Web.Models;
+﻿
+using ERP.Medico.Web.ExternalData;
 
 namespace ERP.Medico.Web
 {
-    
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+    using System.Data;
+    using System.Linq;
+    using System.ServiceModel.DomainServices.EntityFramework;
+    using System.ServiceModel.DomainServices.Hosting;
+    using System.ServiceModel.DomainServices.Server;
+
+
     // Implements application logic using the Entities context.
     // TODO: Add your application logic to these methods or in additional methods.
     // TODO: Wire up authentication (Windows/ASP.NET Forms) and uncomment the following to disable anonymous access
@@ -28,12 +29,7 @@ namespace ERP.Medico.Web
         // To support paging you will need to add ordering to the 'Atendimento' query.
         public IQueryable<Atendimento> GetAtendimento()
         {
-            return this.ObjectContext.Atendimento;
-        }
-
-        public IQueryable<Atendimento> GetAtendimentosPaciente(int pacienteId)
-        {
-            return this.ObjectContext.Atendimento.Where(a =>a.PacienteId == pacienteId);
+            return this.ObjectContext.Atendimento.Include("Paciente").Include("Medico");
         }
 
         public void InsertAtendimento(Atendimento atendimento)
@@ -66,14 +62,13 @@ namespace ERP.Medico.Web
             }
         }
 
-
         // TODO:
         // Consider constraining the results of your query method.  If you need additional input you can
         // add parameters to this method or create additional query methods with different names.
         // To support paging you will need to add ordering to the 'Diagnostico' query.
         public IQueryable<Diagnostico> GetDiagnostico()
         {
-            return this.ObjectContext.Diagnostico;
+            return this.ObjectContext.Diagnostico.Include("Atendimento");
         }
 
         public void InsertDiagnostico(Diagnostico diagnostico)
@@ -112,7 +107,7 @@ namespace ERP.Medico.Web
         // To support paging you will need to add ordering to the 'Exame' query.
         public IQueryable<Exame> GetExame()
         {
-            return this.ObjectContext.Exame;
+            return this.ObjectContext.Exame.Include("Atendimento"); ;
         }
 
         public void InsertExame(Exame exame)
@@ -188,9 +183,21 @@ namespace ERP.Medico.Web
         // Consider constraining the results of your query method.  If you need additional input you can
         // add parameters to this method or create additional query methods with different names.
         // To support paging you will need to add ordering to the 'Paciente' query.
-        public Paciente GetPaciente(int pacienteId)
+        public IQueryable<Paciente> GetPaciente()
         {
-            return this.ObjectContext.Paciente.FirstOrDefault(p => p.Id == pacienteId);
+            return this.ObjectContext.Paciente;
+        }
+
+        public IEnumerable<Paciente> GetPacienteMedico(int medicoId)
+        {
+            var medico = GetMedico().Where(m => m.Id == medicoId).FirstOrDefault();
+            if (medico == null)
+                return null;
+            var agendamentos = AgendamentosManager.GetAgendamentos(medico.Codigo);
+            if (agendamentos == null)
+                return null;
+
+            return agendamentos.Select(a => a.Paciente).Distinct();
         }
 
         public void InsertPaciente(Paciente paciente)
@@ -229,7 +236,7 @@ namespace ERP.Medico.Web
         // To support paging you will need to add ordering to the 'Prescricao' query.
         public IQueryable<Prescricao> GetPrescricao()
         {
-            return this.ObjectContext.Prescricao;
+            return this.ObjectContext.Prescricao.Include("Atendimento"); ;
         }
 
         public void InsertPrescricao(Prescricao prescricao)
@@ -268,7 +275,7 @@ namespace ERP.Medico.Web
         // To support paging you will need to add ordering to the 'Tratamento' query.
         public IQueryable<Tratamento> GetTratamento()
         {
-            return this.ObjectContext.Tratamento;
+            return this.ObjectContext.Tratamento.Include("Atendimento"); ;
         }
 
         public void InsertTratamento(Tratamento tratamento)
@@ -300,19 +307,6 @@ namespace ERP.Medico.Web
                 this.ObjectContext.Tratamento.DeleteObject(tratamento);
             }
         }
-
-        //public IQueryable<Paciente> GetPacientesMedico(int medicoId)
-        //{
-        //    var ctx = new ViewModelsDomainService();
-        //    var agendamentos = ctx.GetAgendamentosMedico(medicoId);
-        //    if (agendamentos == null)
-        //        return null;
-
-        //    return agendamentos.Select(a => a.Paciente).Distinct().AsQueryable();
-        //}
-
-
-
     }
 }
 

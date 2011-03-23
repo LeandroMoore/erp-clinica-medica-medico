@@ -14,14 +14,15 @@ namespace ERP.Medico.Views.Paciente
             InitializeComponent();
         }
 
+        ERPMedicoDomainContext ctx = new ERPMedicoDomainContext();
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
 
             var pacienteId = App.Current.PacienteAtual;
 
-            var ctx = new ViewModelsDomainContext();
-            var operation = ctx.Load(ctx.GetPacientesQuery(pacienteId));
+            var operation = ctx.Load(ctx.GetPacienteQuery().Where(p => p.Id == pacienteId));
             operation.Completed += (s, ex) =>
                                        {
                                            if (operation.HasError)
@@ -31,19 +32,12 @@ namespace ERP.Medico.Views.Paciente
                                            }
                                            grid1.DataContext = operation.Entities.FirstOrDefault();
                                        };
-
-
-
         }
 
-        private void pacienteDomainDataSource_LoadedData(object sender, LoadedDataEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-
-            if (e.HasError)
-            {
-                System.Windows.MessageBox.Show(e.Error.ToString(), "Load Error", System.Windows.MessageBoxButton.OK);
-                e.MarkErrorAsHandled();
-            }
+            ctx.SubmitChanges();
         }
+
     }
 }

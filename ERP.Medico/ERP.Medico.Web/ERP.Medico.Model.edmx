@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="ERP.Medico.Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+      <Schema Namespace="ERP.Medico.Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="ERPMedicoModelStoreContainer">
           <EntitySet Name="Atendimento" EntityType="ERP.Medico.Model.Store.Atendimento" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Diagnostico" EntityType="ERP.Medico.Model.Store.Diagnostico" store:Type="Tables" Schema="dbo" />
@@ -191,7 +191,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ERP.Medico.Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -288,8 +289,8 @@
           <Property Name="HistoricoPessoal" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
           <Property Name="Observacoes" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
           <Property Name="Codigo" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Nome" Type="String" MaxLength="220" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Atendimento" Relationship="ERP.Medico.Model.FK_Atendimento_Paciente" FromRole="Paciente" ToRole="Atendimento" />
-          <Property Type="String" Name="Nome" MaxLength="220" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Prescricao">
           <Key>
@@ -429,13 +430,13 @@
             <ScalarProperty Name="Codigo" ColumnName="Codigo" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="Paciente"><EntityTypeMapping TypeName="ERP.Medico.Model.Paciente"><MappingFragment StoreEntitySet="Paciente">
-            <ScalarProperty Name="Nome" ColumnName="Nome" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Id" ColumnName="Id" />
             <ScalarProperty Name="TipoSangue" ColumnName="TipoSangue" />
             <ScalarProperty Name="HistoricoFamiliar" ColumnName="HistoricoFamiliar" />
             <ScalarProperty Name="HistoricoPessoal" ColumnName="HistoricoPessoal" />
             <ScalarProperty Name="Observacoes" ColumnName="Observacoes" />
             <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+            <ScalarProperty Name="Nome" ColumnName="Nome" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="Prescricao"><EntityTypeMapping TypeName="ERP.Medico.Model.Prescricao"><MappingFragment StoreEntitySet="Prescricao">
             <ScalarProperty Name="Id" ColumnName="Id" />
@@ -463,45 +464,45 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="ERP.Medico.Model" ZoomLevel="69">
-        <EntityTypeShape EntityType="ERP.Medico.Model.Atendimento" Width="1.5" PointX="3.125" PointY="2.625" Height="4.0956022135416665" IsExpanded="true" />
-        <EntityTypeShape EntityType="ERP.Medico.Model.Diagnostico" Width="1.5" PointX="5.375" PointY="0.5" Height="1.9802864583333335" IsExpanded="true" />
-        <EntityTypeShape EntityType="ERP.Medico.Model.Exame" Width="1.5" PointX="5.375" PointY="2.625" Height="1.9802864583333335" IsExpanded="true" />
-        <EntityTypeShape EntityType="ERP.Medico.Model.Medico" Width="1.5" PointX="1.25" PointY="5.125" Height="1.7879850260416657" IsExpanded="true" />
-        <EntityTypeShape EntityType="ERP.Medico.Model.Paciente" Width="1.5" PointX="1.25" PointY="2.25" Height="2.5571907552083317" IsExpanded="true" />
-        <EntityTypeShape EntityType="ERP.Medico.Model.Prescricao" Width="1.5" PointX="5.375" PointY="4.75" Height="1.9802864583333317" IsExpanded="true" />
-        <EntityTypeShape EntityType="ERP.Medico.Model.Tratamento" Width="1.5" PointX="5.375" PointY="6.875" Height="1.9802864583333317" IsExpanded="true" />
+      <Diagram Name="ERP.Medico.Model">
+        <EntityTypeShape EntityType="ERP.Medico.Model.Atendimento" Width="1.5" PointX="3" PointY="4.375" Height="4.0956022135416665" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP.Medico.Model.Diagnostico" Width="1.5" PointX="5.25" PointY="1.375" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP.Medico.Model.Exame" Width="1.5" PointX="5.25" PointY="4.125" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP.Medico.Model.Medico" Width="1.5" PointX="0.75" PointY="5.5" Height="1.7879850260416657" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP.Medico.Model.Paciente" Width="1.5" PointX="0.75" PointY="2.125" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP.Medico.Model.Prescricao" Width="1.5" PointX="5.25" PointY="6.75" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERP.Medico.Model.Tratamento" Width="1.5" PointX="5.25" PointY="9.5" Height="1.9802864583333317" IsExpanded="true" />
         <AssociationConnector Association="ERP.Medico.Model.FK_Atendimento_Medico" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.75" PointY="5.9228011067708337" />
-          <ConnectorPoint PointX="3.125" PointY="5.9228011067708337" />
+          <ConnectorPoint PointX="2.25" PointY="6.3939925130208328" />
+          <ConnectorPoint PointX="3" PointY="6.3939925130208328" />
         </AssociationConnector>
         <AssociationConnector Association="ERP.Medico.Model.FK_Atendimento_Paciente" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.75" PointY="3.7160953776041663" />
-          <ConnectorPoint PointX="3.125" PointY="3.7160953776041663" />
+          <ConnectorPoint PointX="2.25" PointY="4.5285953776041659" />
+          <ConnectorPoint PointX="3" PointY="4.5285953776041659" />
         </AssociationConnector>
         <AssociationConnector Association="ERP.Medico.Model.FK_Diagnostico_Atendimento" ManuallyRouted="false">
-          <ConnectorPoint PointX="3.875" PointY="2.625" />
-          <ConnectorPoint PointX="3.875" PointY="1.4901432291666668" />
-          <ConnectorPoint PointX="5.375" PointY="1.4901432291666668" />
+          <ConnectorPoint PointX="3.75" PointY="4.375" />
+          <ConnectorPoint PointX="3.75" PointY="2.3651432291666667" />
+          <ConnectorPoint PointX="5.25" PointY="2.3651432291666667" />
         </AssociationConnector>
         <AssociationConnector Association="ERP.Medico.Model.FK_Exame_Atendimento" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.625" PointY="3.6151432291666667" />
-          <ConnectorPoint PointX="5.375" PointY="3.6151432291666667" />
+          <ConnectorPoint PointX="4.5" PointY="5.2401432291666667" />
+          <ConnectorPoint PointX="5.25" PointY="5.2401432291666667" />
         </AssociationConnector>
         <AssociationConnector Association="ERP.Medico.Model.FK_Prescricao_Atendimento" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.625" PointY="5.7353011067708337" />
-          <ConnectorPoint PointX="5.375" PointY="5.7353011067708337" />
+          <ConnectorPoint PointX="4.5" PointY="7.6103011067708337" />
+          <ConnectorPoint PointX="5.25" PointY="7.6103011067708337" />
         </AssociationConnector>
         <AssociationConnector Association="ERP.Medico.Model.FK_Tratamento_Atendimento" ManuallyRouted="false">
-          <ConnectorPoint PointX="3.875" PointY="6.7206022135416665" />
-          <ConnectorPoint PointX="3.875" PointY="7.8651432291666659" />
-          <ConnectorPoint PointX="5.375" PointY="7.8651432291666659" />
+          <ConnectorPoint PointX="3.75" PointY="8.4706022135416674" />
+          <ConnectorPoint PointX="3.75" PointY="10.490143229166666" />
+          <ConnectorPoint PointX="5.25" PointY="10.490143229166666" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

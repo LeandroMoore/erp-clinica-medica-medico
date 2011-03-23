@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/ERP.Medico.Web.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ERP.Medico.Web.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:52878/ERPMedicoService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfAgendamento">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Agendamento" nillable="true" type="tns:Agendamento" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAgendamento" nillable="true" type="tns:ArrayOfAgendamento" />
+  <xs:complexType name="Agendamento">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Data" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Hora" type="ser:duration" />
+      <xs:element minOccurs="0" name="Horario" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="MedicoId" type="xs:int" />
+      <xs:element minOccurs="0" name="NomePaciente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PacienteId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Agendamento" nillable="true" type="tns:Agendamento" />
+</xs:schema>

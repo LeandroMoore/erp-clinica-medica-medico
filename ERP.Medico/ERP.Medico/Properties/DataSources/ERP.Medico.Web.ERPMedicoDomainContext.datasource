@@ -6,5 +6,31 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="ERPMedicoDomainContext" Identifier="ERP.Medico.Web.ERPMedicoDomainContext" ProviderType="Microsoft.VisualStudio.DataDesign.RiaComponents.DataSourceProvider.RiaServiceDataSourceProvider" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+   <Children>
+      <GenericObjectDataSource DisplayName="Atendimento" Identifier="ERP.Medico.Web.ERPMedicoDomainContext" ProviderType="Microsoft.VisualStudio.DataDesign.RiaComponents.DataSourceProvider.RiaServiceDataSourceProvider" Version="1.0">
+         <TypeInfo>ERP.Medico.Web.Atendimento, ERP.Medico, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+      </GenericObjectDataSource>
+      <GenericObjectDataSource DisplayName="Exame" Identifier="ERP.Medico.Web.ERPMedicoDomainContext" ProviderType="Microsoft.VisualStudio.DataDesign.RiaComponents.DataSourceProvider.RiaServiceDataSourceProvider" Version="1.0">
+         <TypeInfo>ERP.Medico.Web.Exame, ERP.Medico, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+         <TypeUISetting>
+            <PropertyUISettings>
+               <PropertyUISetting Name="AtendimentoId">
+                  <ControlSettings>
+                     <ControlSetting ArtifactName="Microsoft:System.Windows:Silverlight">
+                        <BindableControlInfo Name="[None]" Type="Microsoft.VSDesigner.Data.BindManager.NoneControlPlaceHolder" />
+                     </ControlSetting>
+                  </ControlSettings>
+               </PropertyUISetting>
+               <PropertyUISetting Name="Id">
+                  <ControlSettings>
+                     <ControlSetting ArtifactName="Microsoft:System.Windows:Silverlight">
+                        <BindableControlInfo Name="[None]" Type="Microsoft.VSDesigner.Data.BindManager.NoneControlPlaceHolder" />
+                     </ControlSetting>
+                  </ControlSettings>
+               </PropertyUISetting>
+            </PropertyUISettings>
+         </TypeUISetting>
+      </GenericObjectDataSource>
+   </Children>
    <TypeInfo>ERP.Medico.Web.ERPMedicoDomainContext, ERP.Medico, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>

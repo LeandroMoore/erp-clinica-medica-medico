@@ -1,7 +1,7 @@
 ﻿using System;
+using System.ServiceModel.DomainServices.Client;
 using System.Windows;
 using ERP.Medico.Web;
-using ERP.Medico.Web.Models;
 
 namespace ERP.Medico
 {
@@ -29,8 +29,8 @@ namespace ERP.Medico
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             
-            var ctx = new ViewModelsDomainContext();
-            var operation = ctx.Load(ctx.GetPacientesMedicoQuery(1)); // FAKE
+            var ctx = new ERPMedicoDomainContext();
+            var operation = ctx.Load(ctx.GetPacienteMedicoQuery(1)); // FAKE
 
             operation.Completed += (s, ex) =>
                                        {
@@ -39,7 +39,7 @@ namespace ERP.Medico
                                                MessageBox.Show(operation.Error.Message);
                                                return;
                                            }
-                                           pacienteDataGrid.ItemsSource = ctx.PacienteSimps;
+                                           pacienteDataGrid.ItemsSource = ctx.Pacientes;
                                        };
            
            
@@ -59,7 +59,7 @@ namespace ERP.Medico
         {
             if (pacienteDataGrid.SelectedItem != null)
             {
-                App.Current.PacienteAtual = ((PacienteSimp)pacienteDataGrid.SelectedItem).Id;
+                App.Current.PacienteAtual = ((Paciente)pacienteDataGrid.SelectedItem).Id;
                 NavigationService.Navigate(new Uri("/Paciente", UriKind.Relative));
             }
         }
