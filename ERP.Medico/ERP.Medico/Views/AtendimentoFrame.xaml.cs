@@ -51,28 +51,47 @@ namespace ERP.Medico.Views
                                                       MedicoId = 1,
                                                       Horario = DateTime.Now
                                                   };
+
                 ctx.Atendimentos.Add(atendimento);
-                DataContext = atendimento;
+                var submitOperation = ctx.SubmitChanges();
+                submitOperation.Completed += (s, ex) =>
+                                                 {
+                                                     if (submitOperation.HasError)
+                                                     {
+                                                         MessageBox.Show(submitOperation.Error.Message);
+                                                         return;
+                                                     }
+                                                     if (submitOperation.ChangeSet.Count() == 0)
+                                                     {
+                                                         MessageBox.Show("Erro ao carregar atendimento");
+                                                         return;
+                                                     }
+                                                     App.Current.AtendimentoAtual = ((Web.Atendimento)submitOperation.ChangeSet.AddedEntities.First()).Id;
+                                                     ObtemAtendimentoAtual();
+                                                 };
             }
             else
-            {
-                var operation = ctx.Load(ctx.GetAtendimentoQuery().Where(a => a.Id == App.Current.AtendimentoAtual));
-                operation.Completed += (s, ex) =>
-                                           {
-                                               if (operation.HasError)
-                                               {
-                                                   MessageBox.Show(operation.Error.Message);
-                                                   return;
-                                               }
-                                               if (operation.Entities.Count() == 0)
-                                               {
-                                                   MessageBox.Show("Erro ao carregar atendimento");
-                                                   return;
-                                               }
-                                               DataContext = operation.Entities.First();
+                ObtemAtendimentoAtual();
+        }
 
-                                           };
-            }
+        private void ObtemAtendimentoAtual()
+        {
+            var operation = ctx.Load(ctx.GetAtendimentoQuery().Where(a => a.Id == App.Current.AtendimentoAtual));
+            operation.Completed += (s, ex) =>
+                                       {
+                                           if (operation.HasError)
+                                           {
+                                               MessageBox.Show(operation.Error.Message);
+                                               return;
+                                           }
+                                           if (operation.Entities.Count() == 0)
+                                           {
+                                               MessageBox.Show("Erro ao carregar atendimento");
+                                               return;
+                                           }
+                                           DataContext = operation.Entities.First();
+
+                                       };
         }
 
         /// <summary>

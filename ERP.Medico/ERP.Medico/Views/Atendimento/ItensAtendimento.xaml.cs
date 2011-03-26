@@ -62,31 +62,33 @@ namespace ERP.Medico.Views.Paciente
             switch (NavigationContext.QueryString["Tipo"])
             {
                 case "Exames":
-                    ctx.Exames.Add(new Exame {AtendimentoId = atendimentoId});
+                    ctx.Exames.Add(new Exame {AtendimentoId = atendimentoId, RealizadoNaClinica = true});
                     ctx.SubmitChanges(
                         o =>
                         ctx.Load(ctx.GetExameQuery().Where(ex => ex.Atendimento.Id == atendimentoId),
                                  x => itemPacienteDataGrid.ItemsSource = x.Entities, null), null);
                     break;
                 case "Prescricoes":
-                    ctx.Prescricaos.Add(new Prescricao {AtendimentoId = atendimentoId});
+                    ctx.Prescricaos.Add(new Prescricao { AtendimentoId = atendimentoId, RealizadoNaClinica = true });
                     ctx.SubmitChanges(
                         o =>
                         ctx.Load(ctx.GetPrescricaoQuery().Where(p => p.Atendimento.Id == atendimentoId),
                                  x => itemPacienteDataGrid.ItemsSource = x.Entities, null), null);
                     break;
                 case "Tratamentos":
-                    ctx.Tratamentos.Add(new Tratamento {AtendimentoId = atendimentoId});
+                    ctx.Tratamentos.Add(new Tratamento { AtendimentoId = atendimentoId, RealizadoNaClinica = true });
                     ctx.SubmitChanges(
                         o =>
                         ctx.Load(ctx.GetTratamentoQuery().Where(t => t.Atendimento.Id == atendimentoId),
-                                 x => itemPacienteDataGrid.ItemsSource = x.Entities, null), null);break;
+                                 x => itemPacienteDataGrid.ItemsSource = x.Entities, null), null);
+                    break;
                 case "Diagnosticos":
-                    ctx.Diagnosticos.Add(new Diagnostico {AtendimentoId = atendimentoId});
+                    ctx.Diagnosticos.Add(new Diagnostico { AtendimentoId = atendimentoId, RealizadoNaClinica = true });
                     ctx.SubmitChanges(
                         o =>
                         ctx.Load(ctx.GetDiagnosticoQuery().Where(d => d.Atendimento.Id == atendimentoId),
-                                 x => itemPacienteDataGrid.ItemsSource = x.Entities, null), null);break;
+                                 x => itemPacienteDataGrid.ItemsSource = x.Entities, null), null);
+                    break;
                 default:
                     throw new ArgumentException("Parametros incorretos.");
             }

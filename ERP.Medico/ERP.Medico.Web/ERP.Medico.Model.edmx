@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ERP.Medico.Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="ERP.Medico.Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="ERPMedicoModelStoreContainer">
           <EntitySet Name="Atendimento" EntityType="ERP.Medico.Model.Store.Atendimento" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Diagnostico" EntityType="ERP.Medico.Model.Store.Diagnostico" store:Type="Tables" Schema="dbo" />
@@ -61,6 +61,8 @@
           <Property Name="Descricao" Type="nvarchar" MaxLength="1000" />
           <Property Name="Observacoes" Type="nvarchar" />
           <Property Name="AtendimentoId" Type="int" Nullable="false" />
+          <Property Name="RealizadoNaClinica" Type="bit" />
+          <Property Name="Codigo" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Exame">
           <Key>
@@ -70,6 +72,8 @@
           <Property Name="Descricao" Type="nvarchar" MaxLength="1000" />
           <Property Name="Observacoes" Type="nvarchar" />
           <Property Name="AtendimentoId" Type="int" Nullable="false" />
+          <Property Name="RealizadoNaClinica" Type="bit" />
+          <Property Name="Codigo" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Medico">
           <Key>
@@ -99,6 +103,8 @@
           <Property Name="Descricao" Type="nvarchar" MaxLength="1000" />
           <Property Name="Observacoes" Type="nvarchar" />
           <Property Name="AtendimentoId" Type="int" Nullable="false" />
+          <Property Name="RealizadoNaClinica" Type="bit" />
+          <Property Name="Codigo" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Tratamento">
           <Key>
@@ -108,6 +114,8 @@
           <Property Name="Descricao" Type="nvarchar" MaxLength="1000" />
           <Property Name="Observacoes" Type="nvarchar" />
           <Property Name="AtendimentoId" Type="int" Nullable="false" />
+          <Property Name="RealizadoNaClinica" Type="bit" />
+          <Property Name="Codigo" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <Association Name="FK_Atendimento_Medico">
           <End Role="Medico" Type="ERP.Medico.Model.Store.Medico" Multiplicity="0..1" />
@@ -191,8 +199,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ERP.Medico.Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -259,6 +266,8 @@
           <Property Name="Observacoes" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
           <Property Name="AtendimentoId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Atendimento" Relationship="ERP.Medico.Model.FK_Diagnostico_Atendimento" FromRole="Diagnostico" ToRole="Atendimento" />
+          <Property Type="Boolean" Name="RealizadoNaClinica" />
+          <Property Type="String" Name="Codigo" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Exame">
           <Key>
@@ -269,6 +278,8 @@
           <Property Name="Observacoes" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
           <Property Name="AtendimentoId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Atendimento" Relationship="ERP.Medico.Model.FK_Exame_Atendimento" FromRole="Exame" ToRole="Atendimento" />
+          <Property Type="Boolean" Name="RealizadoNaClinica" />
+          <Property Type="String" Name="Codigo" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Medico">
           <Key>
@@ -301,6 +312,8 @@
           <Property Name="Observacoes" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
           <Property Name="AtendimentoId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Atendimento" Relationship="ERP.Medico.Model.FK_Prescricao_Atendimento" FromRole="Prescricao" ToRole="Atendimento" />
+          <Property Type="Boolean" Name="RealizadoNaClinica" />
+          <Property Type="String" Name="Codigo" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Tratamento">
           <Key>
@@ -311,6 +324,8 @@
           <Property Name="Observacoes" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
           <Property Name="AtendimentoId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Atendimento" Relationship="ERP.Medico.Model.FK_Tratamento_Atendimento" FromRole="Tratamento" ToRole="Atendimento" />
+          <Property Type="Boolean" Name="RealizadoNaClinica" />
+          <Property Type="String" Name="Codigo" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_Atendimento_Medico">
           <End Role="Medico" Type="ERP.Medico.Model.Medico" Multiplicity="0..1" />
@@ -413,13 +428,17 @@
             <ScalarProperty Name="QueixaPrincipal" ColumnName="QueixaPrincipal" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="Diagnostico"><EntityTypeMapping TypeName="ERP.Medico.Model.Diagnostico"><MappingFragment StoreEntitySet="Diagnostico">
-            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="RealizadoNaClinica" ColumnName="RealizadoNaClinica" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
             <ScalarProperty Name="Descricao" ColumnName="Descricao" />
             <ScalarProperty Name="Observacoes" ColumnName="Observacoes" />
             <ScalarProperty Name="AtendimentoId" ColumnName="AtendimentoId" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="Exame"><EntityTypeMapping TypeName="ERP.Medico.Model.Exame"><MappingFragment StoreEntitySet="Exame">
-            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="RealizadoNaClinica" ColumnName="RealizadoNaClinica" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
             <ScalarProperty Name="Descricao" ColumnName="Descricao" />
             <ScalarProperty Name="Observacoes" ColumnName="Observacoes" />
             <ScalarProperty Name="AtendimentoId" ColumnName="AtendimentoId" />
@@ -439,13 +458,17 @@
             <ScalarProperty Name="Nome" ColumnName="Nome" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="Prescricao"><EntityTypeMapping TypeName="ERP.Medico.Model.Prescricao"><MappingFragment StoreEntitySet="Prescricao">
-            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="RealizadoNaClinica" ColumnName="RealizadoNaClinica" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
             <ScalarProperty Name="Descricao" ColumnName="Descricao" />
             <ScalarProperty Name="Observacoes" ColumnName="Observacoes" />
             <ScalarProperty Name="AtendimentoId" ColumnName="AtendimentoId" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="Tratamento"><EntityTypeMapping TypeName="ERP.Medico.Model.Tratamento"><MappingFragment StoreEntitySet="Tratamento">
-            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="RealizadoNaClinica" ColumnName="RealizadoNaClinica" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
             <ScalarProperty Name="Descricao" ColumnName="Descricao" />
             <ScalarProperty Name="Observacoes" ColumnName="Observacoes" />
             <ScalarProperty Name="AtendimentoId" ColumnName="AtendimentoId" />

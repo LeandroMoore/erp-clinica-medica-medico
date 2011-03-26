@@ -75,7 +75,7 @@ namespace ERP.Medico.Views
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            App.Current.AtendimentoAtual = -1;
+            App.Current.AtendimentoAtual = -1; //criar novo
             NavigationService.Navigate(new Uri("/Atendimento", UriKind.Relative));
         }
 

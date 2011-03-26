@@ -820,6 +820,54 @@ namespace ERP.Medico.Web
         private global::System.Int32 _AtendimentoId;
         partial void OnAtendimentoIdChanging(global::System.Int32 value);
         partial void OnAtendimentoIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> RealizadoNaClinica
+        {
+            get
+            {
+                return _RealizadoNaClinica;
+            }
+            set
+            {
+                OnRealizadoNaClinicaChanging(value);
+                ReportPropertyChanging("RealizadoNaClinica");
+                _RealizadoNaClinica = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("RealizadoNaClinica");
+                OnRealizadoNaClinicaChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _RealizadoNaClinica;
+        partial void OnRealizadoNaClinicaChanging(Nullable<global::System.Boolean> value);
+        partial void OnRealizadoNaClinicaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Codigo
+        {
+            get
+            {
+                return _Codigo;
+            }
+            set
+            {
+                OnCodigoChanging(value);
+                ReportPropertyChanging("Codigo");
+                _Codigo = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Codigo");
+                OnCodigoChanged();
+            }
+        }
+        private global::System.String _Codigo;
+        partial void OnCodigoChanging(global::System.String value);
+        partial void OnCodigoChanged();
 
         #endregion
     
@@ -990,6 +1038,54 @@ namespace ERP.Medico.Web
         private global::System.Int32 _AtendimentoId;
         partial void OnAtendimentoIdChanging(global::System.Int32 value);
         partial void OnAtendimentoIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> RealizadoNaClinica
+        {
+            get
+            {
+                return _RealizadoNaClinica;
+            }
+            set
+            {
+                OnRealizadoNaClinicaChanging(value);
+                ReportPropertyChanging("RealizadoNaClinica");
+                _RealizadoNaClinica = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("RealizadoNaClinica");
+                OnRealizadoNaClinicaChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _RealizadoNaClinica;
+        partial void OnRealizadoNaClinicaChanging(Nullable<global::System.Boolean> value);
+        partial void OnRealizadoNaClinicaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Codigo
+        {
+            get
+            {
+                return _Codigo;
+            }
+            set
+            {
+                OnCodigoChanging(value);
+                ReportPropertyChanging("Codigo");
+                _Codigo = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Codigo");
+                OnCodigoChanged();
+            }
+        }
+        private global::System.String _Codigo;
+        partial void OnCodigoChanging(global::System.String value);
+        partial void OnCodigoChanged();
 
         #endregion
     
@@ -1512,6 +1608,54 @@ namespace ERP.Medico.Web
         private global::System.Int32 _AtendimentoId;
         partial void OnAtendimentoIdChanging(global::System.Int32 value);
         partial void OnAtendimentoIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> RealizadoNaClinica
+        {
+            get
+            {
+                return _RealizadoNaClinica;
+            }
+            set
+            {
+                OnRealizadoNaClinicaChanging(value);
+                ReportPropertyChanging("RealizadoNaClinica");
+                _RealizadoNaClinica = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("RealizadoNaClinica");
+                OnRealizadoNaClinicaChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _RealizadoNaClinica;
+        partial void OnRealizadoNaClinicaChanging(Nullable<global::System.Boolean> value);
+        partial void OnRealizadoNaClinicaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Codigo
+        {
+            get
+            {
+                return _Codigo;
+            }
+            set
+            {
+                OnCodigoChanging(value);
+                ReportPropertyChanging("Codigo");
+                _Codigo = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Codigo");
+                OnCodigoChanged();
+            }
+        }
+        private global::System.String _Codigo;
+        partial void OnCodigoChanging(global::System.String value);
+        partial void OnCodigoChanged();
 
         #endregion
     
@@ -1682,6 +1826,54 @@ namespace ERP.Medico.Web
         private global::System.Int32 _AtendimentoId;
         partial void OnAtendimentoIdChanging(global::System.Int32 value);
         partial void OnAtendimentoIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> RealizadoNaClinica
+        {
+            get
+            {
+                return _RealizadoNaClinica;
+            }
+            set
+            {
+                OnRealizadoNaClinicaChanging(value);
+                ReportPropertyChanging("RealizadoNaClinica");
+                _RealizadoNaClinica = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("RealizadoNaClinica");
+                OnRealizadoNaClinicaChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _RealizadoNaClinica;
+        partial void OnRealizadoNaClinicaChanging(Nullable<global::System.Boolean> value);
+        partial void OnRealizadoNaClinicaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Codigo
+        {
+            get
+            {
+                return _Codigo;
+            }
+            set
+            {
+                OnCodigoChanging(value);
+                ReportPropertyChanging("Codigo");
+                _Codigo = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Codigo");
+                OnCodigoChanged();
+            }
+        }
+        private global::System.String _Codigo;
+        partial void OnCodigoChanging(global::System.String value);
+        partial void OnCodigoChanged();
 
         #endregion
     
