@@ -76,8 +76,7 @@
   <ItemGroup>
     <Content Include="ClientBin\ERP.Medico.xap" />
     <Content Include="ERP.Medico.Model.edmx.sql" />
-    <Content Include="ERP.MedicoTestPage.aspx" />
-    <Content Include="ERP.MedicoTestPage.html" />
+    <Content Include="default.aspx" />
     <Content Include="ERPMedicoService.svc" />
     <Content Include="Libs\System.ServiceModel.DomainServices.Hosting.dll" />
     <Content Include="Libs\System.ServiceModel.DomainServices.Server.dll" />

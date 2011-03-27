@@ -11,6 +11,7 @@
         /// <summary>
         /// Gets and sets the user name.
         /// </summary>
+        [Key]
         [Required(ErrorMessageResourceName = "ValidationErrorRequiredField", ErrorMessageResourceType = typeof(ValidationErrorResources))]
         [Display(Order = 0, Name = "UserNameLabel", ResourceType = typeof(RegistrationDataResources))]
         [RegularExpression("^[a-zA-Z0-9_]*$", ErrorMessageResourceName = "ValidationErrorInvalidUserName", ErrorMessageResourceType = typeof(ValidationErrorResources))]
@@ -20,6 +21,7 @@
         /// <summary>
         /// Gets and sets the email address.
         /// </summary>
+        [Key]
         [Required(ErrorMessageResourceName = "ValidationErrorRequiredField", ErrorMessageResourceType = typeof(ValidationErrorResources))]
         [Display(Order = 2, Name = "EmailLabel", ResourceType = typeof(RegistrationDataResources))]
         [RegularExpression(@"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$",
@@ -45,7 +47,6 @@
         /// </summary>
         [Required(ErrorMessageResourceName = "ValidationErrorRequiredField", ErrorMessageResourceType = typeof(ValidationErrorResources))]
         [Display(Order = 6, Name = "SecurityAnswerLabel", ResourceType = typeof(RegistrationDataResources))]
-        [StringLength(128, ErrorMessageResourceName = "ValidationErrorBadAnswerLength", ErrorMessageResourceType = typeof(ValidationErrorResources))]
         public string Answer { get; set; }
     }
 }

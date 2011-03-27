@@ -9,16 +9,9 @@
     using System.Web.Security;
     using ERP.Medico.Web.Resources;
 
-    // TODO: Switch to a secure endpoint when deploying the application.
-    //       The user's name and password should only be passed using https.
-    //       To do this, set the RequiresSecureEndpoint property on EnableClientAccessAttribute to true.
-    //   
-    //       [EnableClientAccess(RequiresSecureEndpoint = true)]
-    //
-    //       More information on using https with a Domain Service can be found on MSDN.
-
     /// <summary>
-    /// Domain Service responsible for registering users.
+    ///   RIA Services Domain Service that exposes methods for performing user
+    ///   registrations.
     /// </summary>
     [EnableClientAccess]
     public class UserRegistrationService : DomainService
@@ -28,8 +21,9 @@
         /// </summary>
         public const string DefaultRole = "Registered Users";
 
-        //// NOTE: This is a sample code to get your application started.
-        //// In the production code you should provide a mitigation against a denial of service attack by providing CAPTCHA control functionality or verifying user's email address.
+        //// NOTE: This is a sample code to get your application started. In the production code you would 
+        //// want to provide a mitigation against a denial of service attack by providing CAPTCHA 
+        //// control functionality or verifying user's email address.
 
         /// <summary>
         /// Adds a new user with the supplied <see cref="RegistrationData"/> and <paramref name="password"/>.
@@ -37,6 +31,7 @@
         /// <param name="user">The registration information for this user.</param>
         /// <param name="password">The password for the new user.</param>
         [Invoke(HasSideEffects = true)]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic")]
         public CreateUserStatus CreateUser(RegistrationData user,
             [Required(ErrorMessageResourceName = "ValidationErrorRequiredField", ErrorMessageResourceType = typeof(ValidationErrorResources))]
             [RegularExpression("^.*[^a-zA-Z0-9].*$", ErrorMessageResourceName = "ValidationErrorBadPasswordStrength", ErrorMessageResourceType = typeof(ValidationErrorResources))]
@@ -48,9 +43,11 @@
                 throw new ArgumentNullException("user");
             }
 
-            // Run this BEFORE creating the user to make sure roles are enabled and the default role is available.
+            // Run this BEFORE creating the user to make sure roles are enabled and the default role
+            // will be available
             //
-            // If there is a problem with the role manager, it is better to fail now than to fail after the user is created.
+            // If there are a problem with the role manager it is better to fail now than to have it
+            // happening after the user is created
             if (!Roles.RoleExists(UserRegistrationService.DefaultRole))
             {
                 Roles.CreateRole(UserRegistrationService.DefaultRole);
@@ -66,17 +63,33 @@
                 return UserRegistrationService.ConvertStatus(createStatus);
             }
 
-            // Assign the user to the default role.
-            // This will fail if role management is disabled.
+            // Assign it to the default role
+            // This *can* fail but only if role management is disabled
             Roles.AddUserToRole(user.UserName, UserRegistrationService.DefaultRole);
 
-            // Set the friendly name (profile setting).
-            // This will fail if the web.config is configured incorrectly.
+            // Set its friendly name (profile setting)
+            // This *can* fail but only if Web.config is configured incorrectly 
             ProfileBase profile = ProfileBase.Create(user.UserName, true);
             profile.SetPropertyValue("FriendlyName", user.FriendlyName);
             profile.Save();
 
             return CreateUserStatus.Success;
+        }
+
+
+        /// <summary>
+        /// Query method that exposes the <see cref="RegistrationData"/> class to Silverlight client code.
+        /// </summary>
+        /// <remarks>
+        /// This query method is not used and will throw <see cref="NotSupportedException"/> if called.
+        /// Its primary job is to indicate the <see cref="RegistrationData"/> class should be made
+        /// available to the Silverlight client.
+        /// </remarks>
+        /// <returns>Not applicable.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic"), System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")]
+        public IEnumerable<RegistrationData> GetUsers()
+        {
+            throw new NotSupportedException();
         }
 
         private static CreateUserStatus ConvertStatus(MembershipCreateStatus createStatus)
