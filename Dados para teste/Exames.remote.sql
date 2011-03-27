@@ -1,4 +1,4 @@
-INSERT INTO [erp-medico].[dbo].[Exame]
+INSERT INTO [db934].[dbo].[Exame]
            ([Descricao]
            ,[Observacoes]
            ,[AtendimentoId]
@@ -10,7 +10,7 @@ INSERT INTO [erp-medico].[dbo].[Exame]
            ,3
            ,'true'
            ,'rx001')
-INSERT INTO [erp-medico].[dbo].[Exame]
+INSERT INTO [db934].[dbo].[Exame]
            ([Descricao]
            ,[Observacoes]
            ,[AtendimentoId]
@@ -22,7 +22,7 @@ INSERT INTO [erp-medico].[dbo].[Exame]
            ,2
            ,'true'
            ,'sg001')
-INSERT INTO [erp-medico].[dbo].[Exame]
+INSERT INTO [db934].[dbo].[Exame]
            ([Descricao]
            ,[Observacoes]
            ,[AtendimentoId]
@@ -34,7 +34,7 @@ INSERT INTO [erp-medico].[dbo].[Exame]
            ,4
            ,'true'
            ,'mri001')
-INSERT INTO [erp-medico].[dbo].[Exame]
+INSERT INTO [db934].[dbo].[Exame]
            ([Descricao]
            ,[Observacoes]
            ,[AtendimentoId]
@@ -46,7 +46,7 @@ INSERT INTO [erp-medico].[dbo].[Exame]
            ,5
            ,'true'
            ,'rx001')
-INSERT INTO [erp-medico].[dbo].[Exame]
+INSERT INTO [db934].[dbo].[Exame]
            ([Descricao]
            ,[Observacoes]
            ,[AtendimentoId]
@@ -58,7 +58,7 @@ INSERT INTO [erp-medico].[dbo].[Exame]
            ,6
            ,'true'
            ,'rx001')
-INSERT INTO [erp-medico].[dbo].[Exame]
+INSERT INTO [db934].[dbo].[Exame]
            ([Descricao]
            ,[Observacoes]
            ,[AtendimentoId]
@@ -70,7 +70,7 @@ INSERT INTO [erp-medico].[dbo].[Exame]
            ,3
            ,'true'
            ,'rx001')
-INSERT INTO [erp-medico].[dbo].[Exame]
+INSERT INTO [db934].[dbo].[Exame]
            ([Descricao]
            ,[Observacoes]
            ,[AtendimentoId]

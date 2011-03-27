@@ -13,6 +13,7 @@
     <AssemblyName>ERP.Medico.Web</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <SilverlightApplicationList>{9BD11F00-8333-49EF-8A69-A7492F7C65EA}|..\ERP.Medico\ERP.Medico.csproj|ClientBin|False</SilverlightApplicationList>
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,12 +47,18 @@
     <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.DomainServices.EntityFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System.ServiceModel.DomainServices.Hosting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\System.ServiceModel.DomainServices.Hosting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.DomainServices.Server, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\System.ServiceModel.DomainServices.Server.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.ApplicationServices" />
-    <Reference Include="System.ServiceModel.DomainServices.Server" />
     <Reference Include="System.Web.Extensions">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.ServiceModel.DomainServices.Hosting" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
@@ -65,9 +72,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ClientBin\ERP.Medico.xap" />
+    <Content Include="ERP.Medico.Model.edmx.sql" />
     <Content Include="ERP.MedicoTestPage.aspx" />
     <Content Include="ERP.MedicoTestPage.html" />
     <Content Include="ERPMedicoService.svc" />
+    <Content Include="Libs\System.ServiceModel.DomainServices.Hosting.dll" />
+    <Content Include="Libs\System.ServiceModel.DomainServices.Server.dll" />
     <Content Include="Silverlight.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
