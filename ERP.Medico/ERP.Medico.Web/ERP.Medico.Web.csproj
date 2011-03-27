@@ -74,6 +74,7 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="clientaccesspolicy.xml" />
     <Content Include="ClientBin\ERP.Medico.xap" />
     <Content Include="ERP.Medico.Model.edmx.sql" />
     <Content Include="default.aspx" />
