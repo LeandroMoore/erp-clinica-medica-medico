@@ -254,6 +254,7 @@
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\DataSources\ERP.Medico.Web.ERPMedicoDomainContext.datasource" />
+    <None Include="Properties\DataSources\ERP.Medico.Web.UserRegistrationContext.datasource" />
     <None Include="Service References\ERPMedicoServiceReference\ERP.Medico.ERPMedicoServiceReference.Agendamento.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

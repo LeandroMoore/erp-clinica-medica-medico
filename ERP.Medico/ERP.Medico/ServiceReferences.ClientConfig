@@ -14,10 +14,10 @@
             </customBinding>
         </bindings>
         <client>
-            <endpoint address="http://localhost:52878/ERPMedicoService.svc"
+            <endpoint address="http://erpmedico.apphb.com/ERPMedicoService.svc"
                 binding="customBinding" bindingConfiguration="CustomBinding_ERPMedicoService1"
                 contract="ERPMedicoServiceReference.ERPMedicoService" name="CustomBinding_ERPMedicoService1" />
-            <endpoint address="http://localhost:52878/ERPMedicoService.svc"
+            <endpoint address="http://erpmedico.apphb.com/ERPMedicoService.svc"
                 binding="customBinding" bindingConfiguration="CustomBinding_ERPMedicoService"
                 contract="ServiceReference.ERP.Medico.Web.ERPMedicoService.ERPMedicoService"
                 name="CustomBinding_ERPMedicoService" />
