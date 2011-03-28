@@ -265,17 +265,19 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="Libs\System.ComponentModel.DataAnnotations.dll" />
-    <Content Include="Libs\System.ServiceModel.DomainServices.Client.dll" />
-    <Content Include="Libs\System.ServiceModel.DomainServices.Client.Web.dll" />
-    <Content Include="Libs\System.ServiceModel.Web.Extensions.dll" />
-    <Content Include="Libs\System.Windows.Controls.Data.dll" />
-    <Content Include="Libs\System.Windows.Controls.Data.Input.dll" />
-    <Content Include="Libs\System.Windows.Controls.dll" />
-    <Content Include="Libs\System.Windows.Controls.DomainServices.dll" />
-    <Content Include="Libs\System.Windows.Controls.Navigation.dll" />
-    <Content Include="Libs\System.Windows.Data.dll" />
-    <Content Include="ServiceReferences.ClientConfig" />
+    <None Include="Libs\System.ComponentModel.DataAnnotations.dll" />
+    <None Include="Libs\System.ServiceModel.DomainServices.Client.dll" />
+    <None Include="Libs\System.ServiceModel.DomainServices.Client.Web.dll" />
+    <None Include="Libs\System.ServiceModel.Web.Extensions.dll" />
+    <None Include="Libs\System.Windows.Controls.Data.dll" />
+    <None Include="Libs\System.Windows.Controls.Data.Input.dll" />
+    <None Include="Libs\System.Windows.Controls.dll" />
+    <None Include="Libs\System.Windows.Controls.DomainServices.dll" />
+    <None Include="Libs\System.Windows.Controls.Navigation.dll" />
+    <None Include="Libs\System.Windows.Data.dll" />
+    <Content Include="ServiceReferences.ClientConfig">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Service References\ERPMedicoServiceReference\ERPMedicoService.wsdl" />
     <None Include="Service References\ERPMedicoServiceReference\ERPMedicoService.xsd">
       <SubType>Designer</SubType>
