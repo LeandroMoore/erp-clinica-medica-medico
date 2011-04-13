@@ -10,45 +10,62 @@ namespace ERP.Medico.Web.ExternalData
     /// </summary>
     public static class AgendamentosManager
     {
+        private static Paciente VerificaPaciente(int pacienteId, string pacienteName)
+        {
+            var entities = new Entities();
+
+            var pacienteIdString = pacienteId.ToString();
+
+            var pacientes = from p in entities.Paciente
+                            where p.Codigo == pacienteIdString
+                            select p;
+
+            if (!pacientes.Any())
+            {
+                var novoPaciente = new Paciente { Codigo = pacienteId.ToString(), Nome = pacienteName };
+                entities.Paciente.AddObject(novoPaciente);
+                return novoPaciente;
+            }
+            return pacientes.First();
+        }
+
+        private static Medico VerificaMedico(int medicoId, string medicoName)
+        {
+            var entities = new Entities();
+
+            var medicos = from m in entities.Medico
+                          where m.Codigo == medicoId.ToString()
+                          select m;
+
+            if (!medicos.Any())
+            {
+                var novoMedico = new Medico { Codigo = medicoId.ToString(), Nome = medicoName };
+                entities.Medico.AddObject(novoMedico);
+                return novoMedico;
+            }
+
+            return medicos.First();
+        }
+
         private static IList<Paciente> GetPacientes()
         {
             var pacientes = new Entities().Paciente;
             return pacientes.ToList();
         }
 
-        private static readonly IList<Paciente> PacientesFake = GetPacientes();
-
-        private static readonly IList<Agendamento> AgendamentosFake = new List<Agendamento>
-                {
-                    new Agendamento(DateTime.Now, PacientesFake[0], 1),
-                    new Agendamento(DateTime.Now, PacientesFake[1], 1),
-                    new Agendamento(DateTime.Now, PacientesFake[2], 1),
-                    new Agendamento(DateTime.Now, PacientesFake[3], 1),
-                    new Agendamento(DateTime.Now, PacientesFake[4], 1),
-                    new Agendamento(DateTime.Now + TimeSpan.FromDays(1), PacientesFake[0], 1),
-                    new Agendamento(DateTime.Now + TimeSpan.FromDays(1), PacientesFake[2], 1),
-                    new Agendamento(DateTime.Now + TimeSpan.FromDays(1), PacientesFake[4], 1),
-                    new Agendamento(DateTime.Now + TimeSpan.FromDays(2), PacientesFake[1], 1),
-                    new Agendamento(DateTime.Now + TimeSpan.FromDays(2), PacientesFake[3], 1),
-                    new Agendamento(DateTime.Now + TimeSpan.FromDays(3), PacientesFake[0], 1),
-                    new Agendamento(DateTime.Now + TimeSpan.FromDays(3), PacientesFake[1], 1),
-                    new Agendamento(DateTime.Now + TimeSpan.FromDays(3), PacientesFake[2], 1),
-                    new Agendamento(DateTime.Now + TimeSpan.FromDays(3), PacientesFake[3], 1),
-                    new Agendamento(DateTime.Now + TimeSpan.FromDays(3), PacientesFake[4], 1),
-                    new Agendamento(DateTime.Now + TimeSpan.FromDays(3), PacientesFake[5], 1),
-               };
-
         public static IEnumerable<Agendamento> GetAgendamentos(string codigoMedico)
         {
-            // fake
-            return (codigoMedico == "abc001") ? AgendamentosFake : null;
+            var client = new ERPAgendamento.FornecedorServicosSoapClient();
+
+            return from a in client.AgendamentosByMedicos(1)
+                   select new Agendamento(a.dataAtendimento, VerificaPaciente(a.paciente_id, a.paciente_nome), 1);
         }
 
         public static IEnumerable<Agendamento> GetAgendamentos(string codigoMedico, DateTime data)
         {
-            // fake
-            return (codigoMedico == "abc001") ? 
-                AgendamentosFake.Where(a => a.Horario.Date == data.Date) : null;
+            return from a in GetAgendamentos(codigoMedico)
+                   where a.Data.Date == data
+                   select a;
         }
     }
 }
