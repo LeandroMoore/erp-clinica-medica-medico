@@ -24,6 +24,7 @@ namespace ERP.Medico.Web.ExternalData
             {
                 var novoPaciente = new Paciente { Codigo = pacienteId.ToString(), Nome = pacienteName };
                 entities.Paciente.AddObject(novoPaciente);
+                entities.SaveChanges();
                 return novoPaciente;
             }
             return pacientes.First();
@@ -41,6 +42,7 @@ namespace ERP.Medico.Web.ExternalData
             {
                 var novoMedico = new Medico { Codigo = medicoId.ToString(), Nome = medicoName };
                 entities.Medico.AddObject(novoMedico);
+                entities.SaveChanges();
                 return novoMedico;
             }
 

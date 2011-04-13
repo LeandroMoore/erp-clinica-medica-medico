@@ -396,8 +396,11 @@ namespace ERP.Medico.Web.ERPAgendamento {
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:3004/PacienteById", ReplyAction="*")]
         ERP.Medico.Web.ERPAgendamento.PacienteByIdResponse PacienteById(ERP.Medico.Web.ERPAgendamento.PacienteByIdRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:3004/Manutencao", ReplyAction="*")]
-        void Manutencao(System.DateTime dataInicio, System.DateTime dataFim, int salaId);
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:3004/NotificarManutencao", ReplyAction="*")]
+        void NotificarManutencao(System.DateTime dataInicio, System.DateTime dataFim, int salaId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:3004/NotificarFerias", ReplyAction="*")]
+        void NotificarFerias(System.DateTime dataInicio, System.DateTime dataFim, int medicoId);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -589,8 +592,12 @@ namespace ERP.Medico.Web.ERPAgendamento {
             return retVal.Body.PacienteByIdResult;
         }
         
-        public void Manutencao(System.DateTime dataInicio, System.DateTime dataFim, int salaId) {
-            base.Channel.Manutencao(dataInicio, dataFim, salaId);
+        public void NotificarManutencao(System.DateTime dataInicio, System.DateTime dataFim, int salaId) {
+            base.Channel.NotificarManutencao(dataInicio, dataFim, salaId);
+        }
+        
+        public void NotificarFerias(System.DateTime dataInicio, System.DateTime dataFim, int medicoId) {
+            base.Channel.NotificarFerias(dataInicio, dataFim, medicoId);
         }
     }
 }
