@@ -12,6 +12,7 @@ namespace ERP.Medico.Web
     using System.ServiceModel.DomainServices.EntityFramework;
     using System.ServiceModel.DomainServices.Hosting;
     using System.ServiceModel.DomainServices.Server;
+    using System.ServiceModel.Activation;
 
 
     // Implements application logic using the Entities context.
@@ -19,7 +20,7 @@ namespace ERP.Medico.Web
     // TODO: Wire up authentication (Windows/ASP.NET Forms) and uncomment the following to disable anonymous access
     // Also consider adding roles to restrict access as appropriate.
     // [RequiresAuthentication]
-    [EnableClientAccess()]
+    [EnableClientAccess, AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public class ERPMedicoDomainService : LinqToEntitiesDomainService<Entities>
     {
 
